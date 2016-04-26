@@ -70,7 +70,7 @@ indcoef(deg,H,R)=
             );
         );
     );
-    -res/I
+    I*res
 };
 
 
@@ -116,7 +116,8 @@ lyapunov(N,Rtot)=
             );
             listput(H,h);
         ,
-            listput(L,g[(i/2)+1]);
+            listput(L,g[(i/2)+1]/I);
+            print(i,i/2,i/2+1);
             for(j=1,i+1,
                 if(d[j]!=0,
                     h[j]=g[j]/d[j];
@@ -126,7 +127,7 @@ lyapunov(N,Rtot)=
         );
     );
     L
-}
+};
 
 /* Calcula la primera constant de Lyapunov no nul·la i la retorna,
    nomes busca fins la constant N
@@ -144,7 +145,7 @@ firstlyapunov(Rtot)=
     for(i=3,lastdg,
         g=indcoef(i,H,Rtot);
         if(i%2==0 && g[(i/2)+1]!=0,
-            print(g[(i/2)+1]);
+            print(g[(i/2)+1]/I);
             return;
         );
         d=diagmat(i);
