@@ -100,31 +100,33 @@ print(indcoef(H,R))*/
 
 
 /* Calcula les N primeres constants de Lyapunov del sistema donat */
-lyapunov(N,Rtot)=
+lyapunov(N,R)=
 {
     local(lastdg,H,L,i,j,k,kmax);
     lastdg = 2*(N+1);
     H=List([[0,1,0]]);
     L=List();
-    for(i=3,lastdg,
-        g=indcoef(i,H,Rtot);
+    forstep(i=3,lastdg-1,2,
+            print(i);
+        /* Part senar */
+        g=indcoef(i,H,R);
         d=diagmat(i);
         h=vector(i+1);
-        if(i%2!=0,
-            for(j=1,i+1,
+        for(j=1,i+1,
+            h[j]=g[j]/d[j];
+        );
+        listput(H,h);
+        /* Part parella */
+        g=indcoef(i+1,H,R);
+        d=diagmat(i+1);
+        h=vector(i+2);
+        listput(L,g[((i+1)/2)+1]/I);
+        for(j=1,i+2,
+            if(d[j]!=0,
                 h[j]=g[j]/d[j];
             );
-            listput(H,h);
-        ,
-            listput(L,g[(i/2)+1]/I);
-            print(i,i/2,i/2+1);
-            for(j=1,i+1,
-                if(d[j]!=0,
-                    h[j]=g[j]/d[j];
-                );
-            );
-            listput(H,h);
         );
+        listput(H,h);
     );
     L
 };
@@ -132,37 +134,39 @@ lyapunov(N,Rtot)=
 /* Calcula la primera constant de Lyapunov no nul·la i la retorna,
    nomes busca fins la constant N
  */
-firstlyapunov(Rtot)=
+firstlyapunov(R)=
 {
     local(lastdg,H,L,i,j,k,kmax);
     N=0;
-    for(i=1,#Rtot,
-        N = max(N,#Rtot[i]);
+    for(i=1,#R,
+        N = max(N,#R[i]);
     );
     maxL = N*N+N-2;
     lastdg = 2*(maxL+1);
     H=List([[0,1,0]]);
-    for(i=3,lastdg,
-        g=indcoef(i,H,Rtot);
-        if(i%2==0 && g[(i/2)+1]!=0,
-            print(g[(i/2)+1]/I);
-            return;
-        );
+    forstep(i=3,lastdg-1,2,
+        /* Part senar */
+        g=indcoef(i,H,R);
         d=diagmat(i);
         h=vector(i+1);
-        if(i%2!=0,
-            for(j=1,i+1,
+        for (j=1,i+1,
+            h[j]=g[j]/d[j];
+        );
+        listput(H,h);
+        /* Part parella */
+        g=indcoef(i+1,H,R);
+        if(g[((i+1)/2)+1]!=0,
+            print(g[((i+1)/2)+1]/I);
+            return;
+        );
+        d=diagmat(i+1);
+        h=vector(i+2);
+        for(j=1,i+2,
+            if(d[j]!=0,
                 h[j]=g[j]/d[j];
             );
-            listput(H,h);
-        ,
-            for(j=1,i+1,
-                if(d[j]!=0,
-                    h[j]=g[j]/d[j];
-                );
-            );
-            listput(H,h);
         );
+        listput(H,h);
     );
 };
 
@@ -178,38 +182,3 @@ ferP(N)=
     gettime()
 };
 
-/*
-? d3=diagmat(3)
-    %9 = [3, 1, -1, -3]
-    ? g3=indcoef([[0,1,0]],[[a20+I*b20,a11+I*b11,a02+I*b02]])
-    %10 = [-I*a02 - b02, -I*a20 + (b20 + (-I*a11 - b11)), -I*a20 + (-b20 + (-I*a11 + b11)), -I*a02 + b02]
-    ? h3=vector(4)
-    %11 = [0, 0, 0, 0]
-    ? for(i=1,#g3,h3[i]=g3[i]/d3[i];);
-    ? h3
-    %13 = [-1/3*I*a02 - 1/3*b02, -I*a20 + (b20 + (-I*a11 - b11)), I*a20 + (b20 + (I*a11 - b11)), 1/3*I*a02 - 1/3*b02]
-    ? H=List([[0,1,0],h3])
-    %14 = List([[0, 1, 0], [(-1/3*I*a02 - 1/3*b02), -I*a20 + (b20 + (-I*a11 - b11)), I*a20 + (b20 + (I*a11 - b11)), (1/3*I*a02 - 1/3*b02)]])
-    ? R=List([[a20+I*b20,a11+I*b11,a02+I*b02],[a30+I*b30,a21+I*b21,a12+I*b12,a03+I*b03]])
-    %15 = List([[a20 + I*b20, a11 + I*b11, a02 + I*b02], [a30 + I*b30, a21 + I*b21, a12 + I*b12, a03 + I*b03]])
-    ? indcoef(H,R)
-    %16 = [(-2*a02 + 2*I*b02)*a20 + ((-2*I*a02 - 2*b02)*b20 + ((-a02 + I*b02)*a11 + ((I*a02 + b02)*b11 + (-I*a03 - b03)))), -2*a20^2 + (-4*I*b20 + (-3*a11 + (3*I*b11 + (2*a02 - 2*I*b02))))*a20 + (2*b20^2 + (-3*I*a11 + (-3*b11 + (-2*I*a02 - 2*b02)))*b20 + (-a11^2 + (2*I*b11 + (a02 - I*b02))*a11 + (b11^2 + (I*a02 + b02)*b11 + (-I*a30 + (b30 + (-I*a12 - b12)))))), -2*I*b11*a20 + (-2*I*a11*b20 - 2*I*a21), 2*a20^2 + (-4*I*b20 + (3*a11 + (3*I*b11 + (-2*a02 - 2*I*b02))))*a20 + (-2*b20^2 + (-3*I*a11 + (3*b11 + (-2*I*a02 + 2*b02)))*b20 + (a11^2 + (2*I*b11 + (-a02 - I*b02))*a11 + (-b11^2 + (I*a02 - b02)*b11 + (-I*a30 + (-b30 + (-I*a12 + b12)))))), (2*a02 + 2*I*b02)*a20 + ((-2*I*a02 + 2*b02)*b20 + ((a02 + I*b02)*a11 + ((I*a02 - b02)*b11 + (-I*a03 + b03))))]
-    ? g4=indcoef(H,R)
-    %17 = [(-2*a02 + 2*I*b02)*a20 + ((-2*I*a02 - 2*b02)*b20 + ((-a02 + I*b02)*a11 + ((I*a02 + b02)*b11 + (-I*a03 - b03)))), -2*a20^2 + (-4*I*b20 + (-3*a11 + (3*I*b11 + (2*a02 - 2*I*b02))))*a20 + (2*b20^2 + (-3*I*a11 + (-3*b11 + (-2*I*a02 - 2*b02)))*b20 + (-a11^2 + (2*I*b11 + (a02 - I*b02))*a11 + (b11^2 + (I*a02 + b02)*b11 + (-I*a30 + (b30 + (-I*a12 - b12)))))), -2*I*b11*a20 + (-2*I*a11*b20 - 2*I*a21), 2*a20^2 + (-4*I*b20 + (3*a11 + (3*I*b11 + (-2*a02 - 2*I*b02))))*a20 + (-2*b20^2 + (-3*I*a11 + (3*b11 + (-2*I*a02 + 2*b02)))*b20 + (a11^2 + (2*I*b11 + (-a02 - I*b02))*a11 + (-b11^2 + (I*a02 - b02)*b11 + (-I*a30 + (-b30 + (-I*a12 + b12)))))), (2*a02 + 2*I*b02)*a20 + ((-2*I*a02 + 2*b02)*b20 + ((a02 + I*b02)*a11 + ((I*a02 - b02)*b11 + (-I*a03 + b03))))]
-    ? d4=diagmat(4)
-    %18 = [4, 2, 0, -2, -4]
-    ? h4=vector(5)
-    %19 = [0, 0, 0, 0, 0]
-    ? for(i=1,5,if(d4[i]!=0,h4[i]=g4[i]/d4[i];););
-    ? h4
-    %21 = [(-1/2*a02 + 1/2*I*b02)*a20 + ((-1/2*I*a02 - 1/2*b02)*b20 + ((-1/4*a02 + 1/4*I*b02)*a11 + ((1/4*I*a02 + 1/4*b02)*b11 + (-1/4*I*a03 - 1/4*b03)))), -a20^2 + (-2*I*b20 + (-3/2*a11 + (3/2*I*b11 + (a02 - I*b02))))*a20 + (b20^2 + (-3/2*I*a11 + (-3/2*b11 + (-I*a02 - b02)))*b20 + (-1/2*a11^2 + (I*b11 + (1/2*a02 - 1/2*I*b02))*a11 + (1/2*b11^2 + (1/2*I*a02 + 1/2*b02)*b11 + (-1/2*I*a30 + (1/2*b30 + (-1/2*I*a12 - 1/2*b12)))))), 0, -a20^2 + (2*I*b20 + (-3/2*a11 + (-3/2*I*b11 + (a02 + I*b02))))*a20 + (b20^2 + (3/2*I*a11 + (-3/2*b11 + (I*a02 - b02)))*b20 + (-1/2*a11^2 + (-I*b11 + (1/2*a02 + 1/2*I*b02))*a11 + (1/2*b11^2 + (-1/2*I*a02 + 1/2*b02)*b11 + (1/2*I*a30 + (1/2*b30 + (1/2*I*a12 - 1/2*b12)))))), (-1/2*a02 - 1/2*I*b02)*a20 + ((1/2*I*a02 - 1/2*b02)*b20 + ((-1/4*a02 - 1/4*I*b02)*a11 + ((-1/4*I*a02 + 1/4*b02)*b11 + (1/4*I*a03 - 1/4*b03))))]
-    ? L=List([[h4[3]]])
-    %22 = List([[0]])
-    ? L=List([[h4[3]]])
-    %23 = List([[0]])
-    ? L=List([[g4[3]]])
-    %24 = List([[-2*I*b11*a20 + (-2*I*a11*b20 - 2*I*a21)]])
-    ? L[1]
-    %25 = [-2*I*b11*a20 + (-2*I*a11*b20 - 2*I*a21)]
-
-*/
