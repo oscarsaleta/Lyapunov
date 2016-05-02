@@ -1,3 +1,18 @@
+
+pol2vec(P,n,vx,vy)=
+{
+    local(i,aux);
+    aux = vector(n+1);
+    for(i=1,n,
+        aux[i]=polcoeff(P,n-i+1,vx);
+        if(i>1,
+            aux[i]=polcoeff(aux[i],i,vy);
+        );
+    );
+    return(res);
+}
+
+
 /* multiplies 2 homogeneous polynomials as vectors */
 vpolmult(P,Q)=
 {
@@ -74,31 +89,6 @@ indcoef(deg,H,R)=
 };
 
 
-/* Test per ordre 3 */
-/*print(diagmat(3))
-H = List([[0,1,0]]);
-R = List([[a20+I*b20,a11+I*b11,a02+I*b02]]);
-print(indcoef(3,H,R)~)*/
-
-/* Test per ordre 4 */
-/*print(diagmat(4))
-listput(H,[h30,h21,h12,h03]);
-listput(R,[a30+I*b30,a21+I*b21,a12+I*b12,a03+I*b03]);
-print(indcoef(4,H,R))*/
-
-/* Test per ordre 5 */
-/*print(diagmat(5))
-listput(H,[h40,h31,h22,h13,h04]);
-listput(R,[a40+I*b40,a31+I*b31,a22+I*b22,a13+I*b13,a04+I*b04]);
-print(indcoef(H,R))*/
-
-/* Test per ordre 6 */
-/*print(diagmat(6))
-listput(H,[h50,h41,h32,h23,h14,h05]);
-listput(R,[a50+I*b50,a41+I*b41,a32+I*b32,a23+I*b23,a14+I*b14,a05+I*b05]);
-print(indcoef(H,R))*/
-
-
 /* Calcula les N primeres constants de Lyapunov del sistema donat */
 lyapunov(N,R)=
 {
@@ -128,7 +118,7 @@ lyapunov(N,R)=
         );
         listput(H,h);
     );
-    L
+    return(L);
 };
 
 /* Calcula la primera constant de Lyapunov no nul·la i la retorna,
@@ -136,8 +126,9 @@ lyapunov(N,R)=
  */
 firstlyapunov(R)=
 {
-    local(lastdg,H,L,i,j,k,kmax);
+    local(lastdg,H,L,i,j,k,kmax,N,g,d,h);
     N=0;
+    k=0;
     for(i=1,#R,
         N = max(N,#R[i]);
     );
@@ -154,10 +145,10 @@ firstlyapunov(R)=
         );
         listput(H,h);
         /* Part parella */
+        k++;
         g=indcoef(i+1,H,R);
         if(g[((i+1)/2)+1]!=0,
-            print(g[((i+1)/2)+1]/I);
-            return;
+            return([k,g[((i+1)/2)+1]/I]);
         );
         d=diagmat(i+1);
         h=vector(i+2);
