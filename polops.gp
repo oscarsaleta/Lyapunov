@@ -132,7 +132,7 @@ firstlyapunov(R)=
     for(i=1,#R,
         N = max(N,#R[i]);
     );
-    maxL = N*N+N-2;
+    maxL = N*N+3*N-7;
     lastdg = 2*(maxL+1);
     H=List([[0,1,0]]);
     forstep(i=3,lastdg-1,2,
@@ -159,6 +159,7 @@ firstlyapunov(R)=
         );
         listput(H,h);
     );
+    return("Centre");
 };
 
 ferP(N)=
