@@ -1,5 +1,7 @@
 /*-*- compile-command: "/usr/bin/gcc -c -o polops.gp.o -O3 -Wall -fno-strict-aliasing -fomit-frame-pointer -fPIC -I"/usr/local/include" polops.gp.c && /usr/bin/gcc -o polops.gp.so -shared -O3 -Wall -fno-strict-aliasing -fomit-frame-pointer -fPIC -Wl,-shared polops.gp.o -lc -lm -L/usr/local/lib -lpari"; -*-*/
 #include <pari/pari.h>
+#include <stdio.h>
+#define PARI_STACK 2048000000
 /*
 GP;install("init_polops","v","init_polops","./polops.gp.so");
 GP;install("pol2vec","D0,G,D0,G,D0,G,D0,G,","pol2vec","./polops.gp.so");
@@ -482,3 +484,27 @@ fer(void)	  /* void */
   return;
 }
 
+int main(int argc, char const *argv[]) {
+    
+    int taskId;
+    GEN m,n,k,l;
+
+    /* taskId m n k l */
+    if (argc != 6 || sscanf(argv[1],"%d",&taskId)!=1
+       ) {
+        fprintf(stderr,"%s:: taskId m n k l\n",argv[0]);
+        return -1;
+    }
+    m = gp_read_str(argv[2]);
+    n = gp_read_str(argv[3]);
+    k = gp_read_str(argv[4]);
+    l = gp_read_str(argv[5]);
+
+    /* Quanta memoria assignar? */
+    pari_init(PARI_STACK,2);
+    init_polops();
+    firstlyapunov(genfield(m,n,k,l));
+    pari_close();
+
+    return 0;
+}

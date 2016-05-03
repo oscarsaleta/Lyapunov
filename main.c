@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <pari/pari.h>
 
-#define PARI_STACK 1000000
+#define PARI_STACK 2048000000
 
 int main(int argc, char const *argv[]) {
     
@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]) {
     /* Quanta memoria assignar? */
     pari_init(PARI_STACK,2);
     init_polops();
-    fer();
+    firstlyapunov(m,n,k,l);
     pari_close();
 
     return 0;
