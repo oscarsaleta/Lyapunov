@@ -70,7 +70,7 @@ diagmat(ord)=
  */
 indcoef(deg,H,R)=
 {
-    local(res);
+    local(res,aux);
     res = vector(deg+1);
 
     for(i=1,#H,
@@ -126,7 +126,7 @@ lyapunov(N,R)=
  */
 firstlyapunov(R)=
 {
-    local(lastdg,H,N,g,d,h);
+    local(lastdg,H,N,g,d,h,k);
     N=0;
     k=0;
     for(i=1,#R,
@@ -184,3 +184,18 @@ genfield(m,n,k,l)=
     v2[l+1]=a2+I*b2;
     return(List([v1,v2]));
 }
+
+fer()=
+{
+    for(m=1,3,
+        for(n=1,3,
+            for(k=1,3,
+                for(l=1,3,
+                    print(m,",",n,",",k,",",l);
+                    print(firstlyapunov(genfield(m,n,k,l)));
+                );
+            );
+        );
+    );
+}    
+
