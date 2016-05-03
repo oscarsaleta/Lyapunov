@@ -1,7 +1,7 @@
 
 pol2vec(P,n,vx,vy)=
 {
-    local(i,aux);
+    local(aux);
     aux = vector(n+1);
     for(i=1,n,
         aux[i]=polcoeff(P,n-i+1,vx);
@@ -9,14 +9,14 @@ pol2vec(P,n,vx,vy)=
             aux[i]=polcoeff(aux[i],i,vy);
         );
     );
-    return(res);
+    return(aux);
 }
 
 
 /* multiplies 2 homogeneous polynomials as vectors */
 vpolmult(P,Q)=
 {
-    local(i,j,len,res,aux);
+    local(len,res,aux);
     len = #P + #Q - 1;
     res = vector(len);
 
@@ -33,36 +33,36 @@ vpolmult(P,Q)=
 /* differentiates a homogeneous polynomial with resp. to z */
 vpoldz(P)=
 {
-    local(i,deg,res);
+    local(deg,res);
     deg = #P-1;
     res = vector(deg);
 
     for(i=1,deg,
         res[i] = (deg-i+1)*P[i];
        );
-    res
+    return(res)
 };
 
 /* differentiates a homogeneous polynomial with resp. to w */
 vpoldw(P)=
 {
-    local(i,deg,res);
+    local(deg,res);
     deg = #P-1;
     res = vector(deg);
 
     for(i=1,deg,
         res[deg-i+1] = (deg-i+1)*P[#P-i+1];
        );
-    res
+    return(res)
 };
 
 /* Create diagonal matrix of coefficients */
 diagmat(ord)=
 {
-    local(i,aux);
+    local(aux);
     aux = vector(ord+1);
     for(i=1,ord+1,aux[i]=ord-2*(i-1););
-    aux
+    return(aux)
 };
 
 /* H and R are lists with the vectors needed to compute up to desired
@@ -70,7 +70,7 @@ diagmat(ord)=
  */
 indcoef(deg,H,R)=
 {
-    local(i,j,k,res);
+    local(res);
     res = vector(deg+1);
 
     for(i=1,#H,
@@ -85,14 +85,14 @@ indcoef(deg,H,R)=
             );
         );
     );
-    I*res
+    return(I*res)
 };
 
 
 /* Calcula les N primeres constants de Lyapunov del sistema donat */
 lyapunov(N,R)=
 {
-    local(lastdg,H,L,i,j,k,kmax);
+    local(lastdg,H,L);
     lastdg = 2*(N+1);
     H=List([[0,1,0]]);
     L=List();
@@ -126,7 +126,7 @@ lyapunov(N,R)=
  */
 firstlyapunov(R)=
 {
-    local(lastdg,H,L,i,j,k,kmax,N,g,d,h);
+    local(lastdg,H,kmax,N,g,d,h);
     N=0;
     k=0;
     for(i=1,#R,
