@@ -126,7 +126,7 @@ lyapunov(N,R)=
  */
 firstlyapunov(R)=
 {
-    local(lastdg,H,kmax,N,g,d,h);
+    local(lastdg,H,N,g,d,h);
     N=0;
     k=0;
     for(i=1,#R,
@@ -164,11 +164,11 @@ firstlyapunov(R)=
 
 ferP(N)=
 {
-    local(r1,r2,R,NN);
+    local(r1,r2,R/*,NN*/);
     r1=vector(N);r1[N]=1;
     r2=vector(N+1);r2[1]=1;
     R=List([r1,r2]);
-    NN=(N-1)*(N-1);
+    /*NN=(N-1)*(N-1);*/
     gettime();
     print(firstlyapunov(R));
     gettime()
