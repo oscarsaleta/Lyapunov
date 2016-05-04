@@ -495,13 +495,15 @@ int main(int argc, char const *argv[]) {
         fprintf(stderr,"%s:: taskId m n k l\n",argv[0]);
         return -1;
     }
+
+    /* Quanta memoria assignar? */
+    pari_init(PARI_STACK,2);
+
     m = gp_read_str(argv[2]);
     n = gp_read_str(argv[3]);
     k = gp_read_str(argv[4]);
     l = gp_read_str(argv[5]);
 
-    /* Quanta memoria assignar? */
-    pari_init(PARI_STACK,2);
     init_polops();
     firstlyapunov(genfield(m,n,k,l));
     pari_close();
