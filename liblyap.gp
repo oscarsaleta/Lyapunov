@@ -14,9 +14,9 @@
 
 
 /* multiplies 2 homogeneous polynomials as vectors */
-vpolmult(P,Q)=
+vpolmult(P:vec,Q:vec)=
 {
-    local(len,res,aux);
+    local(len:int,res:vec,aux:vec);
     len = #P + #Q - 1;
     res = vector(len);
 
@@ -33,7 +33,7 @@ vpolmult(P,Q)=
 /* differentiates a homogeneous polynomial with resp. to z */
 vpoldz(P)=
 {
-    local(deg,res);
+    local(deg:int,res:vec);
     deg = #P-1;
     res = vector(deg);
 
@@ -44,9 +44,9 @@ vpoldz(P)=
 };
 
 /* differentiates a homogeneous polynomial with resp. to w */
-vpoldw(P)=
+vpoldw(P:vec)=
 {
-    local(deg,res);
+    local(deg:int,res:vec);
     deg = #P-1;
     res = vector(deg);
 
@@ -57,9 +57,9 @@ vpoldw(P)=
 };
 
 /* Create diagonal matrix of coefficients */
-diagmat(ord)=
+diagmat(ord:int)=
 {
-    local(aux);
+    local(aux:vec);
     aux = vector(ord+1);
     for(i=1,ord+1,aux[i]=ord-2*(i-1););
     return(aux)
@@ -68,12 +68,13 @@ diagmat(ord)=
 /* H and R are lists with the vectors needed to compute up to desired
  * order ord (assume #H = #R)
  */
-indcoef(deg,H,R)=
+indcoef(deg:int,H:vec,R:vec)=
 {
-    local(res,aux);
+    local(res:vec,aux:vec);
     res = vector(deg+1);
 
     for(i=1,#H,
+        if(H[i]==0,next);
         for(j=1,#R,
             if(#H[i]+#R[j]-3==deg,
                 /* Inverse order of conjugate vector */
@@ -90,14 +91,15 @@ indcoef(deg,H,R)=
 
 
 /* Calcula les N primeres constants de Lyapunov del sistema donat */
-lyapunov(N:list,R:list)=
+lyapunov(N:int,R:vec)=
 {
-    local(lastdg:int,H:list,L:list,g:vec,d:vec,h:vec);
+    local(lastdg:int,H:vec,L:vec,g:vec,d:vec,h:vec);
     lastdg = 2*(N+1);
-    H=List([[0,1,0]]);
-    L=List();
+    H=vector(lastdg);
+    L=vector(N);
+    H[1]=[0,1,0];
     forstep(i=3,lastdg-1,2,
-            print(i);
+        /*print(i);*/
         /* Part senar */
         g=indcoef(i,H,R);
         d=diagmat(i);
@@ -105,18 +107,18 @@ lyapunov(N:list,R:list)=
         for(j=1,i+1,
             h[j]=g[j]/d[j];
         );
-        listput(H,h);
+        H[i-1]=h;
         /* Part parella */
         g=indcoef(i+1,H,R);
         d=diagmat(i+1);
         h=vector(i+2);
-        listput(L,g[((i+1)/2)+1]/I);
+        L[(i-1)/2]=g[((i+1)/2)+1]/I;
         for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
             );
         );
-        listput(H,h);
+        H[i]=h;
     );
     return(L);
 };
@@ -124,9 +126,9 @@ lyapunov(N:list,R:list)=
 /* Calcula la primera constant de Lyapunov no nul·la i la retorna,
    nomes busca fins la constant N
  */
-firstlyapunov(R)=
+firstlyapunov(R:vec)=
 {
-    local(lastdg,H,N,g,d,h,k,maxL);
+    local(lastdg:int,H:vec,N:int,g:vec,d:vec,h:vec,k:int,maxL:int);
     N=0;
     k=0;
     for(i=1,#R,
@@ -134,7 +136,8 @@ firstlyapunov(R)=
     );
     maxL = N*N+3*N-7;
     lastdg = 2*(maxL+1);
-    H=List([[0,1,0]]);
+    H=vector(lastdg);
+    H[1]=[0,1,0];
     forstep(i=3,lastdg-1,2,
         /* Part senar */
         g=indcoef(i,H,R);
@@ -143,7 +146,7 @@ firstlyapunov(R)=
         for (j=1,i+1,
             h[j]=g[j]/d[j];
         );
-        listput(H,h);
+        H[i-1]=h;
         /* Part parella */
         k++;
         g=indcoef(i+1,H,R);
@@ -157,7 +160,7 @@ firstlyapunov(R)=
                 h[j]=g[j]/d[j];
             );
         );
-        listput(H,h);
+        H[i]=h;
     );
     return("Centre");
 };
@@ -182,7 +185,7 @@ genfield(m:int,n:int,k:int,l:int)=
     v1[n+1]=a1+I*b1;
     v2=vector(k+l+1);
     v2[l+1]=a2+I*b2;
-    return(List([v1,v2]));
+    return([v1,v2]);
 }
 
 fer()=
