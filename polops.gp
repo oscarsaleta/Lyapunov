@@ -1,5 +1,5 @@
 
-pol2vec(P,n,vx,vy)=
+/*pol2vec(P,n,vx,vy)=
 {
     local(aux);
     aux = vector(n+1);
@@ -10,7 +10,7 @@ pol2vec(P,n,vx,vy)=
         );
     );
     return(aux);
-}
+}*/
 
 
 /* multiplies 2 homogeneous polynomials as vectors */
@@ -27,7 +27,7 @@ vpolmult(P,Q)=
             );
         res += aux;
        );
-    res
+    return(res)
 };
 
 /* differentiates a homogeneous polynomial with resp. to z */
@@ -182,6 +182,16 @@ genfield(m,n,k,l)=
     v1[n+1]=a1+I*b1;
     v2=vector(k+l+1);
     v2[l+1]=a2+I*b2;
+    return(List([v1,v2]));
+}
+
+gencleanfield(m,n,k,l)=
+{
+    local(v1,v2);
+    v1=vector(m+n+1);
+    v1[n+1]=1;
+    v2=vector(k+l+1);
+    v2[l+1]=1;
     return(List([v1,v2]));
 }
 
