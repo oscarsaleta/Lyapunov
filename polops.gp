@@ -97,7 +97,6 @@ lyapunov(N,R)=
     H=List([[0,1,0]]);
     L=List();
     forstep(i=3,lastdg-1,2,
-            print(i);
         /* Part senar */
         g=indcoef(i,H,R);
         d=diagmat(i);
@@ -161,6 +160,50 @@ firstlyapunov(R)=
     );
     return("Centre");
 };
+
+firstlyapunovN(NN,R)=
+{
+    local(lastdg,H,L,N,g,d,h,k,l);
+    N=0;
+    k=0;
+    l=0;
+    for(i=1,#R,
+        N = max(N,#R[i]);
+    );
+    maxL = N*N+3*N-7;
+    lastdg = 2*(maxL+1);
+    H=List([[0,1,0]]);
+    L=List();
+    forstep(i=3,lastdg-1,2,
+        /* Part senar */
+        g=indcoef(i,H,R);
+        d=diagmat(i);
+        h=vector(i+1);
+        for (j=1,i+1,
+            h[j]=g[j]/d[j];
+        );
+        listput(H,h);
+        /* Part parella */
+        k++;
+        g=indcoef(i+1,H,R);
+        if(g[((i+1)/2)+1]!=0,
+            l++;
+            listput(L,[k,g[((i+1)/2)+1]/I]);
+        );
+        if(l==NN,
+            return(L);
+        );
+        d=diagmat(i+1);
+        h=vector(i+2);
+        for(j=1,i+2,
+            if(d[j]!=0,
+                h[j]=g[j]/d[j];
+            );
+        );
+        listput(H,h);
+    );
+    return("Centre");
+}
 
 ferP(N)=
 {
