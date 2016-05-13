@@ -1,4 +1,4 @@
-\r /home/osr/pari/Lyapunov/polops.gp
+\r polops.gp
 
 m=taskArgs[1];
 n=taskArgs[2];

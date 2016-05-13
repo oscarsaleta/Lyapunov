@@ -117,7 +117,7 @@ lyapunov(N,R)=
         );
         listput(H,h);
     );
-    return(L);
+    return(H);
 };
 
 /* Calcula la primera constant de Lyapunov no nul·la i la retorna,
@@ -227,6 +227,8 @@ genfield(m,n,k,l)=
     v2[l+1]=a2+I*b2;
     return(List([v1,v2]));
 }
+
+
 
 gencleanfield(m,n,k,l)=
 {
