@@ -1,5 +1,5 @@
 /*\r /home/osr/pari/Lyapunov/polops.gp*/
-\r polops.gp
+\r ../polops.gp
 
 n=taskArgs[1];
 
@@ -15,4 +15,4 @@ evenfield(n)=
 
 print(firstlyapunovN(2,evenfield(n)));
 
-\q
+/*\q*/
