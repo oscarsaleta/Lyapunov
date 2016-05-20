@@ -1,8 +1,0 @@
-./PBala:: INFO - will use nodes a05 (3)
-./PBala:: INFO - will create 10 tasks for 1 slaves
-./PBala:: INFO - created slave 0
-./PBala:: INFO - created slave 1
-./PBala:: INFO - created slave 2
-./PBala:: INFO - sent task   61 for execution
-./PBala:: INFO - sent task   62 for execution
-./PBala:: INFO - sent task   63 for execution

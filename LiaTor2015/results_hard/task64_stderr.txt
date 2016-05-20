@@ -1,2 +1,0 @@
-  ***   Warning: not enough memory, new stack 400000000000.
-  ***   Warning: not enough memory, new stack 200000000000.
