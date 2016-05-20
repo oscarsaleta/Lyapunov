@@ -1,0 +1,18 @@
+TASK 36 RESOURCE USAGE (PID 14391)
+----------------------
+User CPU time used:                        7346.827148
+System CPU time used:                         4.496281
+Maximum resident set size (KB):                4289212
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):              1658171
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                             56
+block output operations:                           144
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                        160
+Involuntary context switches:                    13533

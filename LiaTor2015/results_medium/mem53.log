@@ -1,0 +1,18 @@
+TASK 53 RESOURCE USAGE (PID 13519)
+----------------------
+User CPU time used:                        97378.18976
+System CPU time used:                        46.006875
+Maximum resident set size (KB):               35677156
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):             26290606
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              0
+block output operations:                            80
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         79
+Involuntary context switches:                  5954119

@@ -1,0 +1,18 @@
+TASK 56 RESOURCE USAGE (PID 30535)
+----------------------
+User CPU time used:                        164348.1911
+System CPU time used:                        71.588474
+Maximum resident set size (KB):               47595252
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):             36027005
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                             32
+block output operations:                            80
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                        106
+Involuntary context switches:                  9781591

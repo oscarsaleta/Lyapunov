@@ -1,0 +1,18 @@
+TASK 72 RESOURCE USAGE (PID 24451)
+----------------------
+User CPU time used:                           0.060003
+System CPU time used:                         0.036002
+Maximum resident set size (KB):                   3108
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                11566
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                             32
+block output operations:                           192
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                        243
+Involuntary context switches:                        6

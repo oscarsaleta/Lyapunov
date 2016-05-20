@@ -1,0 +1,18 @@
+TASK 20 RESOURCE USAGE (PID 17571)
+----------------------
+User CPU time used:                         180.243264
+System CPU time used:                         0.212013
+Maximum resident set size (KB):                 217012
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                69597
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                             32
+block output operations:                            72
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         85
+Involuntary context switches:                     1116

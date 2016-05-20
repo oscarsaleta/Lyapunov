@@ -1,0 +1,18 @@
+TASK 0 RESOURCE USAGE (PID 11462)
+----------------------
+User CPU time used:                                  0
+System CPU time used:                            0.004
+Maximum resident set size (KB):                   3180
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                 1043
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              8
+block output operations:                            16
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         20
+Involuntary context switches:                        2

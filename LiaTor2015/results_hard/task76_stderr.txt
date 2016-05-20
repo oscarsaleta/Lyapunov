@@ -1,0 +1,4 @@
+  ***   Warning: not enough memory, new stack 400000000000.
+  ***   Warning: not enough memory, new stack 200000000000.
+  ***   error opening input file: `polops.gp'.
+... skipping file 'results_hard//auxprog-76.gp'

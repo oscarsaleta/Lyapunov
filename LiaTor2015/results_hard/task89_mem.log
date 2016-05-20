@@ -1,0 +1,18 @@
+TASK 89 RESOURCE USAGE (PID 24564)
+----------------------
+User CPU time used:                           0.152009
+System CPU time used:                         0.080005
+Maximum resident set size (KB):                   3108
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                27951
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                             48
+block output operations:                           464
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                        571
+Involuntary context switches:                        9
