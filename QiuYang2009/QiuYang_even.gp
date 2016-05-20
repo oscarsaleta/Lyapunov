@@ -1,4 +1,4 @@
-\r ../polops.gp
+\r polops.gp
 
 n=taskArgs[1];
 
