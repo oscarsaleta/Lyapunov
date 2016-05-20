@@ -18,4 +18,4 @@ print(L[2][1],",",L[2][2]);
 
 write("results_even/to_solve.txt",n,",",L[1][2])
 
-/*\q*/
+\q
