@@ -1,7 +1,7 @@
-TASK 1 RESOURCE USAGE (PID 17434)
+TASK 1 RESOURCE USAGE (PID 21503)
 ----------------------
-User CPU time used:                           0.048003
-System CPU time used:                            0.012
+User CPU time used:                           0.060003
+System CPU time used:                                0
 Maximum resident set size (KB):                   4300
 Integral shared memory size (KB):                    0
 Integral unshared data size (KB)                     0
@@ -14,5 +14,5 @@ block output operations:                            24
 IPC messages sent:                                   0
 IPC messages received:                               0
 Signals received:                                    0
-Voluntary context switches:                         22
+Voluntary context switches:                         26
 Involuntary context switches:                        0

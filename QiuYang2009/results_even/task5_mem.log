@@ -1,12 +1,12 @@
-TASK 5 RESOURCE USAGE (PID 17438)
+TASK 5 RESOURCE USAGE (PID 21507)
 ----------------------
-User CPU time used:                           4.240265
-System CPU time used:                         0.036002
-Maximum resident set size (KB):                  37256
+User CPU time used:                           4.124257
+System CPU time used:                            0.008
+Maximum resident set size (KB):                  37260
 Integral shared memory size (KB):                    0
 Integral unshared data size (KB)                     0
 Integral shared stack size (KB):                     0
-Page reclaims (soft page faults):                10764
+Page reclaims (soft page faults):                10765
 Page faults (hard page faults):                      0
 Swaps:                                               0
 Block input operations:                              0
@@ -14,5 +14,5 @@ block output operations:                            48
 IPC messages sent:                                   0
 IPC messages received:                               0
 Signals received:                                    0
-Voluntary context switches:                         44
-Involuntary context switches:                        9
+Voluntary context switches:                         53
+Involuntary context switches:                        8
