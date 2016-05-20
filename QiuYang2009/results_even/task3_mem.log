@@ -1,0 +1,18 @@
+TASK 3 RESOURCE USAGE (PID 17436)
+----------------------
+User CPU time used:                           0.996062
+System CPU time used:                            0.012
+Maximum resident set size (KB):                  10912
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                 2917
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              0
+block output operations:                            24
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         24
+Involuntary context switches:                        3

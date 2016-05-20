@@ -1,0 +1,18 @@
+TASK 6 RESOURCE USAGE (PID 17439)
+----------------------
+User CPU time used:                           9.248578
+System CPU time used:                         0.060003
+Maximum resident set size (KB):                  67076
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                18776
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              0
+block output operations:                            48
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         48
+Involuntary context switches:                       18

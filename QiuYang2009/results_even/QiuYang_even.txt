@@ -1,0 +1,30 @@
+./PBala:: INFO - will use nodes a08 (4)
+./PBala:: INFO - will create 8 tasks for 1 slaves
+./PBala:: INFO - created slave 0
+./PBala:: INFO - created slave 1
+./PBala:: INFO - created slave 2
+./PBala:: INFO - created slave 3
+./PBala:: INFO - sent task    1 for execution
+./PBala:: INFO - sent task    2 for execution
+./PBala:: INFO - sent task    3 for execution
+./PBala:: INFO - sent task    4 for execution
+./PBala:: INFO - task    1 completed in          1 seconds
+./PBala:: INFO - sent task   5 for execution
+./PBala:: INFO - task    2 completed in          1 seconds
+./PBala:: INFO - sent task   6 for execution
+./PBala:: INFO - task    3 completed in          2 seconds
+./PBala:: INFO - sent task   7 for execution
+./PBala:: INFO - task    4 completed in          2 seconds
+./PBala:: INFO - sent task   8 for execution
+./PBala:: INFO - task    5 completed in          4 seconds
+./PBala:: INFO - shutting down slave  0 (total execution time:             5 seconds)
+./PBala:: INFO - task    6 completed in          9 seconds
+./PBala:: INFO - shutting down slave  1 (total execution time:            10 seconds)
+./PBala:: INFO - task    7 completed in         18 seconds
+./PBala:: INFO - shutting down slave  2 (total execution time:            20 seconds)
+./PBala:: INFO - task    8 completed in         34 seconds
+./PBala:: INFO - shutting down slave  3 (total execution time:            36 seconds)
+
+./PBala:: INFO - END OF EXECUTION.
+Combined computing time:             71 seconds.
+Total execution time:                37 seconds.

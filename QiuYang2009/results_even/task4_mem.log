@@ -1,0 +1,18 @@
+TASK 4 RESOURCE USAGE (PID 17437)
+----------------------
+User CPU time used:                           1.940121
+System CPU time used:                         0.016001
+Maximum resident set size (KB):                  20084
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                 5210
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              0
+block output operations:                            24
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         22
+Involuntary context switches:                        4
