@@ -1,0 +1,18 @@
+TASK 2 RESOURCE USAGE (PID 15146)
+----------------------
+User CPU time used:                           0.304019
+System CPU time used:                            0.008
+Maximum resident set size (KB):                   6300
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                 1765
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              8
+block output operations:                            24
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         28
+Involuntary context switches:                        1

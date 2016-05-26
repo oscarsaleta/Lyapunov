@@ -1,0 +1,15 @@
+# NODE CODENAMES
+# Node  0 -> a08
+# Node  1 -> a08
+# Node  2 -> a08
+# Node  3 -> a08
+
+NODE,TASK
+ 0,   1
+ 1,   2
+ 2,   3
+ 3,   4
+ 0,   5
+ 1,   6
+ 2,   7
+ 3,   8
