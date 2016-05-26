@@ -1,18 +1,18 @@
-TASK 8 RESOURCE USAGE (PID 21510)
+TASK 8 RESOURCE USAGE (PID 15156)
 ----------------------
-User CPU time used:                          35.734233
-System CPU time used:                         0.088005
-Maximum resident set size (KB):                 190892
+User CPU time used:                          35.590224
+System CPU time used:                         0.084005
+Maximum resident set size (KB):                 190888
 Integral shared memory size (KB):                    0
 Integral unshared data size (KB)                     0
 Integral shared stack size (KB):                     0
-Page reclaims (soft page faults):                53138
+Page reclaims (soft page faults):                53139
 Page faults (hard page faults):                      0
 Swaps:                                               0
-Block input operations:                              0
+Block input operations:                             16
 block output operations:                            48
 IPC messages sent:                                   0
 IPC messages received:                               0
 Signals received:                                    0
-Voluntary context switches:                         55
-Involuntary context switches:                       63
+Voluntary context switches:                         56
+Involuntary context switches:                       62
