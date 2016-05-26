@@ -1,3 +1,7 @@
+pq2r(P,Q)=
+{
+    return(subst(subst(P,x,(z+w)/2),y,(z+w)/2/I)+I*subst(subst(Q,x,(z+w)/2),y,(z+w)/2/I));
+}
 
 /*pol2vec1var(P,n,vx)=
 {
@@ -9,7 +13,7 @@
     return(aux);
 }*/
 
-/*pol2vec(P,n,vx,vy)=
+pol2vec(P,n,vx,vy)=
 {
     local(aux);
     aux = vector(n+1);
@@ -20,7 +24,7 @@
         );
     );
     return(aux);
-}*/
+}
 
 
 /* multiplies 2 homogeneous polynomials as vectors */
@@ -125,9 +129,10 @@ lyapunov(N,R)=
                 h[j]=g[j]/d[j];
             );
         );
+        h[((i+1)/2)+1]=g[((i+1)/2)+1]/I;
         listput(H,h);
     );
-    return(H);
+    return(L);
 };
 
 /* Calcula la primera constant de Lyapunov no nul·la i la retorna,
