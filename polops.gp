@@ -190,17 +190,6 @@ firstlyapunovN(NN,R)=
     return("Centre?");
 }
 
-/*ferP(N)=
-{
-    local(r1,r2,R);
-    r1=vector(N);r1[N]=1;
-    r2=vector(N+1);r2[1]=1;
-    R=List([r1,r2]);
-    gettime();
-    print(firstlyapunov(R));
-    gettime()
-};*/
-
 /* Generar pol z^m*w^n+z^k*w^l en notacio vectorial */
 genfield(m,n,k,l)=
 {
@@ -212,28 +201,4 @@ genfield(m,n,k,l)=
     return(List([v1,v2]));
 }
 
-gencleanfield(m,n,k,l)=
-{
-    local(v1,v2);
-    v1=vector(m+n+1);
-    v1[n+1]=1;
-    v2=vector(k+l+1);
-    v2[l+1]=1;
-    return(List([v1,v2]));
-}
 
-/*
-fer()=
-{
-    for(m=1,3,
-        for(n=1,3,
-            for(k=1,3,
-                for(l=1,3,
-                    print(m,",",n,",",k,",",l);
-                    print(firstlyapunov(genfield(m,n,k,l)));
-                );
-            );
-        );
-    );
-}    
-*/
