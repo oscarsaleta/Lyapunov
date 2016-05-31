@@ -1,0 +1,18 @@
+TASK 41 RESOURCE USAGE (PID 39089)
+----------------------
+User CPU time used:                        10119.85645
+System CPU time used:                         5.356334
+Maximum resident set size (KB):                8502564
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):              2141705
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              8
+block output operations:                            16
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         23
+Involuntary context switches:                    19047

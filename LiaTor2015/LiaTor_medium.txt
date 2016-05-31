@@ -1,0 +1,57 @@
+libpvm [t40001]: pvm_addhosts(): Already in progress
+./PBala:: INFO - will use nodes a05 (4), a08 (1)
+./PBala:: INFO - will create 20 tasks for 2 slaves
+./PBala:: INFO - created slave 0
+./PBala:: INFO - created slave 1
+./PBala:: INFO - created slave 2
+./PBala:: INFO - created slave 3
+./PBala:: INFO - created slave 4
+./PBala:: INFO - sent task   41 for execution
+./PBala:: INFO - sent task   42 for execution
+./PBala:: INFO - sent task   43 for execution
+./PBala:: INFO - sent task   44 for execution
+./PBala:: INFO - sent task   45 for execution
+./PBala:: INFO - task   41 completed in      10147 seconds
+./PBala:: INFO - sent task  46 for execution
+./PBala:: INFO - task   42 completed in      12287 seconds
+./PBala:: INFO - sent task  47 for execution
+./PBala:: INFO - task   43 completed in      14097 seconds
+./PBala:: INFO - sent task  48 for execution
+./PBala:: INFO - task   45 completed in      15226 seconds
+./PBala:: INFO - sent task  49 for execution
+./PBala:: INFO - task   44 completed in      16032 seconds
+./PBala:: INFO - sent task  50 for execution
+./PBala:: INFO - task   46 completed in      25454 seconds
+./PBala:: INFO - sent task  51 for execution
+./PBala:: INFO - task   47 completed in      32042 seconds
+./PBala:: INFO - sent task  52 for execution
+./PBala:: INFO - task   49 completed in      31879 seconds
+./PBala:: INFO - sent task  53 for execution
+./PBala:: INFO - task   48 completed in      35013 seconds
+./PBala:: INFO - sent task  54 for execution
+./PBala:: INFO - task   50 completed in      42517 seconds
+./PBala:: INFO - sent task  55 for execution
+./PBala:: INFO - task   51 completed in      48941 seconds
+./PBala:: INFO - sent task  56 for execution
+./PBala:: INFO - task   52 completed in      42546 seconds
+./PBala:: INFO - sent task  57 for execution
+./PBala:: INFO - task   53 completed in      51433 seconds
+./PBala:: INFO - sent task  58 for execution
+./PBala:: INFO - task   54 completed in      92874 seconds
+./PBala:: INFO - sent task  59 for execution
+./PBala:: INFO - task   55 completed in 1.0787E+05 seconds
+./PBala:: INFO - sent task  60 for execution
+./PBala:: INFO - task   56 completed in      82484 seconds
+./PBala:: INFO - shutting down slave  0 (total execution time:    1.6703E+05 seconds)
+./PBala:: INFO - task   57 completed in 1.1082E+05 seconds
+./PBala:: INFO - shutting down slave  1 (total execution time:    1.9769E+05 seconds)
+./PBala:: INFO - task   58 completed in 1.2241E+05 seconds
+./PBala:: INFO - shutting down slave  4 (total execution time:    2.2095E+05 seconds)
+./PBala:: INFO - task   59 completed in 1.5074E+05 seconds
+./PBala:: INFO - shutting down slave  2 (total execution time:    2.9273E+05 seconds)
+./PBala:: INFO - task   60 completed in 1.7032E+05 seconds
+./PBala:: INFO - shutting down slave  3 (total execution time:    3.3674E+05 seconds)
+
+./PBala:: INFO - END OF EXECUTION.
+Combined computing time:     1.2151E+06 seconds.
+Total execution time:        3.3675E+05 seconds.

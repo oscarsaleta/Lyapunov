@@ -1,0 +1,18 @@
+TASK 46 RESOURCE USAGE (PID 11200)
+----------------------
+User CPU time used:                        34956.49264
+System CPU time used:                        17.385086
+Maximum resident set size (KB):               16135440
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):              6885045
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                             16
+block output operations:                            32
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         52
+Involuntary context switches:                  2766442

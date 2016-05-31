@@ -1,0 +1,18 @@
+TASK 50 RESOURCE USAGE (PID 23481)
+----------------------
+User CPU time used:                        56680.99034
+System CPU time used:                        29.329833
+Maximum resident set size (KB):               25156060
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):             12563050
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                             16
+block output operations:                            32
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         50
+Involuntary context switches:                  7467973

@@ -1,0 +1,18 @@
+TASK 19 RESOURCE USAGE (PID 23013)
+----------------------
+User CPU time used:                         133.884367
+System CPU time used:                         0.152009
+Maximum resident set size (KB):                 173456
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                55583
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                             24
+block output operations:                            72
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         77
+Involuntary context switches:                      260
