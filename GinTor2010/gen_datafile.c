@@ -14,15 +14,15 @@ int main() {
                         continue;
                     if (l==n && l==0)
                         continue;
-                    if (k-l-1==0) {
-                        fprintf(stdout,"%d,%d,%d,%d,%d\n",count,m,n,k,l);
-                        count++;
-                        continue;
-                        }
                     if (k==m && l==n)
                         continue;
                     if ((k-l-1)*(m-n-1)==0)
                         continue;
+                    if (k-l-1==0) {
+                        fprintf(stdout,"%d,%d,%d,%d,%d\n",count,m,n,k,l);
+                        count++;
+                        continue;
+                    }
                     fprintf(stdout,"%d,%d,%d,%d,%d\n",count,k,l,m,n);
                     count++;
                 }
