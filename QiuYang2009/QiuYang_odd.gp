@@ -12,10 +12,15 @@ oddfield(n)=
     return(List([v]));
 }
 
-L=firstlyapunovN(2,oddfield(n));
-print(L[1][1],",",L[1][2]);
-print(L[2][1],",",L[2][2]);
+L=firstlyapunov(oddfield(n));
+print("Degree = ",n);
+print("First nonzero Lyapunov const: ",L[1],"th = ",L[2]);
 
-write("results_odd/to_solve.txt",n,",",L[1][2])
+tau=-polcoeff(factor(L[1][2])[2,1],0,a)/polcoeff(factor(L[1][2])[2,1],2,a);
 
-\q
+print("\nWith a²=",tau);
+print(L[1][1],"th Lyapunov const = ",substpol(L[1][2],a^2,tau));
+print(L[2][1],"th Lyapunov const = ",substpol(L[2][2],a^2,tau));
+
+
+/*\q*/

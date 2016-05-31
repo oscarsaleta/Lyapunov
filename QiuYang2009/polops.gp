@@ -243,18 +243,6 @@ genfield(m,n,k,l)=
     return(List([v1,v2]));
 }
 
-
-
-gencleanfield(m,n,k,l)=
-{
-    local(v1,v2);
-    v1=vector(m+n+1);
-    v1[n+1]=1;
-    v2=vector(k+l+1);
-    v2[l+1]=1;
-    return(List([v1,v2]));
-}
-
 fer()=
 {
     for(m=1,3,
