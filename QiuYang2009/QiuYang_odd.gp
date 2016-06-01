@@ -1,4 +1,4 @@
-\r ../polops.gp
+\r polops.gp
 
 n=taskArgs[1];
 
@@ -12,15 +12,38 @@ oddfield(n)=
     return(List([v]));
 }
 
-L=firstlyapunov(oddfield(n));
-print("Degree = ",n);
-print("First nonzero Lyapunov const: ",L[1],"th = ",L[2]);
+{
+    L=firstlyapunov(oddfield(n));
+    print("QiuYang n = ",n," (expected first nonzero constant: ",(n*n+n-2)/2,")");
+    print(" - First nonzero Lyapunov const:\n\tL[",L[1],"] = ",L[2]);
+}
 
-tau=-polcoeff(factor(L[1][2])[2,1],0,a)/polcoeff(factor(L[1][2])[2,1],2,a);
-
-print("\nWith a²=",tau);
-print(L[1][1],"th Lyapunov const = ",substpol(L[1][2],a^2,tau));
-print(L[2][1],"th Lyapunov const = ",substpol(L[2][2],a^2,tau));
-
+{
+    fctr=factor(L[2]);
+    print("\tFactorisation: ",fctr);
+    /*for(k=1,#fctr~,
+        mypol=fctr[k,1];
+        if(poldegree(mypol,a)==2,
+            tau=-polcoeff(mypol,0,a)/polcoeff(mypol,2,a);
+            print("\nWith a² = ",tau);
+            for(i=L[1],n*n+3*n-7,
+                Li=lyapunov(i,oddfield(n))[i];
+                if(substpol(Li,a^2,tau)!=0,
+                    ind=i;
+                    break;
+                ,
+                    Li=0;
+                );
+            );
+            if(Li!=0,
+                print(" - First nonzero Lyapunov const:\n\tL[",ind,"] = ",substpol(Li,a^2,tau));
+                print("\tNumerical approximation = ",substpol(Li,a,sqrt(tau)));
+            );
+            if(Li==0,
+                print(" - Suspected center, further analysis required\n");
+            );
+        );
+    );*/
+}
 
 /*\q*/

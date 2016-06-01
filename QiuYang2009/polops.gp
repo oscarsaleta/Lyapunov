@@ -107,7 +107,7 @@ indcoef(deg,H,R)=
 lyapunov(N,R)=
 {
     local(lastdg,H,L);
-    lastdg = 2*(N+1);
+    lastdg = N*N+3*N-7;
     H=List([[0,1,0]]);
     L=List();
     forstep(i=3,lastdg-1,2,
