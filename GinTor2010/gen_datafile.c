@@ -4,13 +4,15 @@ int main() {
     int count=0;
     int k,l,m,n;
 
-    for (k=0;k<20;k++) {
-        for (l=0;l<20;l++) {
-            for (m=0;m<k;m++) {
-                for (n=0;n<l;n++) {
+    for (k=0;k<25;k++) {
+        for (l=0;l<25;l++) {
+            for (m=0;m<25;m++) {
+                for (n=0;n<25;n++) {
                     if (k+l<2 || n+m<2)
                         continue;
                     if (k+l <= m+n)
+                        continue;
+                    if (k==m && l==n)
                         continue;
                     if (k==n && k==2 && l==m && l==0)
                         continue;
