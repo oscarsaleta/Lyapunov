@@ -8,25 +8,19 @@ int main() {
         for (l=0;l<25;l++) {
             for (m=0;m<25;m++) {
                 for (n=0;n<25;n++) {
-                    if (k+l<2 || n+m<2)
-                        continue;
-                    if (k+l <= m+n)
-                        continue;
-                    if (k==m && l==n)
-                        continue;
-                    if (k==n && k==2 && l==m && l==0)
-                        continue;
-                    if (l==n && l==0)
-                        continue;
-                    if (k==m && l!=n && (k-l-1)!=0)
-                        continue;
-                    if (k-l-1==0) {
+                    if ( (k+l<2 || n+m<2)
+                         || (k+l <= m+n)
+                         || (k==m && l==n)
+                         || (k==n && k==2 && l==m && l==0)
+                         || (l==n && l==0)
+                         || (k==m && l!=n && (k-l-1)!=0) ) {
+                    } else if (k-l-1==0) {
                         fprintf(stdout,"%d,%d,%d,%d,%d\n",count,m,n,k,l);
                         count++;
-                        continue;
+                    } else {
+                        fprintf(stdout,"%d,%d,%d,%d,%d\n",count,k,l,m,n);
+                        count++;
                     }
-                    fprintf(stdout,"%d,%d,%d,%d,%d\n",count,k,l,m,n);
-                    count++;
                 }
             }
         }
