@@ -3,15 +3,6 @@ pq2r(P,Q)=
     return(subst(subst(P,x,(z+w)/2),y,(z+w)/2/I)+I*subst(subst(Q,x,(z+w)/2),y,(z+w)/2/I));
 }
 
-/*pol2vec1var(P,n,vx)=
-{
-    local(aux);
-    aux=vector(n+1);
-    for(i=0,n,
-        aux[i+1]=polcoeff(P,i,vx);
-    );
-    return(aux);
-}*/
 
 pol2vec(P,n,vx,vy)=
 {
