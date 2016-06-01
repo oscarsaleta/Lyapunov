@@ -3,15 +3,6 @@ pq2r(P,Q)=
     return(subst(subst(P,x,(z+w)/2),y,(z+w)/2/I)+I*subst(subst(Q,x,(z+w)/2),y,(z+w)/2/I));
 }
 
-/*pol2vec1var(P,n,vx)=
-{
-    local(aux);
-    aux=vector(n+1);
-    for(i=0,n,
-        aux[i+1]=polcoeff(P,i,vx);
-    );
-    return(aux);
-}*/
 
 pol2vec(P,n,vx,vy)=
 {
@@ -107,7 +98,7 @@ indcoef(deg,H,R)=
 lyapunov(N,R)=
 {
     local(lastdg,H,L);
-    lastdg = 2*(N+1);
+    lastdg = N*N+3*N-7;
     H=List([[0,1,0]]);
     L=List();
     forstep(i=3,lastdg-1,2,
@@ -142,7 +133,7 @@ lyapunov(N,R)=
 firstlyapunov(R)=
 {
     firstlyapunovN(1,R);
-}
+};
 
 firstlyapunovN(NN,R)=
 {
@@ -200,5 +191,3 @@ genfield(m,n,k,l)=
     v2[l+1]=a2+I*b2;
     return(List([v1,v2]));
 }
-
-
