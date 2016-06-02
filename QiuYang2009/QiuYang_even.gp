@@ -16,9 +16,9 @@ evenfield(n)=
     L=firstlyapunov(evenfield(n));
 
     print("QiuYang n = ",n," (expected first nonzero constant: ",(n*n+n-2),")");
-    print(" - First nonzero Lyapunov const: \n\tL[",L[1],"] = ",L[2]);
+    print(" - First nonzero Lyapunov const: \n\tL[",L[1][1],"] = ",L[1][2]);
 
-    facts=factor(L[2]);
+    facts=factor(L[1][2]);
     j=2;
     tau=-polcoeff(facts[j,1],0,a)/polcoeff(facts[j,1],2,a);
 
