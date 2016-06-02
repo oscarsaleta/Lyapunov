@@ -15,11 +15,11 @@ oddfield(n)=
 {
     L=firstlyapunov(oddfield(n));
     print("QiuYang n = ",n," (expected first nonzero constant: ",(n*n+n-2)/2,")");
-    print(" - First nonzero Lyapunov const:\n\tL[",L[1],"] = ",L[2]);
+    print(" - First nonzero Lyapunov const:\n\tL[",L[1][1],"] = ",L[1][2]);
 }
 
 {
-    fctr=factor(L[2]);
+    fctr=factor(L[1][2]);
     print("\tFactorisation: ",fctr);
     /*for(k=1,#fctr~,
         mypol=fctr[k,1];
@@ -46,4 +46,4 @@ oddfield(n)=
     );*/
 }
 
-/*\q*/
+\q
