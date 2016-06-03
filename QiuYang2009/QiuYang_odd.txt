@@ -1,0 +1,55 @@
+libpvm [t40008]: pvm_start_pvmd(): Duplicate host
+./PBala:: INFO - will use nodes a08 (6)
+./PBala:: INFO - will create 14 tasks for 1 slaves
+./PBala:: INFO - created slave 0
+./PBala:: INFO - created slave 1
+./PBala:: INFO - created slave 2
+./PBala:: INFO - created slave 3
+./PBala:: INFO - created slave 4
+./PBala:: INFO - created slave 5
+./PBala:: INFO - creating auxiliary Pari script for task 1
+./PBala:: INFO - sent task    1 for execution
+./PBala:: INFO - creating auxiliary Pari script for task 2
+./PBala:: INFO - sent task    2 for execution
+./PBala:: INFO - creating auxiliary Pari script for task 3
+./PBala:: INFO - sent task    3 for execution
+./PBala:: INFO - creating auxiliary Pari script for task 4
+./PBala:: INFO - sent task    4 for execution
+./PBala:: INFO - creating auxiliary Pari script for task 5
+./PBala:: INFO - sent task    5 for execution
+./PBala:: INFO - creating auxiliary Pari script for task 6
+./PBala:: INFO - sent task    6 for execution
+./PBala:: INFO - task    1 completed in          0 seconds
+./PBala:: INFO - creating auxiliary Pari script for task 7
+./PBala:: INFO - sent task   7 for execution
+./PBala:: INFO - task    2 completed in          0 seconds
+./PBala:: INFO - creating auxiliary Pari script for task 8
+./PBala:: INFO - sent task   8 for execution
+./PBala:: INFO - task    3 completed in          0 seconds
+./PBala:: INFO - creating auxiliary Pari script for task 9
+./PBala:: INFO - sent task   9 for execution
+./PBala:: INFO - task    4 completed in          1 seconds
+./PBala:: INFO - creating auxiliary Pari script for task 10
+./PBala:: INFO - sent task  10 for execution
+./PBala:: INFO - task    5 completed in          1 seconds
+./PBala:: INFO - creating auxiliary Pari script for task 11
+./PBala:: INFO - sent task  11 for execution
+./PBala:: INFO - task    6 completed in          0 seconds
+./PBala:: INFO - creating auxiliary Pari script for task 12
+./PBala:: INFO - sent task  12 for execution
+./PBala:: INFO - task    7 completed in          1 seconds
+./PBala:: INFO - creating auxiliary Pari script for task 13
+./PBala:: INFO - sent task  13 for execution
+./PBala:: INFO - task    8 completed in          3 seconds
+./PBala:: INFO - creating auxiliary Pari script for task 14
+./PBala:: INFO - sent task  14 for execution
+./PBala:: INFO - task    9 completed in          6 seconds
+./PBala:: INFO - shutting down slave  2 (total execution time:             6 seconds)
+./PBala:: INFO - task   10 completed in         10 seconds
+./PBala:: INFO - shutting down slave  3 (total execution time:            11 seconds)
+./PBala:: INFO - task   11 completed in         16 seconds
+./PBala:: INFO - shutting down slave  4 (total execution time:            17 seconds)
+./PBala:: INFO - task   12 completed in         24 seconds
+./PBala:: INFO - shutting down slave  5 (total execution time:            24 seconds)
+./PBala:: INFO - task   13 completed in         35 seconds
+./PBala:: INFO - shutting down slave  0 (total execution time:            36 seconds)
