@@ -1,18 +1,18 @@
-TASK 7 RESOURCE USAGE (PID 15151)
+TASK 7 RESOURCE USAGE (PID 34957)
 ----------------------
-User CPU time used:                          19.153197
-System CPU time used:                         0.040002
-Maximum resident set size (KB):                 118556
+User CPU time used:                          35.394212
+System CPU time used:                         0.096006
+Maximum resident set size (KB):                 118724
 Integral shared memory size (KB):                    0
 Integral unshared data size (KB)                     0
 Integral shared stack size (KB):                     0
-Page reclaims (soft page faults):                32774
-Page faults (hard page faults):                      0
+Page reclaims (soft page faults):                38801
+Page faults (hard page faults):                      6
 Swaps:                                               0
-Block input operations:                             16
-block output operations:                            48
+Block input operations:                           1360
+block output operations:                            40
 IPC messages sent:                                   0
 IPC messages received:                               0
 Signals received:                                    0
-Voluntary context switches:                         55
-Involuntary context switches:                       36
+Voluntary context switches:                         42
+Involuntary context switches:                       62

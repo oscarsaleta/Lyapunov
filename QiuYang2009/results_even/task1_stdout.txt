@@ -12,6 +12,12 @@ Type ? for help, \q to quit.
 Type ?12 for how to get moral (and possibly technical) support.
 
 parisize = 50000000000, primelimit = 500509
-15,145061/320*a^5 - 182973/160*a^3
-18,26673003/149600*a^7 - 7748232653/2692800*a^5 + 1217797/240*a^3
+QiuYang n = 4 (expected first nonzero constant: 18)
+ - First nonzero Lyapunov const: 
+	L[15] = 145061/320*a^5 - 182973/160*a^3
+
+With a² = 52278/20723
+ - First nonzero Lyapunov const:
+	 L[18] = -1763201073556006215453/665670757145411600*a
+	Numerical approximation = -4207.0292493305075513379611411994128744
 Goodbye!
