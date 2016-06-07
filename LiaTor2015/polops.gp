@@ -1,5 +1,10 @@
+pq2r(P,Q)=
+{
+    return(subst(subst(P,x,(z+w)/2),y,(z+w)/2/I)+I*subst(subst(Q,x,(z+w)/2),y,(z+w)/2/I));
+}
 
-/*pol2vec(P,n,vx,vy)=
+
+pol2vec(P,n,vx,vy)=
 {
     local(aux);
     aux = vector(n+1);
@@ -10,7 +15,17 @@
         );
     );
     return(aux);
-}*/
+}
+
+vec2pol(v)=
+{
+    local(pol,n);
+    n=#v;
+    for(i=1,n,
+        pol += v[i]*z^i*w^(n-i);
+    );
+    return(pol)
+}
 
 
 /* multiplies 2 homogeneous polynomials as vectors */
@@ -24,9 +39,9 @@ vpolmult(P,Q)=
         aux = vector(len);
         for (i=1,#Q,
             aux[i+j-1] = P[j]*Q[i];
-            );
+        );
         res += aux;
-       );
+    );
     return(res)
 };
 
@@ -66,7 +81,7 @@ diagmat(ord)=
 };
 
 /* H and R are lists with the vectors needed to compute up to desired
- * order deg
+ * order ord (assume #H = #R)
  */
 indcoef(deg,H,R)=
 {
@@ -93,7 +108,7 @@ indcoef(deg,H,R)=
 lyapunov(N,R)=
 {
     local(lastdg,H,L);
-    lastdg = 2*(N+1);
+    lastdg = N*N+3*N-7;
     H=List([[0,1,0]]);
     L=List();
     forstep(i=3,lastdg-1,2,
@@ -101,9 +116,8 @@ lyapunov(N,R)=
         g=indcoef(i,H,R);
         d=diagmat(i);
         h=vector(i+1);
-        for(j=1,ceil((i+1)/2),
+        for(j=1,i+1,
             h[j]=g[j]/d[j];
-            h[i+1-j]=conj(h[j]);
         );
         listput(H,h);
         /* Part parella */
@@ -111,15 +125,15 @@ lyapunov(N,R)=
         d=diagmat(i+1);
         h=vector(i+2);
         listput(L,g[((i+1)/2)+1]/I);
-        for(j=1,(i+2)/2,
+        for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
-                h[i+2-j]=conj(h[j]);
             );
         );
+        h[((i+1)/2)+1]=g[((i+1)/2)+1]/I;
         listput(H,h);
     );
-    return(H);
+    return(L);
 };
 
 /* Calcula la primera constant de Lyapunov no nul·la i la retorna,
@@ -127,40 +141,7 @@ lyapunov(N,R)=
  */
 firstlyapunov(R)=
 {
-    local(lastdg,H,N,g,d,h,k);
-    N=0;
-    k=0;
-    for(i=1,#R,
-        N = max(N,#R[i]);
-    );
-    maxL = N*N+3*N-7;
-    lastdg = 2*(maxL+1);
-    H=List([[0,1,0]]);
-    forstep(i=3,lastdg-1,2,
-        /* Part senar */
-        g=indcoef(i,H,R);
-        d=diagmat(i);
-        h=vector(i+1);
-        for (j=1,i+1,
-            h[j]=g[j]/d[j];
-        );
-        listput(H,h);
-        /* Part parella */
-        k++;
-        g=indcoef(i+1,H,R);
-        if(g[((i+1)/2)+1]!=0,
-            return([k,g[((i+1)/2)+1]/I]);
-        );
-        d=diagmat(i+1);
-        h=vector(i+2);
-        for(j=1,i+2,
-            if(d[j]!=0,
-                h[j]=g[j]/d[j];
-            );
-        );
-        listput(H,h);
-    );
-    return("Centre");
+    firstlyapunovN(1,R);
 };
 
 firstlyapunovN(NN,R)=
@@ -204,20 +185,8 @@ firstlyapunovN(NN,R)=
         );
         listput(H,h);
     );
-    return("Centre");
+    return("Centre?");
 }
-
-ferP(N)=
-{
-    local(r1,r2,R/*,NN*/);
-    r1=vector(N);r1[N]=1;
-    r2=vector(N+1);r2[1]=1;
-    R=List([r1,r2]);
-    /*NN=(N-1)*(N-1);*/
-    gettime();
-    print(firstlyapunov(R));
-    gettime()
-};
 
 /* Generar pol z^m*w^n+z^k*w^l en notacio vectorial */
 genfield(m,n,k,l)=
@@ -229,30 +198,3 @@ genfield(m,n,k,l)=
     v2[l+1]=a2+I*b2;
     return(List([v1,v2]));
 }
-
-
-
-gencleanfield(m,n,k,l)=
-{
-    local(v1,v2);
-    v1=vector(m+n+1);
-    v1[n+1]=1;
-    v2=vector(k+l+1);
-    v2[l+1]=1;
-    return(List([v1,v2]));
-}
-
-fer()=
-{
-    for(m=1,3,
-        for(n=1,3,
-            for(k=1,3,
-                for(l=1,3,
-                    print(m,",",n,",",k,",",l);
-                    print(firstlyapunov(genfield(m,n,k,l)));
-                );
-            );
-        );
-    );
-}    
-
