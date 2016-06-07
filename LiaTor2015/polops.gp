@@ -124,19 +124,10 @@ lyapunov(N,R)=
         g=indcoef(i+1,H,R);
         d=diagmat(i+1);
         h=vector(i+2);
-<<<<<<< HEAD
-        for(j=1,i+2,
-            if(d[j]!=0,
-                h[j]=g[j]/d[j];
-            ,
-                h[j]=g[j]/I;
-                listput(L,h[j]);
-=======
         listput(L,g[((i+1)/2)+1]/I);
         for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
->>>>>>> master
             );
         );
         h[((i+1)/2)+1]=g[((i+1)/2)+1]/I;
@@ -151,11 +142,7 @@ lyapunov(N,R)=
 firstlyapunov(R)=
 {
     firstlyapunovN(1,R);
-<<<<<<< HEAD
-}
-=======
 };
->>>>>>> master
 
 firstlyapunovN(NN,R)=
 {
@@ -203,20 +190,6 @@ firstlyapunovN(NN,R)=
     return("Centre?");
 }
 
-<<<<<<< HEAD
-/*ferP(N)=
-{
-    local(r1,r2,R);
-    r1=vector(N);r1[N]=1;
-    r2=vector(N+1);r2[1]=1;
-    R=List([r1,r2]);
-    gettime();
-    print(firstlyapunov(R));
-    gettime()
-};*/
-
-=======
->>>>>>> master
 /* Generar pol z^m*w^n+z^k*w^l en notacio vectorial */
 genfield(m,n,k,l)=
 {
@@ -227,32 +200,3 @@ genfield(m,n,k,l)=
     v2[l+1]=a2+I*b2;
     return(List([v1,v2]));
 }
-<<<<<<< HEAD
-
-gencleanfield(m,n,k,l)=
-{
-    local(v1,v2);
-    v1=vector(m+n+1);
-    v1[n+1]=1;
-    v2=vector(k+l+1);
-    v2[l+1]=1;
-    return(List([v1,v2]));
-}
-
-/*
-fer()=
-{
-    for(m=1,3,
-        for(n=1,3,
-            for(k=1,3,
-                for(l=1,3,
-                    print(m,",",n,",",k,",",l);
-                    print(firstlyapunov(genfield(m,n,k,l)));
-                );
-            );
-        );
-    );
-}    
-*/
-=======
->>>>>>> master
