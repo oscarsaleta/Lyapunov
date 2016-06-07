@@ -3,15 +3,6 @@ pq2r(P,Q)=
     return(subst(subst(P,x,(z+w)/2),y,(z+w)/2/I)+I*subst(subst(Q,x,(z+w)/2),y,(z+w)/2/I));
 }
 
-/*pol2vec1var(P,n,vx)=
-{
-    local(aux);
-    aux=vector(n+1);
-    for(i=0,n,
-        aux[i+1]=polcoeff(P,i,vx);
-    );
-    return(aux);
-}*/
 
 pol2vec(P,n,vx,vy)=
 {
@@ -26,6 +17,16 @@ pol2vec(P,n,vx,vy)=
     return(aux);
 }
 
+vec2pol(v)=
+{
+    local(pol,n);
+    n=#v;
+    for(i=1,n,
+        pol += v[i]*z^i*w^(n-i);
+    );
+    return(pol)
+}
+
 
 /* multiplies 2 homogeneous polynomials as vectors */
 vpolmult(P,Q)=
@@ -38,9 +39,9 @@ vpolmult(P,Q)=
         aux = vector(len);
         for (i=1,#Q,
             aux[i+j-1] = P[j]*Q[i];
-            );
+        );
         res += aux;
-       );
+    );
     return(res)
 };
 
@@ -107,7 +108,7 @@ indcoef(deg,H,R)=
 lyapunov(N,R)=
 {
     local(lastdg,H,L);
-    lastdg = 2*(N+1);
+    lastdg = N*N+3*N-7;
     H=List([[0,1,0]]);
     L=List();
     forstep(i=3,lastdg-1,2,
@@ -123,14 +124,22 @@ lyapunov(N,R)=
         g=indcoef(i+1,H,R);
         d=diagmat(i+1);
         h=vector(i+2);
+<<<<<<< HEAD
         for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
             ,
                 h[j]=g[j]/I;
                 listput(L,h[j]);
+=======
+        listput(L,g[((i+1)/2)+1]/I);
+        for(j=1,i+2,
+            if(d[j]!=0,
+                h[j]=g[j]/d[j];
+>>>>>>> master
             );
         );
+        h[((i+1)/2)+1]=g[((i+1)/2)+1]/I;
         listput(H,h);
     );
     return(L);
@@ -142,7 +151,11 @@ lyapunov(N,R)=
 firstlyapunov(R)=
 {
     firstlyapunovN(1,R);
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> master
 
 firstlyapunovN(NN,R)=
 {
@@ -190,6 +203,7 @@ firstlyapunovN(NN,R)=
     return("Centre?");
 }
 
+<<<<<<< HEAD
 /*ferP(N)=
 {
     local(r1,r2,R);
@@ -201,6 +215,8 @@ firstlyapunovN(NN,R)=
     gettime()
 };*/
 
+=======
+>>>>>>> master
 /* Generar pol z^m*w^n+z^k*w^l en notacio vectorial */
 genfield(m,n,k,l)=
 {
@@ -211,6 +227,7 @@ genfield(m,n,k,l)=
     v2[l+1]=a2+I*b2;
     return(List([v1,v2]));
 }
+<<<<<<< HEAD
 
 gencleanfield(m,n,k,l)=
 {
@@ -237,3 +254,5 @@ fer()=
     );
 }    
 */
+=======
+>>>>>>> master

@@ -17,6 +17,16 @@ pol2vec(P,n,vx,vy)=
     return(aux);
 }
 
+vec2pol(v)=
+{
+    local(pol,n);
+    n=#v;
+    for(i=1,n,
+        pol += v[i]*z^i*w^(n-i);
+    );
+    return(pol)
+}
+
 
 /* multiplies 2 homogeneous polynomials as vectors */
 vpolmult(P,Q)=
@@ -29,9 +39,9 @@ vpolmult(P,Q)=
         aux = vector(len);
         for (i=1,#Q,
             aux[i+j-1] = P[j]*Q[i];
-            );
+        );
         res += aux;
-       );
+    );
     return(res)
 };
 
