@@ -3,15 +3,6 @@ pq2r(P,Q)=
     return(subst(subst(P,x,(z+w)/2),y,(z+w)/2/I)+I*subst(subst(Q,x,(z+w)/2),y,(z+w)/2/I));
 }
 
-/*pol2vec1var(P,n,vx)=
-{
-    local(aux);
-    aux=vector(n+1);
-    for(i=0,n,
-        aux[i+1]=polcoeff(P,i,vx);
-    );
-    return(aux);
-}*/
 
 pol2vec(P,n,vx,vy)=
 {
@@ -26,6 +17,16 @@ pol2vec(P,n,vx,vy)=
     return(aux);
 }
 
+vec2pol(v)=
+{
+    local(pol,n);
+    n=#v;
+    for(i=1,n,
+        pol += v[i]*z^i*w^(n-i);
+    );
+    return(pol)
+}
+
 
 /* multiplies 2 homogeneous polynomials as vectors */
 vpolmult(P,Q)=
@@ -38,9 +39,9 @@ vpolmult(P,Q)=
         aux = vector(len);
         for (i=1,#Q,
             aux[i+j-1] = P[j]*Q[i];
-            );
+        );
         res += aux;
-       );
+    );
     return(res)
 };
 
