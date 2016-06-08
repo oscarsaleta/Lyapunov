@@ -19,4 +19,4 @@ gentrifield(k,l,m,n,p,q)=
     return(List([v1,v2,v3]));
 }
 
-print(firstlyapunov(gentrifield(k,l,m,n,p,q)));
+print(firstlyapunovN(3,gentrifield(k,l,m,n,p,q)));
