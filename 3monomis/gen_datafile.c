@@ -12,14 +12,16 @@ int main() {
                 for(n=0;n<20;n++) {
                     for(p=0;p<20;p++) {
                         for(q=0;q<20;q++) {
-                           if (k+l<=m+n || m+n<=p+q) // per no repetir casos
+                           if (k+l<m+n || m+n<p+q) // per no repetir casos
                                continue;
+                           if ( (k==m && l==n) || (k==p && l==q) || (m==p && n==q) )
+                               continue; // no serien 3 monomis
                            if (l==n && n==q && q==0)
-                               continue; //holomorfs
+                               continue; // centres holomorfs
                            if (k==q && q==m+n && m==n && l==p && p==0)
-                               continue; //darboux?
+                               continue; // centres darboux?
                            if (k==m && m==p && l!=n && l!=q && n!=q && k-l-1!=0)
-                               continue; //new darboux?
+                               continue; // centres new darboux?
                         }
                     }
                 }
