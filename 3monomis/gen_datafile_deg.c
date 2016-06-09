@@ -16,7 +16,7 @@ int main (int argc, char *argv[]) {
                         continue;
                     for (p=0;p<maxdeg;p++) {
                         for (q=0;q<maxdeg;q++) {
-                            if (p+q > maxdeg || (p==m && q==n) || (p==l && q==k))
+                            if (p+q > maxdeg || (p==m && q==n) || (p==k && q==l))
                                 continue;
                             printf("%d,%d,%d,%d,%d,%d,%d\n",count,k,l,m,n,p,q);
                             count++;
