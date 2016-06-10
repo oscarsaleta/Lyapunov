@@ -1,11 +1,12 @@
 \r polops.gp
 
-k=taskArgs[1];
-l=taskArgs[2];
-m=taskArgs[3];
-n=taskArgs[4];
-p=taskArgs[5];
-q=taskArgs[6];
+ntask=taskArgs[1];
+k=taskArgs[2];
+l=taskArgs[3];
+m=taskArgs[4];
+n=taskArgs[5];
+p=taskArgs[6];
+q=taskArgs[7];
 
 gentrifield(k,l,m,n,p,q)=
 {
@@ -22,8 +23,10 @@ gentrifield(k,l,m,n,p,q)=
 lyap=firstlyapunovN(3,gentrifield(k,l,m,n,p,q));
 {
 if (lyap=="Centre?",
-        print(k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap);
+        print(ntask,k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap);
         ,
-        print(k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap[1],lyap[2],lyap[3]);
+        print(ntask,k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap[1][1],lyap[1][2]);
+        print(lyap[2][1],",",lyap[2][2]);
+        print(lyap[3][1],",",lyap[3][2]);
    );
 }
