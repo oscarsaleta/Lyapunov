@@ -16,7 +16,7 @@ int main (int argc, char *argv[]) {
                 continue;
             for (m=0;m<=maxdeg;m++) {
                 for (n=0;n<=maxdeg;n++) {
-                    if (m+n > maxdeg || (m==l && n==k) || (m==0 && n==0) || m+n<2)
+                    if (m+n > maxdeg || (m==k && n==l) || (m==0 && n==0) || m+n<2)
                         continue;
                     for (p=0;p<=maxdeg;p++) {
                         for (q=0;q<=maxdeg;q++) {
