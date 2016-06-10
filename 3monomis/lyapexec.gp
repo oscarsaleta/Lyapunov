@@ -20,5 +20,10 @@ gentrifield(k,l,m,n,p,q)=
 }
 
 lyap=firstlyapunovN(3,gentrifield(k,l,m,n,p,q));
-
-print(k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap[1],lyap[2],lyap[3]);
+{
+if (lyap=="Centre?",
+        print(k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap);
+        ,
+        print(k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap[1],lyap[2],lyap[3]);
+   );
+}
