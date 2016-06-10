@@ -19,4 +19,6 @@ gentrifield(k,l,m,n,p,q)=
     return(List([v1,v2,v3]));
 }
 
-print(k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",firstlyapunovN(3,gentrifield(k,l,m,n,p,q)));
+lyap=firstlyapunovN(3,gentrifield(k,l,m,n,p,q));
+
+print(k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap[1],lyap[2],lyap[3]);
