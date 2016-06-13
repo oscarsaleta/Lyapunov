@@ -25,8 +25,16 @@ lyap=firstlyapunovN(6,gentrifield(k,l,m,n,p,q));
 if (lyap=="Centre?",
         print(ntask,",",k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap);
         ,
-        print(ntask,",",k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,n+m),p+q),",",
-            lyap[1][1],",",lyap[2][1],",",lyap[3][1],",",lyap[4][1],",",lyap[5][1],",",lyap[6][1]);
+        if(( (k+l)==(m+n) && (m+n)==(p+q) ),
+            print(ntask,",",k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,n+m),p+q),",",
+                lyap[1][1],",",lyap[2][1],",",lyap[3][1],",",lyap[4][1],",",lyap[5][1],",",lyap[6][1],
+                ",","'Homogeni'");
+            ,
+            print(ntask,",",k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,n+m),p+q),",",
+                lyap[1][1],",",lyap[2][1],",",lyap[3][1],",",lyap[4][1],",",lyap[5][1],",",lyap[6][1],
+                ",","'No homogeni'");
+          );
+
         print(lyap[1][1],",",lyap[1][2]);
         print(lyap[2][1],",",lyap[2][2]);
         print(lyap[3][1],",",lyap[3][2]);
