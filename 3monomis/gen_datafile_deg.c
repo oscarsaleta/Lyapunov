@@ -25,6 +25,8 @@ int main (int argc, char *argv[]) {
                                 continue;
                             if (max(max(k+l,m+n),p+q)<maxdeg)
                                 continue;
+                            if (k==m && m==p && (k-l-1!=0))
+                                continue;
                             printf("%d,%d,%d,%d,%d,%d,%d,%d\n",count,count,k,l,m,n,p,q);
                             count++;
                         }
