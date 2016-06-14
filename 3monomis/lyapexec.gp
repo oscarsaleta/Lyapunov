@@ -35,11 +35,11 @@ if (lyap=="Centre?",
                 ",","'No homogeni'");
           );
 
-        print(lyap[1][1],",",lyap[1][2]);
-        print(lyap[2][1],",",lyap[2][2]);
-        print(lyap[3][1],",",lyap[3][2]);
-        print(lyap[4][1],",",lyap[4][2]);
-        print(lyap[5][1],",",lyap[5][2]);
-        print(lyap[6][1],",",lyap[6][2]);
+        print("L",lyap[1][1],":=",lyap[1][2],":");
+        print("L",lyap[2][1],":=",lyap[2][2],":");
+        print("L",lyap[3][1],":=",lyap[3][2],":");
+        print("L",lyap[4][1],":=",lyap[4][2],":");
+        print("L",lyap[5][1],":=",lyap[5][2],":");
+        print("L",lyap[6][1],":=",lyap[6][2],":");
    );
 }
