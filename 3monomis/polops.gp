@@ -188,9 +188,9 @@ firstlyapunovN(NN,R)=
     return("Centre?");
 }
 
-nextlyapunov(R,H=List([[0,1,0]]))=
+nextlyapunov(R,H=List([[0,1,0]]),L=List())=
 {
-    my(i,N,maxL,lastdg,g,d,h,L);
+    my(i,N,maxL,lastdg,g,d,h);
     if (#H%2==0,
         return("Invalid H");
     );
@@ -224,12 +224,12 @@ nextlyapunov(R,H=List([[0,1,0]]))=
         listput(H,h);
         const = g[((i+1)/2)+1]/I;
         if (const!=0,
-            L = [k,const];
-            break;
+            listput(L,[k,const]);
+            /* Retornem H i la constant trobada */
+            return(List([L,H]));
         );
         i+=2;
     );
             
-    /* Retornem H i la constant trobada */
-    return(List([L,H]));
+    return(-1);
 }
