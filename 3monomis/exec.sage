@@ -24,20 +24,14 @@ if sage_eval(gp.eval("l==-1"))==1:
     print("\nR is a center")
     sys.exit()
 
-#K = GF(32003)
-#R = PolynomialRing(K,'a1,a2,b1,b2')
-R = PolynomialRing(QQbar,'a1,a2,b1,b2')
-a1,a2,b1,b2 = R.gens()
-R.inject_variables(verbose=False)
-#str_cmd="R.<a1,b1,a2,b2>=PolynomialRing(GF(32003))"
-str_cmd="R.<a1,b1,a2,b2>=QQbar[]"
+R = singular.ring(32003,'(a1,b1,a2,b2)','dp')
 
 lyaps = []
-lyaps.append(sage_eval(gp.eval("l[1][1]"),cmds=str_cmd)[1])
+lyaps.append(gp.eval("l[1][1][2]"))
 ordres = []
 ordres.append(gp.eval("l[1][1][1]"))
 
-print("\nFirst constant: L"+ordres[0]+" = "+str(lyaps[0]))
+print("\nFirst constant: L"+ordres[0]+" = "+lyaps[0])
 ordre = ordres[0]
 
 i = 1
@@ -45,15 +39,15 @@ reduct = 0
 while (int(ordres[0])<=grau*grau+3*grau-7):
     # Calcular constant no nul·la
     gp("l=nextlyapunov(R,l[2],l[1]);")
-    f=sage_eval(gp.eval("l[1]["+str(i+1)+"]"),cmds=str_cmd)[1]
+    f=gp.eval("l[1]["+str(i+1)+"][2]")
     lyaps.insert(0,f)
     ordres.insert(0,gp.eval("l[1]["+str(i+1)+"][1]"))
     # Generar ideal amb constants anteriors
-    I = ideal(*lyaps[1:])
+    I = singular.ideal(lyaps[1:])
     # Reduir nova constant resp les anteriors
-    B = I.groebner_basis()
+    B = I.groebner()
     # Si redueix, pararem si en portem 2 seguides o passem de n*n+n-2
-    if lyaps[0].reduce(B)==0:
+    if singular(lyaps[0]).sage().reduce(B.sage())==0:
         print("reduce(L"+ordres[0]+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") = 0")
         reduct += 1
         if int(ordres[0])>grau*(grau+1)-2 or reduct>2:
