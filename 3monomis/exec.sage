@@ -1,12 +1,13 @@
 set_verbose(-1)
 
 # Llegir dades
-k=taskArgs[0]
-l=taskArgs[1]
-m=taskArgs[2]
-n=taskArgs[3]
-p=taskArgs[4]
-q=taskArgs[5]
+taskId=taskArgs[0]
+k=taskArgs[1]
+l=taskArgs[2]
+m=taskArgs[3]
+n=taskArgs[4]
+p=taskArgs[5]
+q=taskArgs[6]
 
 print("R = i*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*i)*z^"+str(m)+"*w^"+str(n)+" + (a2+b2*i)*z^"+str(p)+"*w^"+str(q))
 grau = max(max(k+l,m+n),p+q)
