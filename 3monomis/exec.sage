@@ -35,7 +35,7 @@ lyaps.append(sage_eval(gp.eval("l[1][1]"),cmds=str_cmd)[1])
 ordres = []
 ordres.append(gp.eval("l[1][1][1]"))
 
-print("\nFirst constant: L"+ordres[0]+"="+str(lyaps[0]))
+print("\nFirst constant: L"+ordres[0]+" = "+str(lyaps[0]))
 ordre = ordres[0]
 
 i = 1
