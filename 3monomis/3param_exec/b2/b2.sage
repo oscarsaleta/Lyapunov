@@ -1,5 +1,4 @@
 set_verbose(-1)
-gp("allocatemem(35000000)")
 
 # Llegir dades
 taskId=taskArgs[0]
