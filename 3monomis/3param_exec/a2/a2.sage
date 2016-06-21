@@ -9,7 +9,7 @@ n=taskArgs[4]
 p=taskArgs[5]
 q=taskArgs[6]
 
-print("R = i*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*i)*z^"+str(m)+"*w^"+str(n)+" + (a2+b2*i)*z^"+str(p)+"*w^"+str(q))
+print("R = i*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*i)*z^"+str(m)+"*w^"+str(n)+" + (b2*i)*z^"+str(p)+"*w^"+str(q))
 grau = max(max(k+l,m+n),p+q)
 print("Field degree = "+str(grau))
 
