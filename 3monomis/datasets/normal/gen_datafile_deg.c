@@ -9,7 +9,6 @@ int main (int argc, char *argv[]) {
     int k,l,m,n,p,q;
     int maxdeg=atoi(argv[1]);
     int count=0;
-    int aux1,aux2;
 
     for (k=0;k<=maxdeg;k++) {
         for (l=0;l<=maxdeg;l++) {
@@ -33,7 +32,7 @@ int main (int argc, char *argv[]) {
                             if (k-l-1!=0)
                                 printf("%d,%d,%d,%d,%d,%d,%d,%d\n",count,count,k,l,m,n,p,q);
                             else
-                                printf("%d,%d,%d,%d,%d,%d,%d,%d\n",count,count,m,n,k,l,p,q);
+                                continue;
                             count++;
                         }
                     }

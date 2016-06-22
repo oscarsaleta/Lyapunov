@@ -21,6 +21,7 @@ gp("read(\"lyap_3mono.gp\")")
 gp("l=nextlyapunov(R);")
 if sage_eval(gp.eval("l==-1"))==1:
     print("\nR is a center")
+    print("\n"+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+",Center")
     sys.exit()
 
 R = singular.ring(32003,'(a1,b1,a2,b2)','dp')
