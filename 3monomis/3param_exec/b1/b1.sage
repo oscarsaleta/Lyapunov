@@ -50,7 +50,7 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     if singular(lyaps[0]).sage().reduce(B.sage())==0:
         print("reduce(L"+ordres[0]+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") = 0")
         reduct += 1
-        if int(ordres[0])>grau*(grau+1)-2 or reduct>2:
+        if int(ordres[0])>grau*(grau+1)-2 or reduct>grau-1:
             break
     else:
         # Si no redueix, guardem l'ultim ordre
