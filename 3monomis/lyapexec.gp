@@ -20,7 +20,9 @@ gentrifield(k,l,m,n,p,q)=
     return(List([v1,v2,v3]));
 }
 
-lyap=firstlyapunovN(6,gentrifield(k,l,m,n,p,q));
+ordres=11;
+lyap=firstlyapunovN(ordres,gentrifield(k,l,m,n,p,q));
+
 {
 if (lyap=="Centre?",
         print(ntask,",",k,",",l,",",m,",",n,",",p,",",q,",",max(max(k+l,m+n),p+q),",",lyap);
@@ -35,11 +37,8 @@ if (lyap=="Centre?",
                 ",","'No homogeni'");
           );
 
-        print("L",lyap[1][1],":=",lyap[1][2],":");
-        print("L",lyap[2][1],":=",lyap[2][2],":");
-        print("L",lyap[3][1],":=",lyap[3][2],":");
-        print("L",lyap[4][1],":=",lyap[4][2],":");
-        print("L",lyap[5][1],":=",lyap[5][2],":");
-        print("L",lyap[6][1],":=",lyap[6][2],":");
+        for (i=1,ordres,
+            print("L",lyap[i][1],":=",lyap[i][2],":");
+        );
    );
 }
