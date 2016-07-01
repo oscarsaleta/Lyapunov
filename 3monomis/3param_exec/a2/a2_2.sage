@@ -20,7 +20,7 @@ print("deg(R2) = "+str(grau2))
 
 # Carregar dades i funcions en Pari
 gp("taskArgs=["+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+"]")
-gp("read(\"lyap_a2.gp\")")
+gp("read(\"lyap_a2_2.gp\")")
 
 # Calcular primera constant no nul·la
 gp("l=nextlyapunov(R1);")
