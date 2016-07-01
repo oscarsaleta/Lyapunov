@@ -24,7 +24,7 @@ if sage_eval(gp.eval("l==-1"))==1:
     print("\n"+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+",Center")
     sys.exit()
 
-R = singular.ring(32003,'(a1,b1,a2,b2)','dp')
+R = singular.ring(32003,'(a1,a2,b2)','dp')
 
 lyaps = []
 lyaps.append(gp.eval("l[1][1][2]"))
@@ -48,13 +48,13 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     B = I.groebner()
     # Si redueix, pararem si en portem 2 seguides o passem de n*n+n-2
     if singular(lyaps[0]).sage().reduce(B.sage())==0:
-        print("reduce(L"+ordres[0]+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") = 0")
+        print("L"+ordres[0]+" reduces with previous: YES")
         reduct += 1
         if int(ordres[0])>grau*(grau+1)-2 or reduct>grau-1:
             break
     else:
         # Si no redueix, guardem l'ultim ordre
-        print("reduce(L"+ordres[0]+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") != 0")
+        print("L"+ordres[0]+" reduces with previous: NO")
         ordre = ordres[0]
         reduct = 0
     i += 1
