@@ -33,11 +33,10 @@ int main (int argc, char *argv[]) {
                                 continue;
                             // mirar nous centres monomis de 2 en 2
                             if (p-q-1==0 && k==m) {
-                                printf("%d,%d,%d,%d,%d,%d\n",count,count,k,l,p,q);
-                                printf("%d,%d,%d,%d,%d,%d\n",count+1,count+1,m,n,p,q);
+                                printf("%d,%d,%d,%d,%d,%d,%d,%d\n",count,count,k,l,m,n,p,q);
                             } else
                                 continue;
-                            count+=2;
+                            count++;
                         }
                     }
                 }
