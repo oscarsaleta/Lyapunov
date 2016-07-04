@@ -32,7 +32,7 @@ int main (int argc, char *argv[]) {
                             if (k-l-1==0)
                                 continue;
                             // mirar nous centres monomis de 2 en 2
-                            if (p-q-1==0 && k==m) {
+                            if (m-n-1!=0 && p-q-1==0 && k==m) {
                                 printf("%d,%d,%d,%d,%d,%d,%d,%d\n",count,count,k,l,m,n,p,q);
                             } else
                                 continue;
