@@ -11,26 +11,39 @@ q=taskArgs[6]
 
 print("\n"+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+"\n")
 
-print("R1 = i*z + z^"+str(k)+"*w^"+str(l)+" + (b2*i)*z^"+str(p)+"*w^"+str(q))
-grau1 = max(k+l,p+q)
+print("R1 = i*z + 1/2*z^"+str(k)+"*w^"+str(l)+" + (a1+b1*i)/2*z^"+str(m)+"*w^"+str(n))
+grau1 = max(k+l,m+n)
 print("deg(R1) = "+str(grau1))
-print("R2 = i*z"+" + (a1+b1*i)*z^"+str(m)+"*w^"+str(n)+" + (b2*i)*z^"+str(p)+"*w^"+str(q))
-grau2 = max(m+n,p+q)
+print("R2 = i*z"+" + 1/2*z^"+str(k)+"*w^"+str(l)+" + (b2*i)/2*z^"+str(p)+"*w^"+str(q))
+grau2 = max(k+l,p+q)
 print("deg(R2) = "+str(grau2))
+print("R3 = i*z"+" + (a1+b1*i)/2*z^"+str(m)+"*w^"+str(n)+" + (b2*i)/2*z^"+str(p)+"*w^"+str(q))
+grau3 = max(m+n,p+q)
+print("deg(R3) = "+str(grau3))
 
 # Carregar dades i funcions en Pari
 gp("taskArgs=["+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+"]")
 gp("read(\"lyap_a2_2.gp\")")
 
-# Calcular primera constant no nul·la
-gp("l=nextlyapunov(R1);")
-if sage_eval(gp.eval("l==-1"))==1:
-    print("\nR1 is a center")
-else:
-    print("\nR1 is NOT a center")
+txt="\n"+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+","
 
-gp("l=nextlyapunov(R2);")
-if sage_eval(gp.eval("l==-1"))==1:
-    print("\nR2 is a center")
+# Calcular primera constant no nul·la
+gp("l1=nextlyapunov(R1);")
+if sage_eval(gp.eval("l1==-1"))==1:
+    txt+="SI,"
 else:
-    print("\nR2 is NOT a center")
+    txt+="NO,"
+
+gp("l2=nextlyapunov(R2);")
+if sage_eval(gp.eval("l2==-1"))==1:
+    txt+="SI,"
+else:
+    txt+="NO,"
+
+gp("l3=nextlyapunov(R3);")
+if sage_eval(gp.eval("l3==-1"))==1:
+    txt+="SI"
+else:
+    txt+="NO"
+
+print(txt)
