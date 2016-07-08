@@ -1,0 +1,12 @@
+restart;
+l:=taskArgs[1];
+n:=taskArgs[2];
+p:=taskArgs[3];
+R:=I*z+w^l+(a1+b1*I)*w^n+I*b2*z^p*w^(p-1);
+simplify(expand(subs([w=x-I*y,z=x+I*y],R)));
+P:=coeff(%,I,0);
+Q:=coeff(%%,I,1);
+H:=-int(P,y)+f(x);
+dsolve(diff(H,x)-Q);
+H0:=subs(%,H);
+factor(diff(H0,x)*P+diff(H0,y)*Q);
