@@ -1,0 +1,696 @@
+libpvm [t40001]: pvm_addhosts(): Already in progress
+PRINCESS BALA v3.0.0
+System call: ./PBala 4 a1.sage ../../datasets/normal/deg3.txt ../../nodefile resultats/grau3/ 1 
+
+./PBala:: INFO - will use executable a1.sage
+./PBala:: INFO - will use datafile ../../datasets/normal/deg3.txt
+./PBala:: INFO - will use nodefile ../../nodefile
+./PBala:: INFO - results will be stored in resultats/grau3/
+
+./PBala:: INFO - will use nodes a01 (8), a04 (8), a06 (16)
+./PBala:: INFO - will create 204 tasks for 3 slaves
+
+./PBala:: CREATED_SLAVE - created slave 0
+./PBala:: CREATED_SLAVE - created slave 1
+./PBala:: CREATED_SLAVE - created slave 2
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: CREATED_SLAVE - created slave 4
+./PBala:: CREATED_SLAVE - created slave 5
+./PBala:: CREATED_SLAVE - created slave 6
+./PBala:: CREATED_SLAVE - created slave 7
+./PBala:: CREATED_SLAVE - created slave 8
+./PBala:: CREATED_SLAVE - created slave 9
+./PBala:: CREATED_SLAVE - created slave 10
+./PBala:: CREATED_SLAVE - created slave 11
+./PBala:: CREATED_SLAVE - created slave 12
+./PBala:: CREATED_SLAVE - created slave 13
+./PBala:: CREATED_SLAVE - created slave 14
+./PBala:: CREATED_SLAVE - created slave 15
+./PBala:: CREATED_SLAVE - created slave 16
+./PBala:: CREATED_SLAVE - created slave 17
+./PBala:: CREATED_SLAVE - created slave 18
+./PBala:: CREATED_SLAVE - created slave 19
+./PBala:: CREATED_SLAVE - created slave 20
+./PBala:: CREATED_SLAVE - created slave 21
+./PBala:: CREATED_SLAVE - created slave 22
+./PBala:: CREATED_SLAVE - created slave 23
+./PBala:: CREATED_SLAVE - created slave 24
+./PBala:: CREATED_SLAVE - created slave 25
+./PBala:: CREATED_SLAVE - created slave 26
+./PBala:: CREATED_SLAVE - created slave 27
+./PBala:: CREATED_SLAVE - created slave 28
+./PBala:: CREATED_SLAVE - created slave 29
+./PBala:: CREATED_SLAVE - created slave 30
+./PBala:: CREATED_SLAVE - created slave 31
+./PBala:: INFO - all slaves created successfully
+
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 0
+./PBala:: TASK_SENT - sent task    0 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 1
+./PBala:: TASK_SENT - sent task    1 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 2
+./PBala:: TASK_SENT - sent task    2 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 3
+./PBala:: TASK_SENT - sent task    3 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 4
+./PBala:: TASK_SENT - sent task    4 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 5
+./PBala:: TASK_SENT - sent task    5 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 6
+./PBala:: TASK_SENT - sent task    6 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 7
+./PBala:: TASK_SENT - sent task    7 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 8
+./PBala:: TASK_SENT - sent task    8 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 9
+./PBala:: TASK_SENT - sent task    9 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 10
+./PBala:: TASK_SENT - sent task   10 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 11
+./PBala:: TASK_SENT - sent task   11 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 12
+./PBala:: TASK_SENT - sent task   12 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 13
+./PBala:: TASK_SENT - sent task   13 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 14
+./PBala:: TASK_SENT - sent task   14 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 15
+./PBala:: TASK_SENT - sent task   15 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 16
+./PBala:: TASK_SENT - sent task   16 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 17
+./PBala:: TASK_SENT - sent task   17 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 18
+./PBala:: TASK_SENT - sent task   18 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 19
+./PBala:: TASK_SENT - sent task   19 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 20
+./PBala:: TASK_SENT - sent task   20 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 21
+./PBala:: TASK_SENT - sent task   21 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 22
+./PBala:: TASK_SENT - sent task   22 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 23
+./PBala:: TASK_SENT - sent task   23 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 24
+./PBala:: TASK_SENT - sent task   24 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 25
+./PBala:: TASK_SENT - sent task   25 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 26
+./PBala:: TASK_SENT - sent task   26 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 27
+./PBala:: TASK_SENT - sent task   27 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 28
+./PBala:: TASK_SENT - sent task   28 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 29
+./PBala:: TASK_SENT - sent task   29 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 30
+./PBala:: TASK_SENT - sent task   30 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 31
+./PBala:: TASK_SENT - sent task   31 for execution
+./PBala:: INFO - first batch of work sent
+
+./PBala:: TASK_COMPLETED - task    1 completed in         20 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 32
+./PBala:: TASK_SENT - sent task  32 for execution
+./PBala:: TASK_COMPLETED - task    2 completed in         35 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 33
+./PBala:: TASK_SENT - sent task  33 for execution
+./PBala:: TASK_COMPLETED - task    3 completed in         48 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 34
+./PBala:: TASK_SENT - sent task  34 for execution
+./PBala:: TASK_COMPLETED - task   12 completed in         48 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 35
+./PBala:: TASK_SENT - sent task  35 for execution
+./PBala:: TASK_COMPLETED - task   11 completed in         48 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 36
+./PBala:: TASK_SENT - sent task  36 for execution
+./PBala:: TASK_COMPLETED - task    8 completed in         54 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 37
+./PBala:: TASK_SENT - sent task  37 for execution
+./PBala:: TASK_COMPLETED - task   13 completed in         53 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 38
+./PBala:: TASK_SENT - sent task  38 for execution
+./PBala:: TASK_COMPLETED - task    7 completed in         57 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 39
+./PBala:: TASK_SENT - sent task  39 for execution
+./PBala:: TASK_COMPLETED - task    9 completed in         61 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 40
+./PBala:: TASK_SENT - sent task  40 for execution
+./PBala:: TASK_COMPLETED - task   14 completed in         61 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 41
+./PBala:: TASK_SENT - sent task  41 for execution
+./PBala:: TASK_COMPLETED - task   15 completed in         64 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 42
+./PBala:: TASK_SENT - sent task  42 for execution
+./PBala:: TASK_COMPLETED - task    0 completed in         68 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 43
+./PBala:: TASK_SENT - sent task  43 for execution
+./PBala:: TASK_COMPLETED - task   10 completed in         69 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 44
+./PBala:: TASK_SENT - sent task  44 for execution
+./PBala:: TASK_COMPLETED - task    6 completed in         76 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 45
+./PBala:: TASK_SENT - sent task  45 for execution
+./PBala:: TASK_COMPLETED - task    5 completed in         77 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 46
+./PBala:: TASK_SENT - sent task  46 for execution
+./PBala:: TASK_COMPLETED - task    4 completed in         79 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 47
+./PBala:: TASK_SENT - sent task  47 for execution
+./PBala:: TASK_COMPLETED - task   32 completed in         71 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 48
+./PBala:: TASK_SENT - sent task  48 for execution
+./PBala:: TASK_COMPLETED - task   20 completed in         96 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 49
+./PBala:: TASK_SENT - sent task  49 for execution
+./PBala:: TASK_COMPLETED - task   18 completed in         99 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 50
+./PBala:: TASK_SENT - sent task  50 for execution
+./PBala:: TASK_COMPLETED - task   21 completed in        100 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 51
+./PBala:: TASK_SENT - sent task  51 for execution
+./PBala:: TASK_COMPLETED - task   36 completed in         59 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 52
+./PBala:: TASK_SENT - sent task  52 for execution
+./PBala:: TASK_COMPLETED - task   27 completed in        106 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 53
+./PBala:: TASK_SENT - sent task  53 for execution
+./PBala:: TASK_COMPLETED - task   19 completed in        108 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 54
+./PBala:: TASK_SENT - sent task  54 for execution
+./PBala:: TASK_COMPLETED - task   33 completed in         82 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 55
+./PBala:: TASK_SENT - sent task  55 for execution
+./PBala:: TASK_COMPLETED - task   26 completed in        114 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 56
+./PBala:: TASK_SENT - sent task  56 for execution
+./PBala:: TASK_COMPLETED - task   41 completed in         57 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 57
+./PBala:: TASK_SENT - sent task  57 for execution
+./PBala:: TASK_COMPLETED - task   31 completed in        116 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 58
+./PBala:: TASK_SENT - sent task  58 for execution
+./PBala:: TASK_COMPLETED - task   22 completed in        120 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 59
+./PBala:: TASK_SENT - sent task  59 for execution
+./PBala:: TASK_COMPLETED - task   34 completed in         77 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 60
+./PBala:: TASK_SENT - sent task  60 for execution
+./PBala:: TASK_COMPLETED - task   38 completed in         74 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 61
+./PBala:: TASK_SENT - sent task  61 for execution
+./PBala:: TASK_COMPLETED - task   16 completed in        137 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 62
+./PBala:: TASK_SENT - sent task  62 for execution
+./PBala:: TASK_COMPLETED - task   39 completed in         80 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 63
+./PBala:: TASK_SENT - sent task  63 for execution
+./PBala:: TASK_COMPLETED - task   17 completed in        139 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 64
+./PBala:: TASK_SENT - sent task  64 for execution
+./PBala:: TASK_COMPLETED - task   25 completed in        137 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 65
+./PBala:: TASK_SENT - sent task  65 for execution
+./PBala:: TASK_COMPLETED - task   42 completed in         76 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 66
+./PBala:: TASK_SENT - sent task  66 for execution
+./PBala:: TASK_COMPLETED - task   47 completed in         66 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 67
+./PBala:: TASK_SENT - sent task  67 for execution
+./PBala:: TASK_COMPLETED - task   43 completed in         78 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 68
+./PBala:: TASK_SENT - sent task  68 for execution
+./PBala:: TASK_COMPLETED - task   46 completed in         69 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 69
+./PBala:: TASK_SENT - sent task  69 for execution
+./PBala:: TASK_COMPLETED - task   37 completed in         94 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 70
+./PBala:: TASK_SENT - sent task  70 for execution
+./PBala:: TASK_COMPLETED - task   45 completed in         74 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 71
+./PBala:: TASK_SENT - sent task  71 for execution
+./PBala:: TASK_COMPLETED - task   52 completed in         46 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 72
+./PBala:: TASK_SENT - sent task  72 for execution
+./PBala:: TASK_COMPLETED - task   40 completed in         93 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 73
+./PBala:: TASK_SENT - sent task  73 for execution
+./PBala:: TASK_COMPLETED - task   57 completed in         50 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 74
+./PBala:: TASK_SENT - sent task  74 for execution
+./PBala:: TASK_COMPLETED - task   29 completed in        166 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 75
+./PBala:: TASK_SENT - sent task  75 for execution
+./PBala:: TASK_COMPLETED - task   35 completed in        125 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 76
+./PBala:: TASK_SENT - sent task  76 for execution
+./PBala:: TASK_COMPLETED - task   60 completed in         49 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 77
+./PBala:: TASK_SENT - sent task  77 for execution
+./PBala:: TASK_COMPLETED - task   55 completed in         58 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 78
+./PBala:: TASK_SENT - sent task  78 for execution
+./PBala:: TASK_COMPLETED - task   66 completed in         39 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 79
+./PBala:: TASK_SENT - sent task  79 for execution
+./PBala:: TASK_COMPLETED - task   23 completed in        178 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 80
+./PBala:: TASK_SENT - sent task  80 for execution
+./PBala:: TASK_COMPLETED - task   69 completed in         38 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 81
+./PBala:: TASK_SENT - sent task  81 for execution
+./PBala:: TASK_COMPLETED - task   70 completed in         38 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 82
+./PBala:: TASK_SENT - sent task  82 for execution
+./PBala:: TASK_COMPLETED - task   61 completed in         64 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 83
+./PBala:: TASK_SENT - sent task  83 for execution
+./PBala:: TASK_COMPLETED - task   73 completed in         40 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 84
+./PBala:: TASK_SENT - sent task  84 for execution
+./PBala:: TASK_COMPLETED - task   24 completed in        196 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 85
+./PBala:: TASK_SENT - sent task  85 for execution
+./PBala:: TASK_COMPLETED - task   68 completed in         55 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 86
+./PBala:: TASK_SENT - sent task  86 for execution
+./PBala:: TASK_COMPLETED - task   44 completed in        133 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 87
+./PBala:: TASK_SENT - sent task  87 for execution
+./PBala:: TASK_COMPLETED - task   63 completed in         66 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 88
+./PBala:: TASK_SENT - sent task  88 for execution
+./PBala:: TASK_COMPLETED - task   48 completed in        116 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 89
+./PBala:: TASK_SENT - sent task  89 for execution
+./PBala:: TASK_COMPLETED - task   72 completed in         53 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 90
+./PBala:: TASK_SENT - sent task  90 for execution
+./PBala:: TASK_COMPLETED - task   49 completed in        111 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 91
+./PBala:: TASK_SENT - sent task  91 for execution
+./PBala:: TASK_COMPLETED - task   71 completed in         59 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 92
+./PBala:: TASK_SENT - sent task  92 for execution
+./PBala:: TASK_COMPLETED - task   67 completed in         65 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 93
+./PBala:: TASK_SENT - sent task  93 for execution
+./PBala:: TASK_COMPLETED - task   50 completed in        113 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 94
+./PBala:: TASK_SENT - sent task  94 for execution
+./PBala:: TASK_COMPLETED - task   77 completed in         40 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 95
+./PBala:: TASK_SENT - sent task  95 for execution
+./PBala:: TASK_COMPLETED - task   28 completed in        220 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 96
+./PBala:: TASK_SENT - sent task  96 for execution
+./PBala:: TASK_COMPLETED - task   74 completed in         59 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 97
+./PBala:: TASK_SENT - sent task  97 for execution
+./PBala:: TASK_COMPLETED - task   30 completed in        224 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 98
+./PBala:: TASK_SENT - sent task  98 for execution
+./PBala:: TASK_COMPLETED - task   76 completed in         55 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 99
+./PBala:: TASK_SENT - sent task  99 for execution
+./PBala:: TASK_COMPLETED - task   79 completed in         53 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 100
+./PBala:: TASK_SENT - sent task 100 for execution
+./PBala:: TASK_COMPLETED - task   51 completed in        132 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 101
+./PBala:: TASK_SENT - sent task 101 for execution
+./PBala:: TASK_COMPLETED - task   78 completed in         62 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 102
+./PBala:: TASK_SENT - sent task 102 for execution
+./PBala:: TASK_COMPLETED - task   83 completed in         53 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 103
+./PBala:: TASK_SENT - sent task 103 for execution
+./PBala:: TASK_COMPLETED - task   64 completed in        107 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 104
+./PBala:: TASK_SENT - sent task 104 for execution
+./PBala:: TASK_COMPLETED - task   65 completed in        109 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 105
+./PBala:: TASK_SENT - sent task 105 for execution
+./PBala:: TASK_COMPLETED - task   82 completed in         64 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 106
+./PBala:: TASK_SENT - sent task 106 for execution
+./PBala:: TASK_COMPLETED - task   84 completed in         56 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 107
+./PBala:: TASK_SENT - sent task 107 for execution
+./PBala:: TASK_COMPLETED - task   81 completed in         75 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 108
+./PBala:: TASK_SENT - sent task 108 for execution
+./PBala:: TASK_COMPLETED - task   95 completed in         47 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 109
+./PBala:: TASK_SENT - sent task 109 for execution
+./PBala:: TASK_COMPLETED - task   93 completed in         57 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 110
+./PBala:: TASK_SENT - sent task 110 for execution
+./PBala:: TASK_COMPLETED - task   86 completed in         70 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 111
+./PBala:: TASK_SENT - sent task 111 for execution
+./PBala:: TASK_COMPLETED - task   99 completed in         49 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 112
+./PBala:: TASK_SENT - sent task 112 for execution
+./PBala:: TASK_COMPLETED - task   53 completed in        169 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 113
+./PBala:: TASK_SENT - sent task 113 for execution
+./PBala:: TASK_COMPLETED - task   89 completed in         73 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 114
+./PBala:: TASK_SENT - sent task 114 for execution
+./PBala:: TASK_COMPLETED - task   90 completed in         75 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 115
+./PBala:: TASK_SENT - sent task 115 for execution
+./PBala:: TASK_COMPLETED - task   59 completed in        164 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 116
+./PBala:: TASK_SENT - sent task 116 for execution
+./PBala:: TASK_COMPLETED - task   92 completed in         77 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 117
+./PBala:: TASK_SENT - sent task 117 for execution
+./PBala:: TASK_COMPLETED - task   87 completed in         86 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 118
+./PBala:: TASK_SENT - sent task 118 for execution
+./PBala:: TASK_COMPLETED - task   80 completed in        109 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 119
+./PBala:: TASK_SENT - sent task 119 for execution
+./PBala:: TASK_COMPLETED - task   88 completed in         87 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 120
+./PBala:: TASK_SENT - sent task 120 for execution
+./PBala:: TASK_COMPLETED - task   58 completed in        171 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 121
+./PBala:: TASK_SENT - sent task 121 for execution
+./PBala:: TASK_COMPLETED - task  102 completed in         59 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 122
+./PBala:: TASK_SENT - sent task 122 for execution
+./PBala:: TASK_COMPLETED - task   75 completed in        129 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 123
+./PBala:: TASK_SENT - sent task 123 for execution
+./PBala:: TASK_COMPLETED - task  107 completed in         47 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 124
+./PBala:: TASK_SENT - sent task 124 for execution
+./PBala:: TASK_COMPLETED - task  106 completed in         51 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 125
+./PBala:: TASK_SENT - sent task 125 for execution
+./PBala:: TASK_COMPLETED - task   97 completed in         76 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 126
+./PBala:: TASK_SENT - sent task 126 for execution
+./PBala:: TASK_COMPLETED - task   85 completed in        106 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 127
+./PBala:: TASK_SENT - sent task 127 for execution
+./PBala:: TASK_COMPLETED - task   62 completed in        170 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 128
+./PBala:: TASK_SENT - sent task 128 for execution
+./PBala:: TASK_COMPLETED - task  110 completed in         42 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 129
+./PBala:: TASK_SENT - sent task 129 for execution
+./PBala:: TASK_COMPLETED - task  100 completed in         83 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 130
+./PBala:: TASK_SENT - sent task 130 for execution
+./PBala:: TASK_COMPLETED - task  109 completed in         51 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 131
+./PBala:: TASK_SENT - sent task 131 for execution
+./PBala:: TASK_COMPLETED - task   94 completed in        104 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 132
+./PBala:: TASK_SENT - sent task 132 for execution
+./PBala:: TASK_COMPLETED - task   56 completed in        201 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 133
+./PBala:: TASK_SENT - sent task 133 for execution
+./PBala:: TASK_COMPLETED - task  103 completed in         74 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 134
+./PBala:: TASK_SENT - sent task 134 for execution
+./PBala:: TASK_COMPLETED - task  111 completed in         52 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 135
+./PBala:: TASK_SENT - sent task 135 for execution
+./PBala:: TASK_COMPLETED - task   91 completed in        118 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 136
+./PBala:: TASK_SENT - sent task 136 for execution
+./PBala:: TASK_COMPLETED - task   54 completed in        220 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 137
+./PBala:: TASK_SENT - sent task 137 for execution
+./PBala:: TASK_COMPLETED - task  112 completed in         55 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 138
+./PBala:: TASK_SENT - sent task 138 for execution
+./PBala:: TASK_COMPLETED - task  120 completed in         43 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 139
+./PBala:: TASK_SENT - sent task 139 for execution
+./PBala:: TASK_COMPLETED - task  115 completed in         52 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 140
+./PBala:: TASK_SENT - sent task 140 for execution
+./PBala:: TASK_COMPLETED - task  114 completed in         59 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 141
+./PBala:: TASK_SENT - sent task 141 for execution
+./PBala:: TASK_COMPLETED - task  125 completed in         47 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 142
+./PBala:: TASK_SENT - sent task 142 for execution
+./PBala:: TASK_COMPLETED - task  117 completed in         60 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 143
+./PBala:: TASK_SENT - sent task 143 for execution
+./PBala:: TASK_COMPLETED - task  129 completed in         40 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 144
+./PBala:: TASK_SENT - sent task 144 for execution
+./PBala:: TASK_COMPLETED - task  118 completed in         64 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 145
+./PBala:: TASK_SENT - sent task 145 for execution
+./PBala:: TASK_COMPLETED - task  131 completed in         37 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 146
+./PBala:: TASK_SENT - sent task 146 for execution
+./PBala:: TASK_COMPLETED - task  122 completed in         62 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 147
+./PBala:: TASK_SENT - sent task 147 for execution
+./PBala:: TASK_COMPLETED - task  134 completed in         48 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 148
+./PBala:: TASK_SENT - sent task 148 for execution
+./PBala:: TASK_COMPLETED - task  124 completed in         69 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 149
+./PBala:: TASK_SENT - sent task 149 for execution
+./PBala:: TASK_COMPLETED - task  135 completed in         45 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 150
+./PBala:: TASK_SENT - sent task 150 for execution
+./PBala:: TASK_COMPLETED - task  126 completed in         66 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 151
+./PBala:: TASK_SENT - sent task 151 for execution
+./PBala:: TASK_COMPLETED - task  139 completed in         35 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 152
+./PBala:: TASK_SENT - sent task 152 for execution
+./PBala:: TASK_COMPLETED - task  141 completed in         33 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 153
+./PBala:: TASK_SENT - sent task 153 for execution
+./PBala:: TASK_COMPLETED - task  130 completed in         62 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 154
+./PBala:: TASK_SENT - sent task 154 for execution
+./PBala:: TASK_COMPLETED - task  138 completed in         45 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 155
+./PBala:: TASK_SENT - sent task 155 for execution
+./PBala:: TASK_COMPLETED - task  108 completed in        119 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 156
+./PBala:: TASK_SENT - sent task 156 for execution
+./PBala:: TASK_COMPLETED - task  105 completed in        133 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 157
+./PBala:: TASK_SENT - sent task 157 for execution
+./PBala:: TASK_COMPLETED - task  143 completed in         36 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 158
+./PBala:: TASK_SENT - sent task 158 for execution
+./PBala:: TASK_COMPLETED - task   98 completed in        158 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 159
+./PBala:: TASK_SENT - sent task 159 for execution
+./PBala:: TASK_COMPLETED - task  121 completed in         94 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 160
+./PBala:: TASK_SENT - sent task 160 for execution
+./PBala:: TASK_COMPLETED - task   96 completed in        166 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 161
+./PBala:: TASK_SENT - sent task 161 for execution
+./PBala:: TASK_COMPLETED - task  146 completed in         38 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 162
+./PBala:: TASK_SENT - sent task 162 for execution
+./PBala:: TASK_COMPLETED - task  140 completed in         54 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 163
+./PBala:: TASK_SENT - sent task 163 for execution
+./PBala:: TASK_COMPLETED - task  123 completed in         95 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 164
+./PBala:: TASK_SENT - sent task 164 for execution
+./PBala:: TASK_COMPLETED - task  128 completed in         88 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 165
+./PBala:: TASK_SENT - sent task 165 for execution
+./PBala:: TASK_COMPLETED - task  104 completed in        150 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 166
+./PBala:: TASK_SENT - sent task 166 for execution
+./PBala:: TASK_COMPLETED - task  145 completed in         46 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 167
+./PBala:: TASK_SENT - sent task 167 for execution
+./PBala:: TASK_COMPLETED - task  147 completed in         42 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 168
+./PBala:: TASK_SENT - sent task 168 for execution
+./PBala:: TASK_COMPLETED - task  142 completed in         58 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 169
+./PBala:: TASK_SENT - sent task 169 for execution
+./PBala:: TASK_COMPLETED - task  133 completed in         88 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 170
+./PBala:: TASK_SENT - sent task 170 for execution
+./PBala:: TASK_COMPLETED - task  144 completed in         59 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 171
+./PBala:: TASK_SENT - sent task 171 for execution
+./PBala:: TASK_COMPLETED - task  132 completed in         94 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 172
+./PBala:: TASK_SENT - sent task 172 for execution
+./PBala:: TASK_COMPLETED - task  127 completed in        107 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 173
+./PBala:: TASK_SENT - sent task 173 for execution
+./PBala:: TASK_COMPLETED - task  150 completed in         44 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 174
+./PBala:: TASK_SENT - sent task 174 for execution
+./PBala:: TASK_COMPLETED - task  153 completed in         42 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 175
+./PBala:: TASK_SENT - sent task 175 for execution
+./PBala:: TASK_COMPLETED - task  148 completed in         49 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 176
+./PBala:: TASK_SENT - sent task 176 for execution
+./PBala:: TASK_COMPLETED - task  101 completed in        182 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 177
+./PBala:: TASK_SENT - sent task 177 for execution
+./PBala:: TASK_COMPLETED - task  151 completed in         46 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 178
+./PBala:: TASK_SENT - sent task 178 for execution
+./PBala:: TASK_COMPLETED - task  116 completed in        133 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 179
+./PBala:: TASK_SENT - sent task 179 for execution
+./PBala:: TASK_COMPLETED - task  152 completed in         50 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 180
+./PBala:: TASK_SENT - sent task 180 for execution
+./PBala:: TASK_COMPLETED - task  155 completed in         44 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 181
+./PBala:: TASK_SENT - sent task 181 for execution
+./PBala:: TASK_COMPLETED - task  136 completed in         98 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 182
+./PBala:: TASK_SENT - sent task 182 for execution
+./PBala:: TASK_COMPLETED - task  154 completed in         48 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 183
+./PBala:: TASK_SENT - sent task 183 for execution
+./PBala:: TASK_COMPLETED - task  158 completed in         47 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 184
+./PBala:: TASK_SENT - sent task 184 for execution
+./PBala:: TASK_COMPLETED - task  119 completed in        141 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 185
+./PBala:: TASK_SENT - sent task 185 for execution
+./PBala:: TASK_COMPLETED - task  163 completed in         44 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 186
+./PBala:: TASK_SENT - sent task 186 for execution
+./PBala:: TASK_COMPLETED - task  137 completed in        107 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 187
+./PBala:: TASK_SENT - sent task 187 for execution
+./PBala:: TASK_COMPLETED - task  162 completed in         48 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 188
+./PBala:: TASK_SENT - sent task 188 for execution
+./PBala:: TASK_COMPLETED - task  156 completed in         65 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 189
+./PBala:: TASK_SENT - sent task 189 for execution
+./PBala:: TASK_COMPLETED - task  167 completed in         46 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 190
+./PBala:: TASK_SENT - sent task 190 for execution
+./PBala:: TASK_COMPLETED - task  168 completed in         47 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 191
+./PBala:: TASK_SENT - sent task 191 for execution
+./PBala:: TASK_COMPLETED - task  169 completed in         44 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 192
+./PBala:: TASK_SENT - sent task 192 for execution
+./PBala:: TASK_COMPLETED - task  113 completed in        175 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 193
+./PBala:: TASK_SENT - sent task 193 for execution
+./PBala:: TASK_COMPLETED - task  171 completed in         47 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 194
+./PBala:: TASK_SENT - sent task 194 for execution
+./PBala:: TASK_COMPLETED - task  181 completed in         39 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 195
+./PBala:: TASK_SENT - sent task 195 for execution
+./PBala:: TASK_COMPLETED - task  180 completed in         46 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 196
+./PBala:: TASK_SENT - sent task 196 for execution
+./PBala:: TASK_COMPLETED - task  183 completed in         42 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 197
+./PBala:: TASK_SENT - sent task 197 for execution
+./PBala:: TASK_COMPLETED - task  157 completed in         91 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 198
+./PBala:: TASK_SENT - sent task 198 for execution
+./PBala:: TASK_COMPLETED - task  174 completed in         66 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 199
+./PBala:: TASK_SENT - sent task 199 for execution
+./PBala:: TASK_COMPLETED - task  178 completed in         63 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 200
+./PBala:: TASK_SENT - sent task 200 for execution
+./PBala:: TASK_COMPLETED - task  159 completed in         96 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 201
+./PBala:: TASK_SENT - sent task 201 for execution
+./PBala:: TASK_COMPLETED - task  176 completed in         66 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 202
+./PBala:: TASK_SENT - sent task 202 for execution
+./PBala:: TASK_COMPLETED - task  149 completed in        115 seconds
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 203
+./PBala:: TASK_SENT - sent task 203 for execution
+./PBala:: TASK_COMPLETED - task  164 completed in         90 seconds
+./PBala:: INFO - shutting down slave 29 (total execution time:           480 seconds)
+./PBala:: TASK_COMPLETED - task  192 completed in         36 seconds
+./PBala:: INFO - shutting down slave  8 (total execution time:           486 seconds)
+./PBala:: TASK_COMPLETED - task  160 completed in        100 seconds
+./PBala:: INFO - shutting down slave 31 (total execution time:           481 seconds)
+./PBala:: TASK_COMPLETED - task  188 completed in         51 seconds
+./PBala:: INFO - shutting down slave  3 (total execution time:           486 seconds)
+./PBala:: TASK_COMPLETED - task  190 completed in         46 seconds
+./PBala:: INFO - shutting down slave 10 (total execution time:           490 seconds)
+./PBala:: TASK_COMPLETED - task  189 completed in         48 seconds
+./PBala:: INFO - shutting down slave  5 (total execution time:           491 seconds)
+./PBala:: TASK_COMPLETED - task  166 completed in         96 seconds
+./PBala:: INFO - shutting down slave 17 (total execution time:           492 seconds)
+./PBala:: TASK_COMPLETED - task  175 completed in         82 seconds
+./PBala:: INFO - shutting down slave  1 (total execution time:           496 seconds)
+./PBala:: TASK_COMPLETED - task  172 completed in         91 seconds
+./PBala:: INFO - shutting down slave 18 (total execution time:           501 seconds)
+./PBala:: TASK_COMPLETED - task  184 completed in         73 seconds
+./PBala:: INFO - shutting down slave  6 (total execution time:           502 seconds)
+./PBala:: TASK_COMPLETED - task  196 completed in         36 seconds
+./PBala:: INFO - shutting down slave  7 (total execution time:           500 seconds)
+./PBala:: TASK_COMPLETED - task  170 completed in         97 seconds
+./PBala:: INFO - shutting down slave 26 (total execution time:           500 seconds)
+./PBala:: TASK_COMPLETED - task  199 completed in         25 seconds
+./PBala:: INFO - shutting down slave  0 (total execution time:           503 seconds)
+./PBala:: TASK_COMPLETED - task  194 completed in         48 seconds
+./PBala:: INFO - shutting down slave  4 (total execution time:           503 seconds)
+./PBala:: TASK_COMPLETED - task  191 completed in         57 seconds
+./PBala:: INFO - shutting down slave  2 (total execution time:           504 seconds)
+./PBala:: TASK_COMPLETED - task  165 completed in        111 seconds
+./PBala:: INFO - shutting down slave 16 (total execution time:           506 seconds)
+./PBala:: TASK_COMPLETED - task  186 completed in         70 seconds
+./PBala:: INFO - shutting down slave 11 (total execution time:           501 seconds)
+./PBala:: TASK_COMPLETED - task  173 completed in         95 seconds
+./PBala:: INFO - shutting down slave 24 (total execution time:           504 seconds)
+./PBala:: TASK_COMPLETED - task  182 completed in         88 seconds
+./PBala:: INFO - shutting down slave 20 (total execution time:           511 seconds)
+./PBala:: TASK_COMPLETED - task  200 completed in         33 seconds
+./PBala:: INFO - shutting down slave 14 (total execution time:           511 seconds)
+./PBala:: TASK_COMPLETED - task  203 completed in         31 seconds
+./PBala:: INFO - shutting down slave  9 (total execution time:           512 seconds)
+./PBala:: TASK_COMPLETED - task  161 completed in        125 seconds
+./PBala:: INFO - shutting down slave 28 (total execution time:           511 seconds)
+./PBala:: TASK_COMPLETED - task  197 completed in         47 seconds
+./PBala:: INFO - shutting down slave 15 (total execution time:           514 seconds)
+./PBala:: TASK_COMPLETED - task  202 completed in         33 seconds
+./PBala:: INFO - shutting down slave 13 (total execution time:           514 seconds)
+./PBala:: TASK_COMPLETED - task  195 completed in         53 seconds
+./PBala:: INFO - shutting down slave 12 (total execution time:           513 seconds)
+./PBala:: TASK_COMPLETED - task  179 completed in         98 seconds
+./PBala:: INFO - shutting down slave 22 (total execution time:           515 seconds)
+./PBala:: TASK_COMPLETED - task  185 completed in         87 seconds
+./PBala:: INFO - shutting down slave 23 (total execution time:           515 seconds)
+./PBala:: TASK_COMPLETED - task  187 completed in         82 seconds
+./PBala:: INFO - shutting down slave 19 (total execution time:           517 seconds)
+./PBala:: TASK_COMPLETED - task  193 completed in         68 seconds
+./PBala:: INFO - shutting down slave 27 (total execution time:           518 seconds)
+./PBala:: TASK_COMPLETED - task  198 completed in         48 seconds
+./PBala:: INFO - shutting down slave 25 (total execution time:           518 seconds)
+./PBala:: TASK_COMPLETED - task  201 completed in         41 seconds
+./PBala:: INFO - shutting down slave 30 (total execution time:           519 seconds)
+./PBala:: TASK_COMPLETED - task  177 completed in        106 seconds
+./PBala:: INFO - shutting down slave 21 (total execution time:           520 seconds)
+
+./PBala:: END OF EXECUTION.
+Combined computing time:          16134 seconds.
+Total execution time:               526 seconds.
