@@ -124,13 +124,14 @@ lyapunov(N,R)=
         g=indcoef(i+1,H,R);
         d=diagmat(i+1);
         h=vector(i+2);
-        listput(L,g[((i+1)/2)+1]/I);
         for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
+            ,
+                h[j]=g[j]/I;
+                listput(L,h[j]);
             );
         );
-        h[((i+1)/2)+1]=g[((i+1)/2)+1]/I;
         listput(H,h);
     );
     return(L);
@@ -181,6 +182,8 @@ firstlyapunovN(NN,R)=
         for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
+            ,
+                h[j]=g[j]/I;
             );
         );
         listput(H,h);

@@ -181,6 +181,8 @@ firstlyapunovN(NN,R)=
         for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
+            ,
+                h[j]=g[j]/I;
             );
         );
         listput(H,h);
