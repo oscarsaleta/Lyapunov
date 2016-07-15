@@ -1,0 +1,19 @@
+                  GP/PARI CALCULATOR Version 2.5.1 (released)
+          amd64 running linux (x86-64/GMP-5.0.5 kernel) 64-bit version
+              compiled: Jun  4 2012, gcc-4.7.0 (Debian 4.7.0-11) 
+                (readline v6.2 disabled, extended help enabled)
+
+                     Copyright (C) 2000-2011 The PARI Group
+
+PARI/GP is free software, covered by the GNU General Public License, and comes 
+WITHOUT ANY WARRANTY WHATSOEVER.
+
+Type ? for help, \q to quit.
+Type ?12 for how to get moral (and possibly technical) support.
+
+parisize = 50000000000, primelimit = 500509
+QiuYang n = 13 (expected first nonzero constant: 90)
+ - First nonzero Lyapunov const:
+	L[90] = 11557169134896764881125/11583640920517022896*a^8 - 109927762931018429265845925/7708913032604078737288*a^6 + 171044136968933431125/39075206466840082*a^4 + 73933873312054095371377125/7708913032604078737288*a^2 - 1554765130882436045709825/2202546580744022496368
+	Factorisation: [a - 1, 1; a + 1, 1; a^2 - 4*a + 1, 1; a^2 + 4*a + 1, 1; 1753001950831634650345*a^2 + 1240268480476017358401, 1]
+Goodbye!

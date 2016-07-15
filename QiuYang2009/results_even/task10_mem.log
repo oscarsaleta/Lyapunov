@@ -1,0 +1,18 @@
+TASK 10 RESOURCE USAGE (PID 35301)
+----------------------
+User CPU time used:                          237.14682
+System CPU time used:                          2.24014
+Maximum resident set size (KB):                 466916
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):              1449733
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              0
+block output operations:                            64
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         32
+Involuntary context switches:                      418

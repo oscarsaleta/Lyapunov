@@ -1,0 +1,18 @@
+TASK 12 RESOURCE USAGE (PID 35664)
+----------------------
+User CPU time used:                          25.245577
+System CPU time used:                         0.048003
+Maximum resident set size (KB):                 101656
+Integral shared memory size (KB):                    0
+Integral unshared data size (KB)                     0
+Integral shared stack size (KB):                     0
+Page reclaims (soft page faults):                28651
+Page faults (hard page faults):                      0
+Swaps:                                               0
+Block input operations:                              8
+block output operations:                            32
+IPC messages sent:                                   0
+IPC messages received:                               0
+Signals received:                                    0
+Voluntary context switches:                         40
+Involuntary context switches:                       49
