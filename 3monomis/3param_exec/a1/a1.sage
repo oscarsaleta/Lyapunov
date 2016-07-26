@@ -48,10 +48,10 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     B = I.groebner()
     # Si redueix, pararem si en portem 2 seguides o passem de n*n+3*n-7
     g = singular(f).sage().reduce(B.sage())
-    if g==0:
+    if g==0 or singular('('+f+')^2').sage().reduce(B.sage())==0:
         print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres])+") = 0")
         reduct += 1
-        if int(o)>grau*(grau+3)-7 or reduct>grau-1:
+        if int(o)>grau*(grau+3)-7 or reduct>2*grau-1:
             break
     else:
         # Si no redueix, guardem l'ultim ordre
