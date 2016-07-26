@@ -1,0 +1,47 @@
+libpvm [t40001]: pvm_addhosts(): Already in progress
+PRINCESS BALA v3.0.2
+System call: ./PBala 4 a2_2.sage ../../datasets/3params/a2/deg3_2.txt nodefile resultats/grau3_2/ 1 
+
+./PBala:: INFO - will use executable a2_2.sage
+./PBala:: INFO - will use datafile ../../datasets/3params/a2/deg3_2.txt
+./PBala:: INFO - will use nodefile nodefile
+./PBala:: INFO - results will be stored in resultats/grau3_2/
+
+./PBala:: INFO - will use nodes a01 (4), a02 (4), a03 (4), a04 (4), a05 (8), a06 (4), a07 (4), a08 (8)
+./PBala:: INFO - will create 4 tasks for 40 slaves
+
+./PBala:: CREATED_SLAVE - created slave 0
+./PBala:: CREATED_SLAVE - created slave 1
+./PBala:: CREATED_SLAVE - created slave 2
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: CREATED_SLAVE - created slave 3
+./PBala:: INFO - all slaves created successfully
+
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 0
+./PBala:: TASK_SENT - sent task    0 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 1
+./PBala:: TASK_SENT - sent task    1 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 2
+./PBala:: TASK_SENT - sent task    2 for execution
+./PBala:: CREATED_SCRIPT - creating auxiliary Sage script for task 3
+./PBala:: TASK_SENT - sent task    3 for execution
+./PBala:: INFO - first batch of work sent
+
+./PBala:: TASK_COMPLETED - task    0 completed in          6 seconds
+./PBala:: INFO - shutting down slave  0 (total execution time:             6 seconds)
+./PBala:: TASK_COMPLETED - task    2 completed in          7 seconds
+./PBala:: INFO - shutting down slave  2 (total execution time:             7 seconds)
+./PBala:: TASK_COMPLETED - task    1 completed in         12 seconds
+./PBala:: INFO - shutting down slave  1 (total execution time:            12 seconds)
+./PBala:: TASK_COMPLETED - task    3 completed in         15 seconds
+./PBala:: INFO - shutting down slave  3 (total execution time:            15 seconds)
+
+./PBala:: END OF EXECUTION.
+Combined computing time:             40 seconds.
+Total execution time:                17 seconds.
