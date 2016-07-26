@@ -9,13 +9,13 @@ n=taskArgs[4]
 p=taskArgs[5]
 q=taskArgs[6]
 
-print("R = i*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*i)*z^"+str(m)+"*w^"+str(n)+" + (a2)*z^"+str(p)+"*w^"+str(q))
+print("R = i*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*i)*z^"+str(m)+"*w^"+str(n)+" + (a2+b2*i)*z^"+str(p)+"*w^"+str(q))
 grau = max(max(k+l,m+n),p+q)
 print("Field degree = "+str(grau))
 
 # Carregar dades i funcions en Pari
 gp("taskArgs=["+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+"]")
-gp("read(\"lyap_b2.gp\")")
+gp("read(\"lyap_a1.gp\")")
 
 # Calcular primera constant no nul·la
 gp("l=nextlyapunov(R);")
@@ -43,21 +43,21 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     f=gp.eval("l[1]["+str(i+1)+"][2]")
     o=gp.eval("l[1]["+str(i+1)+"][1]")
     # Generar ideal amb constants anteriors
-    I = singular.ideal(lyaps)
+    I = singular.ideal(lyaps[0:])
     # Reduir nova constant resp les anteriors
     B = I.groebner()
     # Si redueix, pararem si en portem 2 seguides o passem de n*n+3*n-7
     g = singular(f).sage().reduce(B.sage())
     if g==0:
-        print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres])+") = 0")
+        print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") = 0")
         reduct += 1
         if int(o)>grau*(grau+3)-7 or reduct>grau-1:
             break
     else:
         # Si no redueix, guardem l'ultim ordre
-        lyaps.append(str(g))
-        print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres])+") != 0")
-        ordres.append(o)
+        lyaps.insert(0,g)
+        ordres.insert(0,o)
+        print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") != 0")
         ordre = o
         reduct = 0
     i += 1

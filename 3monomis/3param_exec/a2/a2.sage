@@ -25,6 +25,7 @@ if sage_eval(gp.eval("l==-1"))==1:
     sys.exit()
 
 R = singular.ring(32003,'(a1,b1,a2,b2)','dp')
+print("Using ring on a finite field modulo 32003")
 
 lyaps = []
 lyaps.append(gp.eval("l[1][1][2]"))
@@ -40,22 +41,24 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     # Calcular constant no nul·la
     gp("l=nextlyapunov(R,l[2],l[1]);")
     f=gp.eval("l[1]["+str(i+1)+"][2]")
-    lyaps.insert(0,f)
-    ordres.insert(0,gp.eval("l[1]["+str(i+1)+"][1]"))
+    o=gp.eval("l[1]["+str(i+1)+"][1]")
     # Generar ideal amb constants anteriors
-    I = singular.ideal(lyaps[1:])
+    I = singular.ideal(lyaps)
     # Reduir nova constant resp les anteriors
     B = I.groebner()
-    # Si redueix, pararem si en portem 2 seguides o passem de n*n+n-2
-    if singular(lyaps[0]).sage().reduce(B.sage())==0:
-        print("reduce(L"+ordres[0]+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") = 0")
+    # Si redueix, pararem si en portem 2 seguides o passem de n*n+3*n-7
+    g = singular(f).sage().reduce(B.sage())
+    if g==0:
+        print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres])+") = 0")
         reduct += 1
-        if int(ordres[0])>grau*(grau+1)-2 or reduct>2:
+        if int(o)>grau*(grau+3)-7 or reduct>grau-1:
             break
     else:
         # Si no redueix, guardem l'ultim ordre
-        print("reduce(L"+ordres[0]+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") != 0")
-        ordre = ordres[0]
+        lyaps.append(str(g))
+        print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres])+") != 0")
+        ordres.append(o)
+        ordre = o
         reduct = 0
     i += 1
 
