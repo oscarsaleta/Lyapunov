@@ -49,7 +49,8 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     # Si redueix, pararem si en portem 2 seguides o passem de n*n+3*n-7
     g = singular(f).sage().reduce(B.sage())
     if g==0:
-        print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") = 0")
+        #print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") = 0")
+        print("L"+o+":="+g+":\n")
         reduct += 1
         if int(o)>grau*(grau+3)-7 or reduct>grau-1:
             break
@@ -57,7 +58,8 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
         # Si no redueix, guardem l'ultim ordre
         lyaps.insert(0,g)
         ordres.insert(0,o)
-        print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") != 0")
+        #print("reduce(L"+o+", "+str(["L"+str(x) for x in ordres[i:0:-1]])+") != 0")
+        print("L"+o+":="+g+":\n")
         ordre = o
         reduct = 0
     i += 1
