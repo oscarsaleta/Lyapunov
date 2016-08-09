@@ -1,14 +1,16 @@
+# -*- coding: utf-8 -*-
 set_verbose(-1)
 
 # Llegir dades
-k=taskArgs[0]
-l=taskArgs[1]
-m=taskArgs[2]
-n=taskArgs[3]
-p=taskArgs[4]
-q=taskArgs[5]
+taskId=taskArgs[0]
+k=taskArgs[1]
+l=taskArgs[2]
+m=taskArgs[3]
+n=taskArgs[4]
+p=taskArgs[5]
+q=taskArgs[6]
 
-status=""+taskId+","+k+","+l+","+m+","+n+","+p+","+q
+status=""+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)
 
 
 print("#R = i*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*i)*z^"+str(m)+"*w^"+str(n)+" + (a2+b2*i)*z^"+str(p)+"*w^"+str(q))
@@ -30,8 +32,8 @@ if k==m and m==p and l!=n and n!=q and k-l-1!=0:
     print(status+"CENTRE D")
     sys.exit(0)
 
-# (c) Si hem arribat fins aquí, tenim un possible centre reversible
-print("\n#Possible centre reversible, calculant constants de Liapunov...")
+# (c) Si hem arribat fins aqui, tenim un possible centre reversible
+print("\n#Possible reversible centre, computing Liapunov constants...")
 
 # Carregar dades i funcions en Pari
 gp("taskArgs=["+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+"]")
@@ -40,19 +42,21 @@ gp("read(\"lyap.gp\")")
 # Calcular primera constant no nul·la
 gp("l=nextlyapunov(R);")
 if sage_eval(gp.eval("l==-1"))==1:
-    print("\nR is a center")
-    print("\n"+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+",Center")
+    print("\n#"+status+"Center")
     sys.exit()
 
-R = singular.ring(32003,'(a1,b1,a2,b2)','dp')
-print("#Using ring on a finite field modulo 32003")
+primer = 32003
+primer = 0
+R = singular.ring(primer,'(a1,b1,a2,b2)','dp')
+if (primer!=0):
+    print("#Using ring on a finite field modulo 32003")
 
 lyaps = []
 lyaps.append(gp.eval("l[1][1][2]"))
 ordres = []
 ordres.append(gp.eval("l[1][1][1]"))
 
-print("\n#First constant: \nL"+ordres[0]+":="+lyaps[0]+":")
+print("\nL"+ordres[0]+":="+lyaps[0]+":\n")
 ordre = ordres[0]
 
 i = 1
@@ -70,12 +74,13 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     g = singular(f).sage().reduce(B.sage())
     if g==0:
         reduct += 1
-        if int(o)>grau*(grau+3)-7 or reduct>grau-1:
+        print("L"+o+":="+str(g)+": #reduced\n")
+        if int(o)>grau*(grau+3)-7 or reduct>grau:
             break
     else:
         # Si no redueix, guardem l'ultim ordre
         lyaps.append(str(g))
-        print("L"+o+":="+g+":\n")
+        print("L"+o+":="+str(g)+":\n")
         ordres.append(o)
         ordre = o
         reduct = 0
@@ -84,5 +89,18 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
 test = singular.facstd(I)
 print(test)
 
-print("\nR is a weak focus of order "+ordre)
-print("\n"+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+","+ordre)
+# Busquem les condicions de centre
+if primer!=0:
+    K.<a1,a2,b1,b2,x>=PolynomialRing(GF(primer))
+else:
+    K.<a1,a2,b1,b2,x>=QQ[]
+c0=singular(numerator(1+x^(k-l-1)))
+c1=singular(numerator((a1+b1*I)+(a1-b1*I)*x^(m-n-1)))
+c2=singular(numerator((a2+b2*I)+(a2-b2*I)*x^(p-q-1)))
+R2 = singular.ring(primer,'(a1,b1,a2,b2,x)','dp')
+condicions = singular.facstd(singular.ideal(c0,c1,c2))
+print(condicions)
+
+
+#print("\nR is a weak focus of order "+ordre)
+#print("\n"+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+","+ordre)
