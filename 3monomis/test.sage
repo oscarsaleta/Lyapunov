@@ -2,13 +2,13 @@
 set_verbose(-1)
 
 # Llegir dades
-taskId=taskArgs[0]
-k=taskArgs[1]
-l=taskArgs[2]
-m=taskArgs[3]
-n=taskArgs[4]
-p=taskArgs[5]
-q=taskArgs[6]
+taskId=1
+k=0
+l=4
+m=1
+n=1
+p=1
+q=4
 
 status=""+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)
 
@@ -61,15 +61,15 @@ ordre = ordres[0]
 
 i = 1
 reduct = 0
-while (int(ordres[0])<=grau*grau+3*grau-7):
+while (int(ordres[0])<=grau*grau+3*grau-7 and len(ordres)<4):
     # Calcular constant no nul·la
     gp("l=nextlyapunov(R,l[2],l[1]);")
     f=gp.eval("l[1]["+str(i+1)+"][2]")
     o=gp.eval("l[1]["+str(i+1)+"][1]")
     # Generar ideal amb constants anteriors
-    I = singular.ideal(lyaps)
+    Ii = singular.ideal(lyaps)
     # Reduir nova constant resp les anteriors
-    B = I.groebner()
+    B = Ii.groebner()
     # Si redueix, pararem si en portem 2 seguides o passem de n*n+3*n-7
     g = singular(f).sage().reduce(B.sage())
     if g==0:
@@ -86,16 +86,21 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
         reduct = 0
     i += 1
 
+test = singular.facstd(Ii).sage()
+print(test)
+
 y = var('y')
 valors_x = solve(1+y^(k-l-1)==0,y)
+print(valors_x)
 
 
 # Busquem les condicions de centre
 if primer!=0:
-    K.<a1,a2,b1,b2,x,I>=PolynomialRing(GF(primer))
+    S.<i>=GF(primer)
+    RR.<I>=S.quotient(i^2+1)
 else:
-    R.<I>=QQ[I]
-    K.<a1,a2,b1,b2,x>=PolynomialRing(R)
+    RR.<I>=QQ[I]
+K.<a1,a2,b1,b2,x>=PolynomialRing(RR)
 #singular.eval("ring R = (0,I),(a1,a2,b1,b2,x),dp;")
 #singular.eval("minpoly = I^2+1;")
 c0=numerator(1+x^(k-l-1))
