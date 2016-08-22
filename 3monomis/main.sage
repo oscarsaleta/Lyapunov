@@ -75,7 +75,7 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     if g==0:
         reduct += 1
         print("L"+o+":="+str(g)+": #reduced\n")
-        if int(o)>grau*(grau+2)-1 or reduct>grau:
+        if int(o)>grau*(grau+2)-1 or reduct>3/2*grau:
             break
     else:
         # Si no redueix, guardem l'ultim ordre
@@ -85,9 +85,6 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
         ordre = o
         reduct = 0
     i += 1
-
-#y = var('y')
-#valors_x = solve(1+y^(k-l-1)==0,y)
 
 
 # Busquem les condicions de centre
