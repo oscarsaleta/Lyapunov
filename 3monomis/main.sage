@@ -75,7 +75,7 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
     if g==0:
         reduct += 1
         print("L"+o+":="+str(g)+": #reduced\n")
-        if int(o)>grau*(grau+3)-7 or reduct>grau:
+        if int(o)>grau*(grau+2)-1 or reduct>grau:
             break
     else:
         # Si no redueix, guardem l'ultim ordre
