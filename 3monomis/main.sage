@@ -92,7 +92,7 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
 
 # Busquem les condicions de centre
 if primer!=0:
-    S.<i>=GF(primer)
+    S.<i>=GF(primer)[]
     SS.<I>=S.quotient(i^2+1)
 else:
     SS.<I>=QQ[I]
