@@ -45,8 +45,8 @@ if sage_eval(gp.eval("l==-1"))==1:
     print("\n#"+status+"Center")
     sys.exit()
 
-#primer = 32003
-primer = 0
+primer = 32003
+#primer = 0
 R = singular.ring(primer,'(a1,b1,a2,b2)','dp')
 if (primer!=0):
     print("#Using ring on a finite field modulo 32003")
@@ -86,27 +86,21 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
         reduct = 0
     i += 1
 
-y = var('y')
-valors_x = solve(1+y^(k-l-1)==0,y)
+#y = var('y')
+#valors_x = solve(1+y^(k-l-1)==0,y)
 
 
 # Busquem les condicions de centre
 if primer!=0:
-    K.<a1,a2,b1,b2,x,I>=PolynomialRing(GF(primer))
+    S.<i>=GF(primer)
+    SS.<I>=S.quotient(i^2+1)
 else:
-    R.<I>=QQ[I]
-    K.<a1,a2,b1,b2,x>=PolynomialRing(R)
-#singular.eval("ring R = (0,I),(a1,a2,b1,b2,x),dp;")
-#singular.eval("minpoly = I^2+1;")
+    SS.<I>=QQ[I]
+K.<a1,a2,b1,b2,x>=PolynomialRing(SS)
 c0=numerator(1+x^(k-l-1))
-#singular.eval("poly c0 = "+str(c0)+";")
 c1=numerator((a1+b1*I)+(a1-b1*I)*x^(m-n-1))
-#singular.eval("poly c1 = "+str(c1)+";")
 c2=numerator((a2+b2*I)+(a2-b2*I)*x^(p-q-1))
-#singular.eval("poly c2 = "+str(c2)+";")
-condicions = singular.facstd(singular.ideal(c0,c1,c2))
-print(condicions)
-
-
-#print("\nR is a weak focus of order "+ordre)
-#print("\n"+str(taskId)+","+str(k)+","+str(l)+","+str(m)+","+str(n)+","+str(p)+","+str(q)+","+ordre)
+#condicions = singular.facstd(singular.ideal(c0,c1,c2))
+print("\n"+"c0:="+str(c0))
+print("\n"+"c1:="+str(c1))
+print("\n"+"c2:="+str(c2))
