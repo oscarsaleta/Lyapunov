@@ -91,6 +91,7 @@ while (int(ordres[0])<=grau*grau+3*grau-7):
 
 
 # Busquem les condicions de centre
+print("# Computing reversible center conditions\n")
 if primer!=0:
     S.<i>=GF(primer)[]
     SS.<I>=S.quotient(i^2+1)
@@ -101,6 +102,6 @@ c0=numerator(1+x^(k-l-1))
 c1=numerator((a1+b1*I)+(a1-b1*I)*x^(m-n-1))
 c2=numerator((a2+b2*I)+(a2-b2*I)*x^(p-q-1))
 #condicions = singular.facstd(singular.ideal(c0,c1,c2))
-print("\n"+"c0:="+str(c0))
-print("\n"+"c1:="+str(c1))
-print("\n"+"c2:="+str(c2))
+print("c0:="+str(c0)+"\n")
+print("c1:="+str(c1)+"\n")
+print("c2:="+str(c2)+"\n")
