@@ -203,7 +203,7 @@ nextlyapunov(R,H=List([[0,1,0]]),L=List())=
     maxL = N*N+3*N-7;
     lastdg = 2*(maxL+1);
     while (i<lastdg,
-        /* Part senar */
+        /* Odd degree */
         g = indcoef(i,H,R);
         d = diagmat(i);
         h = vector(i+1);
@@ -211,7 +211,7 @@ nextlyapunov(R,H=List([[0,1,0]]),L=List())=
             h[j] = g[j]/d[j];
         );
         listput(H,h);
-        /* Part parella */
+        /* Even degree */
         k++;
         g = indcoef(i+1,H,R);
         d = diagmat(i+1);
@@ -225,11 +225,10 @@ nextlyapunov(R,H=List([[0,1,0]]),L=List())=
         const = g[((i+1)/2)+1]/I;
         if (const!=0,
             listput(L,[k,const]);
-            /* Retornem H i la constant trobada */
+            /* Return H and the constant found */
             return(List([L,H]));
         );
         i+=2;
-    );
-            
+    );       
     return(-1);
 }
