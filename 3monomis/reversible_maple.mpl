@@ -21,7 +21,7 @@ for i from 1 to 11 do
     print(cat("L",i,":=",l||i));
 end do:
 
-eqs:={l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11}:
+eqs:={l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11} minus {0}:
 conds:={c0,c1,c2}:
 
 with(Groebner):
