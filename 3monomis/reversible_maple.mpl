@@ -4,14 +4,14 @@ deg:=taskArgs[1]:
 taskId:=taskArgs[2]:
 fname:=cat("resultats_graus/g",deg,"/task",taskId,"_stdout.txt");
 
-for i from 1 to 11 do
-    L||i:=0:
-end do:
-
 a1:=(a+ca)/2:
 b1:=(a-ca)/2/I:
 a2:=(b+cb)/2:
 b2:=(b-cb)/2/I:
+
+for i from 1 to 11 do
+    L||i:=0:
+end do:
 
 read fname:
 print(k,l,m,n,p,q);
