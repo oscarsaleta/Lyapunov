@@ -24,12 +24,12 @@ int main (int argc, char *argv[]) {
                                 continue;
                             if (max(max(k+l,m+n),p+q)<maxdeg)
                                 continue;
-                            if (k==q && q==2 && m==n && n==1 && l==p && p==0)
+                            /*if (k==q && q==2 && m==n && n==1 && l==p && p==0)
                                 continue;
                             if (l==n && n==q && q==0)
                                 continue;
                             if (k==m && m==p && l!=n && l!=q && n!=q && ( (k-l-1)!=0 || (m-n-1)!=0 || (p-q-1)!=0) )
-                                continue;
+                                continue;*/
                             if (k-l-1!=0)
                                 printf("%d,%d,%d,%d,%d,%d,%d,%d\n",count,count,k,l,m,n,p,q);
                             else
