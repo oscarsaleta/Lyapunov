@@ -6,7 +6,7 @@ pq2r(P,Q)=
 
 pol2vec(P,n,vx,vy)=
 {
-    local(aux);
+    my(aux);
     aux = vector(n+1);
     for(i=1,n,
         aux[i]=polcoeff(P,n-i+1,vx);
@@ -19,7 +19,7 @@ pol2vec(P,n,vx,vy)=
 
 vec2pol(v)=
 {
-    local(pol,n);
+    my(pol,n);
     n=#v;
     for(i=1,n,
         pol += v[i]*z^i*w^(n-i);
@@ -31,7 +31,7 @@ vec2pol(v)=
 /* multiplies 2 homogeneous polynomials as vectors */
 vpolmult(P,Q)=
 {
-    local(len,res,aux);
+    my(len,res,aux);
     len = #P + #Q - 1;
     res = vector(len);
 
@@ -48,7 +48,7 @@ vpolmult(P,Q)=
 /* differentiates a homogeneous polynomial with resp. to z */
 vpoldz(P)=
 {
-    local(deg,res);
+    my(deg,res);
     deg = #P-1;
     res = vector(deg);
 
@@ -61,7 +61,7 @@ vpoldz(P)=
 /* differentiates a homogeneous polynomial with resp. to w */
 vpoldw(P)=
 {
-    local(deg,res);
+    my(deg,res);
     deg = #P-1;
     res = vector(deg);
 
@@ -74,7 +74,7 @@ vpoldw(P)=
 /* Create diagonal matrix of coefficients */
 diagmat(ord)=
 {
-    local(aux);
+    my(aux);
     aux = vector(ord+1);
     for(i=1,ord+1,aux[i]=ord-2*(i-1););
     return(aux)
@@ -85,7 +85,7 @@ diagmat(ord)=
  */
 indcoef(deg,H,R)=
 {
-    local(res,aux);
+    my(res,aux);
     res = vector(deg+1);
 
     for(i=1,#H,
@@ -107,7 +107,7 @@ indcoef(deg,H,R)=
 /* Calcula les N primeres constants de Lyapunov del sistema donat */
 lyapunov(N,R)=
 {
-    local(lastdg,H,L);
+    my(lastdg,H,L);
     lastdg = N*N+3*N-7;
     H=List([[0,1,0]]);
     L=List();
@@ -146,7 +146,7 @@ firstlyapunov(R)=
 
 firstlyapunovN(NN,R)=
 {
-    local(lastdg,H,L,N,g,d,h,k,l);
+    my(lastdg,H,L,N,g,d,h,k,l);
     N=0;
     k=0;
     l=0;
@@ -188,13 +188,47 @@ firstlyapunovN(NN,R)=
     return("Centre?");
 }
 
-/* Generar pol z^m*w^n+z^k*w^l en notacio vectorial */
-genfield(m,n,k,l)=
+nextlyapunov(R,H=List([[0,1,0]]),L=List())=
 {
-    local(v1,v2);
-    v1=vector(m+n+1);
-    v1[n+1]=a1+I*b1;
-    v2=vector(k+l+1);
-    v2[l+1]=a2+I*b2;
-    return(List([v1,v2]));
+    my(i,N,maxL,lastdg,g,d,h);
+    if (#H%2==0,
+        return("Invalid H");
+    );
+    i = #H+2;
+    k = floor(i/2)-1;
+    N = 0;
+    for(i=1,#R,
+        N = max(N,#R[i]);
+    );
+    maxL = N*N+3*N-7;
+    lastdg = 2*(maxL+1);
+    while (i<lastdg,
+        /* Odd degree */
+        g = indcoef(i,H,R);
+        d = diagmat(i);
+        h = vector(i+1);
+        for (j=1,i+1,
+            h[j] = g[j]/d[j];
+        );
+        listput(H,h);
+        /* Even degree */
+        k++;
+        g = indcoef(i+1,H,R);
+        d = diagmat(i+1);
+        h = vector(i+2);
+        for (j=1,i+2,
+            if (d[j]!=0,
+                h[j] = g[j]/d[j];
+            );
+        );
+        listput(H,h);
+        const = g[((i+1)/2)+1]/I;
+        if (const!=0,
+            listput(L,[k,const]);
+            /* Return H and the constant found */
+            return(List([L,H]));
+        );
+        i+=2;
+    );       
+    return(-1);
 }

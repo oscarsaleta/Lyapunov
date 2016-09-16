@@ -8,26 +8,23 @@ pol2vec(P,n,vx,vy)=
 {
     my(aux);
     aux = vector(n+1);
-    for(i=0,n,
-        aux[i+1]=vector(i+1);
-        forstep(j=i,0,-1,
-            aux[i+1][i-j+1]=polcoeff(polcoeff(P,j,vx),i-j,vy);
+    for(i=1,n,
+        aux[i]=polcoeff(P,n-i+1,vx);
+        if(i>1,
+            aux[i]=polcoeff(aux[i],i,vy);
         );
     );
-    return(List(aux));
+    return(aux);
 }
 
 vec2pol(v)=
 {
     my(pol,n);
     n=#v;
-    pol=0;
-    for(i=0,n-1,
-        for(j=0,#v[i+1]-1,
-            pol += v[i+1][j+1]*z^(#v[i+1]-j-1)*w^j;
-        );
+    for(i=1,n,
+        pol += v[i]*z^i*w^(n-i);
     );
-    return(pol);
+    return(pol)
 }
 
 
@@ -107,8 +104,8 @@ indcoef(deg,H,R)=
 };
 
 
-/* Calcula les N primeres constants de liapunov del sistema donat */
-liapunov(N,R)=
+/* Calcula les N primeres constants de Lyapunov del sistema donat */
+lyapunov(N,R)=
 {
     my(lastdg,H,L);
     lastdg = N*N+3*N-7;
@@ -127,35 +124,34 @@ liapunov(N,R)=
         g=indcoef(i+1,H,R);
         d=diagmat(i+1);
         h=vector(i+2);
+        listput(L,g[((i+1)/2)+1]/I);
         for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
-            ,
-                h[j]=g[j]/I;
-                listput(L,h[j]);
             );
         );
+        h[((i+1)/2)+1]=g[((i+1)/2)+1]/I;
         listput(H,h);
     );
     return(L);
 };
 
-/* Calcula la primera constant de liapunov no nul·la i la retorna,
+/* Calcula la primera constant de Lyapunov no nul·la i la retorna,
    nomes busca fins la constant N
  */
-firstliapunov(R,epsilon=0)=
+firstlyapunov(R)=
 {
-    firstliapunovN(1,R,epsilon);
+    firstlyapunovN(1,R);
 };
 
-firstliapunovN(NN,R,epsilon=0)=
+firstlyapunovN(NN,R)=
 {
     my(lastdg,H,L,N,g,d,h,k,l);
     N=0;
     k=0;
     l=0;
     for(i=1,#R,
-        N = max(N,#R[i]-1);
+        N = max(N,#R[i]);
     );
     maxL = N*N+3*N-7;
     lastdg = 2*(maxL+1);
@@ -173,17 +169,9 @@ firstliapunovN(NN,R,epsilon=0)=
         /* Part parella */
         k++;
         g=indcoef(i+1,H,R);
-        const = g[((i+1)/2)+1]/I;
-        if(epsilon==0,
-            if(const!=0,
-                l++;
-                listput(L,[k,const]);
-            );
-            ,
-            if(abs(const)>epsilon,
-                l++;
-                listput(L,[k,const]);
-            );
+        if(g[((i+1)/2)+1]!=0,
+            l++;
+            listput(L,[k,g[((i+1)/2)+1]/I]);
         );
         if(l==NN,
             return(L);
@@ -193,8 +181,6 @@ firstliapunovN(NN,R,epsilon=0)=
         for(j=1,i+2,
             if(d[j]!=0,
                 h[j]=g[j]/d[j];
-            ,
-                h[j]=g[j]/I;
             );
         );
         listput(H,h);
@@ -202,7 +188,7 @@ firstliapunovN(NN,R,epsilon=0)=
     return("Centre?");
 }
 
-nextliapunov(R,H=List([[0,1,0]]),L=List())=
+nextlyapunov(R,H=List([[0,1,0]]),L=List())=
 {
     my(i,N,maxL,lastdg,g,d,h);
     if (#H%2==0,
