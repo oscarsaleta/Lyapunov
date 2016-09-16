@@ -1,2 +1,2 @@
-# Lyapunov
-Attempt at parallelizing the computation of different orders of approximation of Lyapunov constants.
+# Lyapunov constants
+Development of vectorised operations for computing Lyapunov constants for planal polynomial systems of differential equations. By *vectorised* we mean that the symbolic polynomial operations (addition, substraction, product, differentiation) are performed over the vectors of the coefficients of the polynomials and not on the polynomials themselves. This provides a better performance and allows the computation of higher order Lyapunov constants.
