@@ -40,19 +40,19 @@ y = Symbol('y')
 
 f = i*z + z**k*w**l + (a1+b1*i)*z**m*w**n + (a2+b2*i)*z**p*w**q
 f = f.subs(z,x+i*y).subs(w,x-i*y).expand().subs(i,I).subs(I,i)
-p = f.coeff(i,0)
-q = f.coeff(i,1)
+P = f.coeff(i,0)
+Q = f.coeff(i,1)
 if diff(p,x) - diff(q,y) == 0:
     print(status+", HAMILTONIAN CENTER")
     sys.exit(0)
 
 # New Darboux?
-if k == m and p >= k+1 and q >= k:
+if k == m and p >= k+1 and q >= 1 and q >= k:
     print(status+", podria ser (1)")
     sys.exit(0)
-elif k == p and m >= k+1 and n >= k:
+elif k == p and m >= k+1 and n >= 1 and n >= k:
     print(status+", podria ser (2)")
     sys.exit(0)
-    
+
 print(status+", NEED TO COMPUTE FURTHER")
 sys.exit(0)
