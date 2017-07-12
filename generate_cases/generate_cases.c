@@ -54,9 +54,12 @@ int main(int argc, char *argv[]) {
                 indexes[i] = i;
             // allocate vector of permutations
             permutations = malloc((count + 2) * sizeof(int));
+            // initialise vector for use with twiddle function
             inittwiddle(2, count, permutations);
+            // define selection as two last indexes of the vector
             selection[0] = count - 2;
             selection[1] = count - 1;
+            // write this case in stdout
             m = exp_z[selection[0]];
             n = exp_w[selection[0]];
             p = exp_z[selection[1]];
@@ -64,6 +67,7 @@ int main(int argc, char *argv[]) {
             taskid++;
             printf("%d,%d,%d,%d,%d,%d,%d,%d\n", taskid, taskid, k, l, m, n, p,
                    q);
+            // each permutation changes one element of selection
             while (!twiddle(&x, &y, &z, permutations)) {
                 selection[z] = indexes[x];
                 m = exp_z[selection[0]];
