@@ -3,6 +3,7 @@
 
 inline int max(int a, int b) { return (a > b ? a : b); }
 
+// taken from http://www.netlib.no/netlib/toms/382
 int twiddle(int *x, int *y, int *z, int *p) {
     register int i, j, k;
     j = 1;
@@ -61,15 +62,15 @@ void inittwiddle(int m, int n, int *p) {
 }
 
 int main(int argc, char *argv[]) {
-    int k, l, m, n, p, q; // graus dels 3 monomis
-    int taskid = 0;
-    int maxdeg;
-    int count, index;
-    int *exp_z, *exp_w;
-    int *permutations;
-    int x, y, z;
-    int i, *indexes;
-    int seleccio[2];
+    int k, l, m, n, p, q;       // exponents
+    int taskid = 0;             // case counter
+    int maxdeg;                 // max degree
+    int count;                  // number of (m,n) cases
+    int *exp_z, *exp_w;         // vectors of exponents for z and w
+    int x, y, z, *permutations; // variables for twiddle
+    int i;                      // for loops
+    int *indexes;               // vector [1,2,...,count]
+    int selection[2];           // pair of indexes that form a combination
 
     if (argc != 2 || sscanf(argv[1], "%d", &maxdeg) != 1) {
         fprintf(stderr, "%s: max_degree\n", argv[0]);
@@ -82,26 +83,25 @@ int main(int argc, char *argv[]) {
             if (k + l < 2 || k + l > maxdeg || k - l - 1 == 0)
                 continue;
             // count how many cases there are for other two monomials
-            count = 0;
-            for (m = 0; m <= maxdeg; m++) {
-                for (n = 0; n <= maxdeg; n++) {
-                    if ((m == k && n == l) || m + n < 2 || m + n > maxdeg)
-                        continue;
-                    count++;
-                }
-            }
+            // if maxdeg=d, there are d^2 combinations of exponents
+            // -1: when (m,n)==(k,l)
+            // -3: (0,0),(1,0),(0,1) of degree <2
+            // last term: counts the cases where m+n>d, it's the sum
+            // 1+2+...+(maxdeg-1)+maxdeg
+            count = (maxdeg + 1) * (maxdeg + 1) - 1 - 3 -
+                    (maxdeg) * (maxdeg + 1) / 2;
             // allocate vector with every possible pair of exponents
             exp_z = malloc(count * sizeof(int));
             exp_w = malloc(count * sizeof(int));
             // fill exponent pairs vector
-            index = 0;
+            i = 0;
             for (m = 0; m <= maxdeg; m++) {
                 for (n = 0; n <= maxdeg; n++) {
                     if ((m == k && n == l) || m + n < 2 || m + n > maxdeg)
                         continue;
-                    exp_z[index] = m;
-                    exp_w[index] = n;
-                    index++;
+                    exp_z[i] = m;
+                    exp_w[i] = n;
+                    i++;
                 }
             }
             // define vector of indexes
@@ -111,21 +111,21 @@ int main(int argc, char *argv[]) {
             // allocate vector of permutations
             permutations = malloc((count + 2) * sizeof(int));
             inittwiddle(2, count, permutations);
-            seleccio[0] = count - 2;
-            seleccio[1] = count - 1;
-            m = exp_z[seleccio[0]];
-            n = exp_w[seleccio[0]];
-            p = exp_z[seleccio[1]];
-            q = exp_w[seleccio[1]];
+            selection[0] = count - 2;
+            selection[1] = count - 1;
+            m = exp_z[selection[0]];
+            n = exp_w[selection[0]];
+            p = exp_z[selection[1]];
+            q = exp_w[selection[1]];
             taskid++;
             printf("%d,%d,%d,%d,%d,%d,%d,%d\n", taskid, taskid, k, l, m, n, p,
                    q);
             while (!twiddle(&x, &y, &z, permutations)) {
-                seleccio[z] = indexes[x];
-                m = exp_z[seleccio[0]];
-                n = exp_w[seleccio[0]];
-                p = exp_z[seleccio[1]];
-                q = exp_w[seleccio[1]];
+                selection[z] = indexes[x];
+                m = exp_z[selection[0]];
+                n = exp_w[selection[0]];
+                p = exp_z[selection[1]];
+                q = exp_w[selection[1]];
                 taskid++;
                 printf("%d,%d,%d,%d,%d,%d,%d,%d\n", taskid, taskid, k, l, m, n,
                        p, q);
