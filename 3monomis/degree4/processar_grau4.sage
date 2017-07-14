@@ -61,7 +61,7 @@ print("\n#Computing Lyapunov constants...")
 # Load data and functions in PARI
 gp("taskArgs=["+str(k)+","+str(l)+"," +
    str(m)+","+str(n)+","+str(p)+","+str(q)+"]")
-gp("read(\"lyap.gp\")")
+gp("read(\"lyaps.gp\")")
 
 # Compute first nonzero constant
 gp("l=nextlyapunov(R);")
