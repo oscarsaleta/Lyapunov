@@ -42,7 +42,7 @@ f = i*z + z**k*w**l + (a1+b1*i)*z**m*w**n + (a2+b2*i)*z**p*w**q
 f = f.subs(z,x+i*y).subs(w,x-i*y).expand().subs(i,I).subs(I,i)
 P = f.coeff(i,0)
 Q = f.coeff(i,1)
-if diff(p,x) - diff(q,y) == 0:
+if diff(P,x) - diff(Q,y) == 0:
     print(status+", HAMILTONIAN CENTER")
     sys.exit(0)
 
