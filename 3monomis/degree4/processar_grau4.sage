@@ -27,10 +27,10 @@ if l == 0 and n == 0 and q == 0:
 
 # New Darboux?
 if k >= 1 and k == m and p >= k+1 and q == p-k:
-    print(status+", podria ser (1)")
+    print(status+", DARBOUX CENTER with integrating factor 1/(z*w)")
     sys.exit(0)
 elif k >= 1 and k == p and m >= k+1 and n == m-k:
-    print(status+", podria ser (2)")
+    print(status+", DARBOUX CENTER with integrating factor 1/(z*w)")
     sys.exit(0)
 
 # Hamiltonian
@@ -53,7 +53,8 @@ Q = f.coeff(i,1)
 if diff(P,x) - diff(Q,y) == 0:
     print(status+", HAMILTONIAN CENTER")
     sys.exit(0)
-
+else
+    print(status+", "+diff(P,x) - diff(Q,y))
 
 
 print(status+", NEED TO COMPUTE FURTHER")
