@@ -25,6 +25,14 @@ if l == 0 and n == 0 and q == 0:
     print(status+", HOLOMORPHIC CENTER")
     sys.exit(0)
 
+# New Darboux?
+if k == m and p >= k+1 and q == p-k:
+    print(status+", podria ser (1)")
+    sys.exit(0)
+elif k == p and m >= k+1 and n == m-k:
+    print(status+", podria ser (2)")
+    sys.exit(0)
+
 # Hamiltonian
 from sympy import *
 
@@ -46,13 +54,7 @@ if diff(P,x) - diff(Q,y) == 0:
     print(status+", HAMILTONIAN CENTER")
     sys.exit(0)
 
-# New Darboux?
-if k == m and p >= k+1 and q >= 1 and q >= k:
-    print(status+", podria ser (1)")
-    sys.exit(0)
-elif k == p and m >= k+1 and n >= 1 and n >= k:
-    print(status+", podria ser (2)")
-    sys.exit(0)
+
 
 print(status+", NEED TO COMPUTE FURTHER")
 sys.exit(0)
