@@ -53,8 +53,8 @@ Q = f.coeff(i,1)
 if diff(P,x) - diff(Q,y) == 0:
     print(status+", HAMILTONIAN CENTER")
     sys.exit(0)
-else
-    print(status+", "+diff(P,x) - diff(Q,y))
+else:
+    print(status+", h? "+diff(P,x) - diff(Q,y))
 
 
 print(status+", NEED TO COMPUTE FURTHER")
