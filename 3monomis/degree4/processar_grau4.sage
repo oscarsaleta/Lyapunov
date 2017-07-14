@@ -54,7 +54,7 @@ if diff(P,x) - diff(Q,y) == 0:
     print(status+", HAMILTONIAN CENTER")
     sys.exit(0)
 else:
-    print(status+", h? "+diff(P,x) - diff(Q,y))
+    print(status+", h? "+str(diff(P,x) - diff(Q,y)))
 
 
 print(status+", NEED TO COMPUTE FURTHER")
