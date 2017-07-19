@@ -83,9 +83,9 @@ while (int(ordres[0]) <= grau*grau+3*grau-7):
     f = gp.eval("l[1]["+str(i+1)+"][2]")
     o = gp.eval("l[1]["+str(i+1)+"][1]")
     # Generate ideal with previous constants
-    I = singular.ideal(lyaps)
+    Id = singular.ideal(lyaps)
     # Reduce new constant with respect to the previous
-    B = I.groebner()
+    B = Id.groebner()
     # Stopping condition: 2 reduce in a row or we computed more than n*n+3*n-7
     g = singular(f).sage().reduce(B.sage())
     if g == 0:
