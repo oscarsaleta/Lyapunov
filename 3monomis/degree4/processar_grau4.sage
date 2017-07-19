@@ -13,7 +13,7 @@ q = taskArgs[6]
 status = ""+str(taskId)+","+str(k)+","+str(l)+"," + \
     str(m)+","+str(n)+","+str(p)+","+str(q)
 
-print("#R = I*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*I)*z^" +
+print("R := I*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*I)*z^" +
       str(m)+"*w^"+str(n)+" + (a2+b2*I)*z^"+str(p)+"*w^"+str(q))
 grau = max(max(k+l, m+n), p+q)
 print("#Field degree = "+str(grau))
@@ -61,10 +61,11 @@ if sage_eval(gp.eval("l==-1")) == 1:
     sys.exit()
 
 # Reduce Lyapunov constants in Groebner bases
-primer = 32003
+#primer = 32003
+primer = 0
 R = singular.ring(primer, '(a1,b1,a2,b2)', 'dp')
 if (primer != 0):
-    print("#Using ring on a finite field modulo 32003")
+    print("#Using ring on a finite field modulo "+str(primer))
 
 lyaps = []
 lyaps.append(gp.eval("l[1][1][2]"))
