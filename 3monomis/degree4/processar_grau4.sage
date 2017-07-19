@@ -16,7 +16,7 @@ status = ""+str(taskId)+","+str(k)+","+str(l)+"," + \
 print("R := I*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*I)*z^" +
       str(m)+"*w^"+str(n)+" + (a2+b2*I)*z^"+str(p)+"*w^"+str(q))
 grau = max(max(k+l, m+n), p+q)
-print("#Field degree = "+str(grau))
+print("# Field degree = "+str(grau))
 
 # Check if it is a trivial center before computing
 # Holomorfic
@@ -47,7 +47,7 @@ if diff(P, x) - diff(Q, y) == 0:
 
 
 # Center not included in previous filters
-print("\n#Computing Lyapunov constants...")
+print("\n# Computing Lyapunov constants...")
 
 # Load data and functions in PARI
 gp("taskArgs=["+str(k)+","+str(l)+"," +
@@ -65,7 +65,7 @@ if sage_eval(gp.eval("l==-1")) == 1:
 primer = 0
 R = singular.ring(primer, '(a1,b1,a2,b2)', 'dp')
 if (primer != 0):
-    print("#Using ring on a finite field modulo "+str(primer))
+    print("# Using ring on a finite field modulo "+str(primer))
 
 lyaps = []
 lyaps.append(gp.eval("l[1][1][2]"))
@@ -115,6 +115,6 @@ c0 = numerator(1+x^(k-l-1))
 c1 = numerator((a1+b1*I)+(a1-b1*I)*x^(m-n-1))
 c2 = numerator((a2+b2*I)+(a2-b2*I)*x^(p-q-1))
 #condicions = singular.facstd(singular.ideal(c0,c1,c2))
-print("c0:="+str(c0)+"\n")
-print("c1:="+str(c1)+"\n")
-print("c2:="+str(c2)+"\n")
+print("c0:="+str(c0)+":\n")
+print("c1:="+str(c1)+":\n")
+print("c2:="+str(c2)+":\n")
