@@ -33,22 +33,14 @@ elif k >= 1 and k == p and m >= k+1 and n == m-k:
     sys.exit(0)
 
 # Hamiltonian
-from sympy import *
-
-a1 = Symbol('a1')
-b1 = Symbol('b1')
-a2 = Symbol('a2')
-b2 = Symbol('b2')
-i = Symbol('i')
-z = Symbol('z')
-w = Symbol('w')
-x = Symbol('x')
-y = Symbol('y')
+import sympy as sp
+a1,b1,a2,b2 = sp.symbols('a1 b1 a2 b2')
+i, z, w, x, y = sp.symbols('i z w x y')
 
 f = i*z + z**k*w**l + (a1+b1*i)*z**m*w**n + (a2+b2*i)*z**p*w**q
-f = f.subs(z, x+i*y).subs(w, x-i*y).expand().subs(i, I).subs(I, i)
-P = f.coeff(i, 0)
-Q = f.coeff(i, 1)
+g = f.subs({z:x+i*y,w:x-i*y}).expand().subs(i, sp.I).subs(sp.I, i)
+P = g.coeff(i, 0)
+Q = g.coeff(i, 1)
 if diff(P, x) - diff(Q, y) == 0:
     print(status+", HAMILTONIAN CENTER")
     sys.exit(0)
