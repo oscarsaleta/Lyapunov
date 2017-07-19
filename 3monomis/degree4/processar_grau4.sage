@@ -13,23 +13,22 @@ q = taskArgs[6]
 status = ""+str(taskId)+","+str(k)+","+str(l)+"," + \
     str(m)+","+str(n)+","+str(p)+","+str(q)
 
-print("R := I*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*I)*z^" +
-      str(m)+"*w^"+str(n)+" + (a2+b2*I)*z^"+str(p)+"*w^"+str(q)+":")
 grau = max(max(k+l, m+n), p+q)
 print("# Field degree = "+str(grau))
+print("R := I*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*I)*z^" +
+      str(m)+"*w^"+str(n)+" + (a2+b2*I)*z^"+str(p)+"*w^"+str(q)+":")
 
 # Check if it is a trivial center before computing
 # Holomorfic
 if l == 0 and n == 0 and q == 0:
-    print(status+", HOLOMORPHIC CENTER")
+    print("\n# "+status+", HOLOMORPHIC CENTER")
     sys.exit(0)
-
 # New Darboux?
 if k >= 1 and k == m and p >= k+1 and q == p-k:
-    print(status+", DARBOUX CENTER with integrating factor 1/(z*w)")
+    print("\n# "+status+", DARBOUX CENTER with integrating factor 1/(z*w)")
     sys.exit(0)
 elif k >= 1 and k == p and m >= k+1 and n == m-k:
-    print(status+", DARBOUX CENTER with integrating factor 1/(z*w)")
+    print("\n# "+status+", DARBOUX CENTER with integrating factor 1/(z*w)")
     sys.exit(0)
 
 # Check if Hamiltonian
@@ -42,7 +41,7 @@ g = f.subs({z:x+i*y, w:x-i*y}).expand().subs(i, sp.I).subs(sp.I, i)
 P = g.coeff(i, 0)
 Q = g.coeff(i, 1)
 if diff(P, x) - diff(Q, y) == 0:
-    print(status+", HAMILTONIAN CENTER")
+    print("\n# "+status+", HAMILTONIAN CENTER")
     sys.exit(0)
 
 # Center not included in previous filters
@@ -71,7 +70,7 @@ lyaps.append(gp.eval("l[1][1][2]"))
 ordres = []
 ordres.append(gp.eval("l[1][1][1]"))
 
-print("\nL"+ordres[0]+":="+lyaps[0]+":")
+print("L"+ordres[0]+":="+lyaps[0]+":")
 ordre = ordres[0]
 
 i = 1
@@ -103,7 +102,7 @@ while (int(ordres[0]) <= grau*grau+3*grau-7):
 
 
 # Reversible center conditions
-print("# Computing reversible center conditions\n")
+print("\n# Computing reversible center conditions\n")
 if primer != 0:
     S.<i> = GF(primer)[]
     SS.<I> = S.quotient(i^2+1)
