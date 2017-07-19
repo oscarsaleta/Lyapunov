@@ -32,19 +32,18 @@ elif k >= 1 and k == p and m >= k+1 and n == m-k:
     print(status+", DARBOUX CENTER with integrating factor 1/(z*w)")
     sys.exit(0)
 
-# Hamiltonian
+# Check if Hamiltonian
 import sympy as sp
 a1,b1,a2,b2 = sp.symbols('a1 b1 a2 b2')
 i, z, w, x, y = sp.symbols('i z w x y')
 
 f = i*z + z**k*w**l + (a1+b1*i)*z**m*w**n + (a2+b2*i)*z**p*w**q
-g = f.subs({z:x+i*y,w:x-i*y}).expand().subs(i, sp.I).subs(sp.I, i)
+g = f.subs({z:x+i*y, w:x-i*y}).expand().subs(i, sp.I).subs(sp.I, i)
 P = g.coeff(i, 0)
 Q = g.coeff(i, 1)
 if diff(P, x) - diff(Q, y) == 0:
     print(status+", HAMILTONIAN CENTER")
     sys.exit(0)
-
 
 # Center not included in previous filters
 print("\n# Computing Lyapunov constants...")
@@ -61,8 +60,8 @@ if sage_eval(gp.eval("l==-1")) == 1:
     sys.exit()
 
 # Reduce Lyapunov constants in Groebner bases
-#primer = 32003
-primer = 0
+primer = 32003
+#primer = 0
 R = singular.ring(primer, '(a1,b1,a2,b2)', 'dp')
 if (primer != 0):
     print("# Using ring on a finite field modulo "+str(primer))
