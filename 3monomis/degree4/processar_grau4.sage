@@ -30,6 +30,28 @@ if k >= 1 and k == m and p >= k+1 and q == p-k:
 elif k >= 1 and k == p and m >= k+1 and n == m-k:
     print("\n# "+status+", DARBOUX CENTER with integrating factor 1/(z*w)")
     sys.exit(0)
+# Check case z'=iz+z^k*g(w)
+if k == m and m == p:
+    if k == 0:
+        if m-n-1 == 0:
+            print("\n# "+status+", HAMILTONIAN CENTER if a1=0")
+            sys.exit(0)
+        elif p-q-1 == 0:
+            print("\n# "+status+", HAMILTONIAN CENTER if a2=0")
+            sys.exit(0)
+        else:
+            print("\n# "+status+", HAMILTONIAN CENTER") 
+            sys.exit(0)
+    else:
+        if m-n-1 == 0:
+            print("\n# "+status+", DARBOUX CENTER if a1=0")
+            sys.exit(0)
+        elif p-q-1 == 0:
+            print("\n# "+status+", DARBOUX CENTER if a2=0")
+            sys.exit(0)
+        else:
+            print("\n# "+status+", DARBOUX CENTER")
+            sys.exit(0)
 
 # Check if Hamiltonian
 import sympy as sp
@@ -112,7 +134,6 @@ K.<a1,a2,b1,b2,x> = PolynomialRing(SS)
 c0 = numerator(1+x^(k-l-1))
 c1 = numerator((a1+b1*I)+(a1-b1*I)*x^(m-n-1))
 c2 = numerator((a2+b2*I)+(a2-b2*I)*x^(p-q-1))
-#condicions = singular.facstd(singular.ideal(c0,c1,c2))
 print("c0:="+str(c0)+":")
 print("c1:="+str(c1)+":")
 print("c2:="+str(c2)+":")
