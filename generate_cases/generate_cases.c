@@ -74,6 +74,8 @@ int main(int argc, char *argv[]) {
                 n = exp_w[selection[0]];
                 p = exp_z[selection[1]];
                 q = exp_w[selection[1]];
+                if (max(max(k + l, m + n), p + q) < 4)
+                    continue;
                 taskid++;
                 printf("%d,%d,%d,%d,%d,%d,%d,%d\n", taskid, taskid, k, l, m, n,
                        p, q);
