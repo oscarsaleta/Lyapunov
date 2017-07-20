@@ -15,8 +15,13 @@ status = ""+str(taskId)+","+str(k)+","+str(l)+"," + \
 
 grau = max(max(k+l, m+n), p+q)
 print("# Field degree = "+str(grau))
-print("R := I*z + z^"+str(k)+"*w^"+str(l)+" + (a1+b1*I)*z^" +
-      str(m)+"*w^"+str(n)+" + (a2+b2*I)*z^"+str(p)+"*w^"+str(q)+":")
+print("k:="+str(k)+":")
+print("l:="+str(l)+":")
+print("m:="+str(m)+":")
+print("n:="+str(n)+":")
+print("p:="+str(p)+":")
+print("q:="+str(q)+":")
+print("R := I*z + z^k*w^l + (a1+b1*I)*z^m*w^n + (a2+b2*I)*z^p*w^q:")
 
 # Check if it is a trivial center before computing
 # Holomorfic
@@ -30,7 +35,7 @@ if k >= 1 and k == m and p >= k+1 and q == p-k:
 elif k >= 1 and k == p and m >= k+1 and n == m-k:
     print("\n# "+status+", DARBOUX CENTER with integrating factor 1/(z*w)")
     sys.exit(0)
-# Check case z'=iz+z^k*g(w)
+# Check case z'=iz+z^k*g(w)sag
 if k == m and m == p:
     if k == 0:
         if m-n-1 == 0:
