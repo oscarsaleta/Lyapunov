@@ -54,6 +54,7 @@ if primer <> 0 then
 else
     conds:={c0,c1,c2};
 end if;
+fprintf(fd,"\nconds:=%a\n",conds);
 
 # Solve previos equations using Groebner basis
 with(Groebner):
@@ -64,17 +65,37 @@ csols:=Solve(conds,{a,b,x}):
 fprintf(fd,"\n# Lyapunov center conditions:\n");
 n_lsols:=0:
 for i1 in lsols do
-    ii1:=solve(i1[1]);
-    fprintf(fd,"%a\n",ii1);
-    for v in allvalues(ii1) do
-        if whattype(v)=set then
-            lsols||n_lsols:=v;
-            fprintf(fd,"%a\n",v):
+    eq:={op(i1[1])} union {op(i1[3])<>0};
+    ii1:=solve(eq,{a,b});
+    if whattype(ii1)=exprseq then
+        for v in ii1 do
+            vv:=allvalues(v);
+            if whattype(vv)=exprseq then
+                for vvv in vv do
+                    lsols||n_lsols:=vvv;
+                    fprintf(fd,"%a\n",vvv);
+                    n_lsols:=n_lsols+1;
+                end do;
+            else
+                lsols||n_lsols:=v;
+                fprintf(fd,"%a\n",v);
+                n_lsols:=n_lsols+1;
+            end if;
+        end do;
+    else
+        v:=allvalues(ii1);
+        if whattype(v)=exprseq then
+            for vv in v do
+                lsols||n_lsols:=vv;
+                fprintf(fd,"%a\n",vv);
+                n_lsols:=n_lsols+1;
+            end do;
         else
             lsols||n_lsols:=ii1;
+            fprintf(fd,"%a\n",ii1);
+            n_lsols:=n_lsols+1;
         end if;
-        n_lsols:=n_lsols+1:
-    end do;
+    end if;
 end do;
 
 # Simplify and write reversible center solution sets
@@ -82,36 +103,43 @@ fprintf(fd,"\n# Reversible center conditions:\n");
 with(ListTools):
 n_csols:=0;
 for i2 in csols do
+    eq:={op(i2[1])} union {op(i2[3])<>0};
     if primer <> 0 then
-        ii2:=solve(i2[1]) mod primer:
+        ii2:=solve(eq,{a,b}) mod primer:
     else
-        ii2:=solve(i2[1]):
+        ii2:=solve(eq,{a,b}):
     end if;
     ii2:=ii2 minus {SelectLast([op(ii2)])};
-    for v in allvalues(ii2) do
-        if whattype(v)=set then
-            csols||n_csols:=v;
-            fprintf(fd,"%a\n",v):
-        else
-            csols||n_csols:=ii2;
-        end if;
-        n_csols:=n_csols+1:
-    end do;
+    v:=allvalues(ii2);
+    if whattype(v)=exprseq then
+        for vv in v do
+            csols||n_csols:=vv;
+            fprintf(fd,"%a\n",csols||n_csols);
+            n_csols:=n_csols+1;
+        end do;
+    else
+        csols||n_csols:=ii2;
+        fprintf(fd,"%a\n",csols||n_csols);
+        n_csols:=n_csols+1;
+    end if;
 end do;
 
-# Compare Lyapunov and reversible soltion sets
-LSOLS:={lsols0}:
+# Create sets of all conditions for Lyapunov and reversible center
+LSOLS:={simplify(expand(lsols0))}:
 for i from 1 to n_lsols-1 do
-    LSOLS:=LSOLS union {lsols||i};
-CSOLS:={csols0}:
-for i from 1 to n_csols-1 do
-    CSOLS:=CSOLS union {csols||i};
+    LSOLS:=LSOLS union {simplify(expand(lsols||i))};
 end do;
+CSOLS:={simplify(expand(csols0))}:
+for i from 1 to n_csols-1 do
+    CSOLS:=CSOLS union {simplify(expand(csols||i))};
+end do;
+#fprintf(fd,"\nLSOLS:=%a\nCSOLS:=%a\n",LSOLS,CSOLS);
 
+# Compare conditions and remove Lyapunov ones that are reversible
 for c in CSOLS do
     for l in LSOLS do
         if l subset c and c subset l then
-            LSOLS:=LSOLS minus l;
+            LSOLS:=LSOLS minus {l};
             break;
         end if;
     end do;
