@@ -54,7 +54,7 @@ if primer <> 0 then
 else
     conds:={c0,c1,c2};
 end if;
-fprintf(fd,"\nconds:=%a\n",conds);
+#fprintf(fd,"\nconds:=%a\n",conds);
 
 # Solve previos equations using Groebner basis
 with(Groebner):
@@ -65,7 +65,10 @@ csols:=Solve(conds,{a,b,x}):
 fprintf(fd,"\n# Lyapunov center conditions:\n");
 n_lsols:=0:
 for i1 in lsols do
-    eq:={op(i1[1])} union {op(i1[3])<>0};
+    eq:={op(i1[1])};
+    if nops(i1[3])>0 then
+        eq:=eq union {op(i1[3])<>0};
+    end if;
     ii1:=solve(eq,{a,b});
     if whattype(ii1)=exprseq then
         for v in ii1 do
@@ -73,12 +76,12 @@ for i1 in lsols do
             if whattype(vv)=exprseq then
                 for vvv in vv do
                     lsols||n_lsols:=vvv;
-                    fprintf(fd,"%a\n",vvv);
+                    fprintf(fd,"%a;\n",vvv);
                     n_lsols:=n_lsols+1;
                 end do;
             else
                 lsols||n_lsols:=v;
-                fprintf(fd,"%a\n",v);
+                fprintf(fd,"%a;\n",v);
                 n_lsols:=n_lsols+1;
             end if;
         end do;
@@ -87,12 +90,12 @@ for i1 in lsols do
         if whattype(v)=exprseq then
             for vv in v do
                 lsols||n_lsols:=vv;
-                fprintf(fd,"%a\n",vv);
+                fprintf(fd,"%a;\n",vv);
                 n_lsols:=n_lsols+1;
             end do;
         else
             lsols||n_lsols:=ii1;
-            fprintf(fd,"%a\n",ii1);
+            fprintf(fd,"%a;\n",ii1);
             n_lsols:=n_lsols+1;
         end if;
     end if;
@@ -103,24 +106,44 @@ fprintf(fd,"\n# Reversible center conditions:\n");
 with(ListTools):
 n_csols:=0;
 for i2 in csols do
-    eq:={op(i2[1])} union {op(i2[3])<>0};
+    eq:={op(i2[1])};
+    if nops(i2[3])>0 then
+        eq:=eq union {op(i2[3])<>0};
+    end if;
     if primer <> 0 then
-        ii2:=solve(eq,{a,b}) mod primer:
+        ii2:=solve(eq,{a,b,x}) mod primer:
     else
-        ii2:=solve(eq,{a,b}):
+        ii2:=solve(eq,{a,b,x}):
     end if;
     ii2:=ii2 minus {SelectLast([op(ii2)])};
-    v:=allvalues(ii2);
-    if whattype(v)=exprseq then
-        for vv in v do
-            csols||n_csols:=vv;
-            fprintf(fd,"%a\n",csols||n_csols);
-            n_csols:=n_csols+1;
+    if whattype(ii2)=exprseq then
+        for v in ii2 do
+            vv:=allvalues(ii2);
+            if whattype(vv)=exprseq then
+                for vvv in vv do
+                    csols||n_csols:=vvv;
+                    fprintf(fd,"%a;\n",csols||n_csols);
+                    n_csols:=n_csols+1;
+                end do;
+            else
+                csols_n_csols:=v;
+                fprintf(fd,"%a;\n",csols||n_csols);
+                n_csols:=n_csols+1;
+            end if;
         end do;
     else
-        csols||n_csols:=ii2;
-        fprintf(fd,"%a\n",csols||n_csols);
-        n_csols:=n_csols+1;
+        v:=allvalues(ii2);
+        if whattype(v)=exprseq then
+            for vv in v do
+                csols||n_csols:=vv;
+                fprintf(fd,"%a;\n",csols||n_csols);
+                n_csols:=n_csols+1;
+            end do;
+        else
+            csols||n_csols:=ii2;
+            fprintf(fd,"%a;\n",csols||n_csols);
+            n_csols:=n_csols+1;
+        end if;
     end if;
 end do;
 
@@ -147,12 +170,12 @@ end do;
 
 # Print remaining Lyapunov center conditions
 if nops(LSOLS)>0 then
-    fprintf(fd,"\n# Conflicting Lyapunov conditions:\n");
+    fprintf(fd,"\n# Non-reversible center conditions:\n");
     for l in LSOLS do
         fprintf(fd,"%a\n",l);
     end do;
 else
-    fprintf(fd,"\n# All Lyapunov center conditions are reversible\n");
+    fprintf(fd,"\n# All center conditions are reversible\n");
 end if;
 
 fclose(fd);
