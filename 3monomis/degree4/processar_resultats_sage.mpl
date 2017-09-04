@@ -2,11 +2,11 @@ restart;
 Digits:=50;
 
 # Define if we are in rationals (primer=0) or finite field
-primer:=0:
+primer:=0;
 
 # Read PBala arguments
-deg:=taskArgs[1]:
-taskId:=taskArgs[2]:
+deg:=taskArgs[1];
+taskId:=taskArgs[2];
 
 # Pick correct filenames depending on working field
 if primer <> 0 then
@@ -27,7 +27,7 @@ a2:=(b+cb)/2:
 b2:=(b-cb)/2/I:
 
 # Max number of Lyapunov constants computed
-N:=deg^2+3*deg-7:
+N:=deg^2+3*deg-7;
 
 # Initialise all Lyapunov constants to 0
 for i from 1 to N do
@@ -42,8 +42,8 @@ fprintf(fd,"R:=I*z+z^%d*w^%d+a*z^%d*w^%d+b*z^%d*w^%d;\n",k,l,m,n,p,q):
 # Simplify and print Lyapunov constants
 fprintf(fd,"\n# Lyapunov constants:\n");
 for i from 1 to N do
-    l||i:=simplify(factor(L||i)):
-    fprintf(fd,"L%d:=%a;\n",i,l||i):
+    l||i:=simplify(factor(L||i));
+    fprintf(fd,"L%d:=%a;\n",i,l||i);
 end do:
 
 # Compute Lyapunov center conditions
@@ -61,8 +61,8 @@ end if;
 with(Groebner):
 
 # Define and solve Lyapunov equations
-eqs:={seq(l||i,i=1..N)} minus {0}:
-lsols:=Solve(eqs,{a,b}):
+eqs:={seq(l||i,i=1..N)} minus {0};
+lsols:=Solve(eqs,{a,b});
 
 # Simplify and write Lyapunov solution sets
 fprintf(fd,"\n# Lyapunov center conditions:\n");
@@ -118,9 +118,9 @@ for i2 in csols do
         eq:=eq union {op(i2[3])<>0};
     end if;
     if primer <> 0 then
-        ii2:=solve(eq,{a,b,x}) mod primer:
+        ii2:=solve(eq,{a,b,x}) mod primer;
     else
-        ii2:=solve(eq,{a,b,x}):
+        ii2:=solve(eq,{a,b,x});
     end if;
     ii2:=ii2 minus {SelectLast([op(ii2)])};
     if whattype(ii2)=exprseq then
@@ -155,11 +155,11 @@ for i2 in csols do
 end do;
 
 # Create sets of all conditions for Lyapunov and reversible center
-LSOLS:={simplify(expand(simplify(lsols0)))}:
+LSOLS:={simplify(expand(simplify(lsols0)))};
 for i from 1 to n_lsols-1 do
     LSOLS:=LSOLS union {simplify(expand(simplify(lsols||i)))};
 end do;
-CSOLS:={simplify(expand(simplify(csols0)))}:
+CSOLS:={simplify(expand(simplify(csols0)))};
 for i from 1 to n_csols-1 do
     CSOLS:=CSOLS union {simplify(expand(simplify(csols||i)))};
 end do;
@@ -181,14 +181,31 @@ end do;
 # Print remaining Lyapunov center conditions
 if nops(LSOLS)>0 then
     fprintf(fd,"\n# Non-reversible center conditions:\n");
-    i:=0;
+    n_nrconds:=0;
     for l in LSOLS do
-        fprintf(fd,"c||%d:=%a:\n",i,l);
-        i:=i+1;
+        c||n_nrconds:=l;
+        fprintf(fd,"c||%d:=%a:\n",n_nrconds,l);
+        n_nrconds:=n_nrconds+1;
     end do;
 else
     fprintf(fd,"\n# All center conditions are reversible\n");
 end if;
+
+# Test conditions for Hamiltonian/easy Darboux integrability
+defs:={a=a1+a2*I,ca=a1-a2*I,b=b1+b2*I,cb=b1-b2*I};
+for i from 0 to n_nrconds-1 do
+    fprintf(fd,"# \nNon-reversible condition %d", i);
+    RR:=subs(solve(c||i,{a,ca,b,cb}),R);
+    expand(subs(z=x+y*I,w=x-y*I,defs,RR));
+    P,Q:=coeff(%,I,0),coeff(%,I,1);
+    fprinf(fd,"P:=%a\nQ:=%a\n",P,Q);
+    if diff(P,x)+diff(Q,y)=0 then
+        fprintf(fd,"# The center is Hamiltonian");
+    else
+        # TODO: check for darboux ingegrability
+        fprintf(fd,"# TODO: check for darboux ingegrability");
+    end if;
+end do;
 
 fclose(fd);
 
