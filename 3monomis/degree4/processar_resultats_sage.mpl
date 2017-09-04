@@ -28,7 +28,6 @@ b2:=(b-cb)/2/I:
 
 # Max number of Lyapunov constants computed
 N:=deg^2+3*deg-7:
-fprintf(result_fname,"\t\"Number of Lyapunov constants\": %d,\n",N):
 
 # Initialise all Lyapunov constants to 0
 for i from 1 to N do
@@ -46,7 +45,6 @@ for i from 1 to N do
     l||i:=simplify(factor(L||i)):
     fprintf(fd,"L%d:=%a;\n",i,l||i):
 end do:
-fprintf(result_fname,"\t],\n"):
 
 # Compute Lyapunov center conditions
 eqs:={seq(l||i,i=1..N)} minus {0};
@@ -105,7 +103,6 @@ for i1 in lsols do
         end if;
     end if;
 end do;
-fprintf(result_fname,"\t],\n"):
 
 # Define and solve center equations
 conds:={c0,c1,c2}:
