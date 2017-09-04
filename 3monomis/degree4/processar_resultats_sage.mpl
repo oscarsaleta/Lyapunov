@@ -1,4 +1,5 @@
 restart;
+Digits:=50;
 
 # Define if we are in rationals (primer=0) or finite field
 primer:=0:
@@ -148,13 +149,13 @@ for i2 in csols do
 end do;
 
 # Create sets of all conditions for Lyapunov and reversible center
-LSOLS:={simplify(expand(lsols0))}:
+LSOLS:={simplify(expand(simplify(lsols0)))}:
 for i from 1 to n_lsols-1 do
-    LSOLS:=LSOLS union {simplify(expand(lsols||i))};
+    LSOLS:=LSOLS union {simplify(expand(simplify(lsols||i)))};
 end do;
-CSOLS:={simplify(expand(csols0))}:
+CSOLS:={simplify(expand(simplify(csols0)))}:
 for i from 1 to n_csols-1 do
-    CSOLS:=CSOLS union {simplify(expand(csols||i))};
+    CSOLS:=CSOLS union {simplify(expand(simplify(csols||i)))};
 end do;
 #fprintf(fd,"\nLSOLS:=%a\nCSOLS:=%a\n",LSOLS,CSOLS);
 
@@ -162,6 +163,9 @@ end do;
 for c in CSOLS do
     for l in LSOLS do
         if l subset c and c subset l then
+            LSOLS:=LSOLS minus {l};
+            break;
+        elif abs(coeff(rhs(evalf(l)[1])-rhs(evalf(c)[1]),ca))<1e-49 and abs(coeff(rhs(evalf(l)[2])-rhs(evalf(c)[2]),cb))<1e-49 then
             LSOLS:=LSOLS minus {l};
             break;
         end if;
