@@ -181,8 +181,10 @@ end do;
 # Print remaining Lyapunov center conditions
 if nops(LSOLS)>0 then
     fprintf(fd,"\n# Non-reversible center conditions:\n");
+    i:=0;
     for l in LSOLS do
-        fprintf(fd,"%a\n",l);
+        fprintf(fd,"c||%d:=%a:\n",i,l);
+        i:=i+1;
     end do;
 else
     fprintf(fd,"\n# All center conditions are reversible\n");
