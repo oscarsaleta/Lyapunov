@@ -213,6 +213,8 @@ for i from 0 to n_nrconds-1 do
         if FKsols<>() then
             fprintf(fd,"# The system could be Darboux integrable");
             fprintf(fd,"# TODO: find cofactor");
+        else
+            fprintf(fd,"# This center has not been determined;");
         end if;
     end if;
 end do;
