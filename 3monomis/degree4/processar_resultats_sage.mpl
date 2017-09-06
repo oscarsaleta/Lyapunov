@@ -179,6 +179,7 @@ for c in CSOLS do
 end do;
 
 # Print remaining Lyapunov center conditions
+fprintf(fd,"nops(LSOLS)=%a\n",nops(LSOLS));
 if nops(LSOLS)>0 then
     fprintf(fd,"\n# Non-reversible center conditions:\n");
     n_nrconds:=0;
@@ -191,7 +192,7 @@ else
     n_nrconds:=-1;
     fprintf(fd,"\n# All center conditions are reversible\n");
 end if;
-
+fprintf(fd,"nconds=%d\n",n_nrconds);
 # Test conditions for Hamiltonian/easy Darboux integrability
 defs:={a=a1+a2*I,ca=a1-a2*I,b=b1+b2*I,cb=b1-b2*I};
 for i from 0 to n_nrconds-1 do
@@ -200,7 +201,6 @@ for i from 0 to n_nrconds-1 do
     fprintf(fd,"RR:=%a;\n",RR);
     RRR:=expand(subs(z=x+y*I,w=x-y*I,op(defs),RR));
     fprintf(fd,"RRR:=%a;\n",RRR);
-    fprintf(fd,"-----------%a\n",expand(subs(defs,RRR));
     P,Q:=coeff(RRR,I,0),coeff(RRR,I,1);
     fprintf(fd,"P:=%a;\nQ:=%a;\n",P,Q);
     fprintf(fd,"diff(P,x)=%a;\ndiff(Q,y)=%a;\n",diff(P,x),diff(Q,y));
