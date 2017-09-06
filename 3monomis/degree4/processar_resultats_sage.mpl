@@ -209,9 +209,9 @@ for i from 0 to n_nrconds-1 do
         K:=b00+b10*x+b01*y+b20*x^2+b11*x*y+b02*y^2;
         var:=indets(F*K) minus ({x,y});
         expand(diff(F,x)*P+diff(F,y)*Q-F*K):
-        FKsols:=solve({coeffs(%,[x,y]),b20<>0},var);
+        FKsols:={solve({coeffs(%,[x,y]),b20<>0},var)};
         fprintf(fd,"fksols:=%a\n",FKsols);
-        if FKsols<>() then
+        if nops(FKsols)>0 then
             fprintf(fd,"# The system could be Darboux integrable");
             fprintf(fd,"# TODO: find cofactor");
         else
