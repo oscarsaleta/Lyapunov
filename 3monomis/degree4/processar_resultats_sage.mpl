@@ -188,9 +188,8 @@ if nops(LSOLS)>0 then
         n_nrconds:=n_nrconds+1;
     end do;
 else
+    n_nrconds:=-1;
     fprintf(fd,"\n# All center conditions are reversible\n");
-    fclose(fd);
-    quit;
 end if;
 
 # Test conditions for Hamiltonian/easy Darboux integrability
