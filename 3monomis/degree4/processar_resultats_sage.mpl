@@ -199,8 +199,9 @@ for i from 0 to n_nrconds-1 do
     fprintf(fd,"\n# Non-reversible condition %d\n", i);
     RR:=subs(solve(c||i,{a,ca,b,cb}),R);
     fprintf(fd,"RR:=%a;\n",RR);
-    RRR:=expand(subs(z=x+y*I,w=x-y*I,defs,RR));
+    RRR:=expand(subs(z=x+y*I,w=x-y*I,op(defs),RR));
     fprintf(fd,"RRR:=%a;\n",RRR);
+    #fprintf(fd,"-----------%a\n",expand(subs(defs,RRR));
     P,Q:=coeff(RRR,I,0),coeff(RRR,I,1);
     fprintf(fd,"P:=%a;\nQ:=%a;\n",P,Q);
     fprintf(fd,"diff(P,x)=%a;\ndiff(Q,y)=%a;\n",diff(P,x),diff(Q,y));
