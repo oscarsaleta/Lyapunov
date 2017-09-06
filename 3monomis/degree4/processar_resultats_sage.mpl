@@ -194,12 +194,12 @@ else
 end if;
 fprintf(fd,"nconds=%d\n",n_nrconds);
 # Test conditions for Hamiltonian/easy Darboux integrability
+a1:='a1';a2:='a2';b1:='b1';b2:='b2';
 defs:={a=a1+a2*I,ca=a1-a2*I,b=b1+b2*I,cb=b1-b2*I};
 for i from 0 to n_nrconds-1 do
     fprintf(fd,"\n# Non-reversible condition %d\n", i);
     RR:=subs(solve(c||i,{a,ca,b,cb}),R);
-    RRR:=expand(subs(z=x+y*I,w=x-y*I,RR));
-    RRR:=expand(subs(defs,RRR));
+    expand(subs(z=x+y*I,w=x-y*I,defs,RR));
     P,Q:=coeff(RRR,I,0),coeff(RRR,I,1);
     fprintf(fd,"P:=%a;\nQ:=%a;\n",P,Q);
     fprintf(fd,"diff(P,x)=%a;\ndiff(Q,y)=%a;\n",diff(P,x),diff(Q,y));
