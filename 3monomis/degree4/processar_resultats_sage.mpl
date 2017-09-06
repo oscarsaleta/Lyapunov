@@ -197,19 +197,26 @@ fprintf(fd,"nconds=%d\n",n_nrconds);
 a1:='a1';a2:='a2';b1:='b1';b2:='b2';
 defs:={a=a1+a2*I,ca=a1-a2*I,b=b1+b2*I,cb=b1-b2*I};
 for i from 0 to n_nrconds-1 do
-    fprintf(fd,"\n# Non-reversible condition %d\n", i);
+    fprintf(fd,"\n# Non-reversible condition c%d\n", i);
     RR:=subs(solve(c||i,{a,ca,b,cb}),R);
     expand(subs(z=x+y*I,w=x-y*I,defs,RR));
     P,Q:=coeff(%,I,0),coeff(%,I,1);
     fprintf(fd,"P:=%a;\nQ:=%a;\n",P,Q);
-    fprintf(fd,"diff(P,x)=%a;\ndiff(Q,y)=%a;\n",diff(P,x),diff(Q,y));
     if diff(P,x)+diff(Q,y)=0 then
         fprintf(fd,"# The center is Hamiltonian\n");
     else
-        # TODO: check for darboux ingegrability
         fprintf(fd,"# TODO: check for darboux ingegrability\n");
+        Nn:=1;
+        F:=1+sum(sum(a[i,j-i]*x^i*y^(j-i),i=0..j),j=1..Nn);
+        K:=b00+b10*x+b01*y+b20*x^2+b11*x*y+b02*y^2;
+        var:=indets(F*K) minus ({x,y});
+        expand(diff(F,x)*P+diff(F,y)*Q-F*K):
+        FKsols:=solve({coeffs(%,[x,y]),b20<>0},var);
+        if FKsols<>() then
+            fprintf(fd,"# The system could be Darboux integrable");
+            fprintf(fd,"# TODO: find cofactor");
+        end if;
     end if;
 end do;
 
 fclose(fd);
-
