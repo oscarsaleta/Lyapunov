@@ -206,11 +206,11 @@ for i from 0 to n_nrconds-1 do
     else
         Nn:=1;
         F:=1+sum(sum(a[i,j-i]*x^i*y^(j-i),i=0..j),j=1..Nn);
-        fprintf(fd,"F:=%a;\n",F);
+        printf("F:=%a;\n",F);
         K:=b00+b10*x+b01*y+b20*x^2+b11*x*y+b02*y^2;
-        fprintf(fd,"K:=%a\n;",K);
+        printf("K:=%a\n;",K);
         var:=indets(F*K) minus ({x,y});
-        fprintf(fd,"var:=%a;\n",var);
+        printf("var:=%a;\n",var);
         expand(diff(F,x)*P+diff(F,y)*Q-F*K):
         FKsols:={solve({coeffs(%,[x,y]),b20<>0},var)};
         fprintf(fd,"fksols:=%a\n",FKsols);
