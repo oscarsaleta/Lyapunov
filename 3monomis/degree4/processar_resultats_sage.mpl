@@ -184,7 +184,7 @@ if nops(LSOLS)>0 then
     n_nrconds:=0;
     for l in LSOLS do
         c||n_nrconds:=l;
-        fprintf(fd,"c||%d:=%a:\n",n_nrconds,l);
+        fprintf(fd,"c%d:=%a;\n",n_nrconds,l);
         n_nrconds:=n_nrconds+1;
     end do;
 else
@@ -194,16 +194,16 @@ end if;
 # Test conditions for Hamiltonian/easy Darboux integrability
 defs:={a=a1+a2*I,ca=a1-a2*I,b=b1+b2*I,cb=b1-b2*I};
 for i from 0 to n_nrconds-1 do
-    fprintf(fd,"# \nNon-reversible condition %d", i);
+    fprintf(fd,"# \nNon-reversible condition %d\n", i);
     RR:=subs(solve(c||i,{a,ca,b,cb}),R);
     expand(subs(z=x+y*I,w=x-y*I,defs,RR));
     P,Q:=coeff(%,I,0),coeff(%,I,1);
     fprinf(fd,"P:=%a\nQ:=%a\n",P,Q);
     if diff(P,x)+diff(Q,y)=0 then
-        fprintf(fd,"# The center is Hamiltonian");
+        fprintf(fd,"# The center is Hamiltonian\n");
     else
         # TODO: check for darboux ingegrability
-        fprintf(fd,"# TODO: check for darboux ingegrability");
+        fprintf(fd,"# TODO: check for darboux ingegrability\n");
     end if;
 end do;
 
