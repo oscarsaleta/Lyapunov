@@ -205,11 +205,12 @@ for i from 0 to n_nrconds-1 do
         fprintf(fd,"# The center is Hamiltonian\n");
     else
         fprintf(fd,"# The center is not Hamiltonian\n");
+        Nn:=1;
+        F:=1+sum(sum(a[i,j-i]*x^i*y^(j-i),i=0..j),j=1..Nn);
+        fprintf(fd,"F:=%a\n",F);
     end if;
 end do;
 
-# Nn:=1;
-# F:=1+sum(sum(a[i,j-i]*x^i*y^(j-i),i=0..j),j=1..Nn);
 # printf("F:=%a;\n",F);
 # K:=b00+b10*x+b01*y+b20*x^2+b11*x*y+b02*y^2;
 # printf("K:=%a\n;",K);
