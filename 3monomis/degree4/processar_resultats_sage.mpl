@@ -206,24 +206,22 @@ for i from 0 to n_nrconds-1 do
     else
         fprintf(fd,"# The center is not Hamiltonian\n");
         Nn:=1;
-        F:=1+sum(sum(a[k,j-k]*x^k*y^(j-k),k=0..j),j=1..Nn);
-        fprintf(fd,"F:=%a\n",F);
+        F:=1+sum(sum(a[j1,j2-j1]*x^j1*y^(j2-j1),j1=0..j2),j2=1..Nn);
+        print(F);
+        K:=b00+b10*x+b01*y+b20*x^2+b11*x*y+b02*y^2;
+        print(K);
+        var:=indets(F*K) minus ({x,y});
+        printf(var);
+        expand(diff(F,x)*P+diff(F,y)*Q-F*K):
+        FKsols:={solve({coeffs(%,[x,y]),b20<>0},var)};
+        print(FKsols);
+        if nops(FKsols)>0 then
+            fprintf(fd,"# The system could be Darboux integrable");
+            fprintf(fd,"# TODO: find cofactor");
+        else
+            fprintf(fd,"# This center has not been determined;");
+        end if;
     end if;
 end do;
-
-# printf("F:=%a;\n",F);
-# K:=b00+b10*x+b01*y+b20*x^2+b11*x*y+b02*y^2;
-# printf("K:=%a\n;",K);
-# var:=indets(F*K) minus ({x,y});
-# printf("var:=%a;\n",var);
-# expand(diff(F,x)*P+diff(F,y)*Q-F*K):
-# FKsols:={solve({coeffs(%,[x,y]),b20<>0},var)};
-# fprintf(fd,"fksols:=%a\n",FKsols);
-# if nops(FKsols)>0 then
-#     fprintf(fd,"# The system could be Darboux integrable");
-#     fprintf(fd,"# TODO: find cofactor");
-# else
-#     fprintf(fd,"# This center has not been determined;");
-# end if;
 
 fclose(fd);
