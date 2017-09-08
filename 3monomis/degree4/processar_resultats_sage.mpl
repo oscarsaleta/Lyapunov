@@ -204,22 +204,22 @@ for i from 0 to n_nrconds-1 do
     if diff(P,x)+diff(Q,y)=0 then
         fprintf(fd,"# The center is Hamiltonian\n");
     else
-        fprintf(fd,"# The center is not Hamiltonian\n");
+        #fprintf(fd,"# The center is not Hamiltonian\n");
         Nn:=1;
         K:=b00+b10*x+b01*y+b20*x^2+b11*x*y+b02*y^2;
-        fprintf(fd,"K:=%a;\n",K);
+        #fprintf(fd,"K:=%a;\n",K);
         F:=1+sum(sum(a[j1,j2-j1]*x^j1*y^(j2-j1),j1=0..j2),j2=1..Nn);
-        fprintf(fd,"F:=%a;\n",F);
+        #fprintf(fd,"F:=%a;\n",F);
         var:=indets(F*K) minus ({x,y});
-        fprintf(fd,"var:=%a;\n",var);
+        #fprintf(fd,"var:=%a;\n",var);
         expand(diff(F,x)*P+diff(F,y)*Q-F*K):
         FKsols:={solve({coeffs(%,[x,y]),b20<>0},var)};
-        fprintf(fd,"FKsols:=%a;\n",FKsols);
+        #fprintf(fd,"FKsols:=%a;\n",FKsols);
         if nops(FKsols)>0 then
-            fprintf(fd,"# The system could be Darboux integrable");
-            fprintf(fd,"# TODO: find cofactor");
+            fprintf(fd,"# The system could be Darboux integrable\n");
+            fprintf(fd,"# TODO: find cofactor\n");
         else
-            fprintf(fd,"# This center has not been determined;");
+            fprintf(fd,"# Could not find algebraic curves of degree %d;\n",Nn);
         end if;
     end if;
 end do;
