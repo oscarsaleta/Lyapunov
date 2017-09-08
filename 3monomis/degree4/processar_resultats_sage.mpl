@@ -197,8 +197,8 @@ a1:='a1';a2:='a2';b1:='b1';b2:='b2';
 defs:={a=a1+a2*I,ca=a1-a2*I,b=b1+b2*I,cb=b1-b2*I};
 for i from 0 to n_nrconds-1 do
     fprintf(fd,"\n# Non-reversible condition c%d\n", i);
-    RR:=subs(solve(c||i,{a,ca,b,cb}),R);
-    expand(subs(z=x+y*I,w=x-y*I,defs,RR));
+    condition:=solve(subs(defs,c||i),{a1,a2,b1,b2});
+    expand(subs(condition,defs,z=x+I*y,w=x-y*y,R));
     P,Q:=coeff(%,I,0),coeff(%,I,1);
     fprintf(fd,"P:=%a;\nQ:=%a;\n",P,Q);
     if diff(P,x)+diff(Q,y)=0 then
