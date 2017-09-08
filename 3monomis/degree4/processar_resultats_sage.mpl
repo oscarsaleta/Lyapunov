@@ -5,8 +5,9 @@ Digits:=50;
 primer:=0;
 
 # Read PBala arguments
-deg:=taskArgs[1];
-taskId:=taskArgs[2];
+mplTaskId:=taskArgs[1];
+deg:=taskArgs[2];
+taskId:=taskArgs[3];
 
 # Pick correct filenames depending on working field
 if primer <> 0 then
@@ -19,6 +20,8 @@ end if;
 
 # Open output file
 fd:=fopen(result_fname,WRITE):
+
+fprintf(fd,"# This file is associated to Sage tasl %d and Maple task %d.\n",taskId,mplTaskId);
 
 # Define A and conj(A) instead of A=a+b*i
 a1:=(a+ca)/2:
