@@ -214,7 +214,7 @@ for i from 0 to n_nrconds-1 do
         #fprintf(fd,"var:=%a;\n",var);
         expand(diff(F,x)*P+diff(F,y)*Q-F*K):
         FKsols:={solve({coeffs(%,[x,y]),b20<>0},var)};
-        #fprintf(fd,"FKsols:=%a;\n",FKsols);
+        fprintf(fd,"FKsols:=%a;\n",FKsols);
         if nops(FKsols)>0 then
             fprintf(fd,"# The system could be Darboux integrable\n");
             fprintf(fd,"# TODO: find cofactor\n");
