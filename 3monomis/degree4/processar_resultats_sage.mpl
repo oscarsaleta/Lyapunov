@@ -211,7 +211,7 @@ for i from 0 to n_nrconds-1 do
         F:=1+sum(sum(a[j1,j2-j1]*x^j1*y^(j2-j1),j1=0..j2),j2=1..Nn);
         fprintf(fd,"F:=%a;\n",F);
         var:=indets(F*K) minus ({x,y});
-        fprintff(fd,"var:=%a;\n",var);
+        fprintf(fd,"var:=%a;\n",var);
         #expand(diff(F,x)*P+diff(F,y)*Q-F*K):
         #FKsols:={solve({coeffs(%,[x,y]),b20<>0},var)};
         #print(FKsols);
