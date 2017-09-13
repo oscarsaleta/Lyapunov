@@ -21,7 +21,7 @@ end if;
 # Open output file
 fd:=fopen(result_fname,WRITE):
 
-fprintf(fd,"# This file is associated to Sage tasl %d and Maple task %d.\n",taskId,mplTaskId);
+fprintf(fd,"# This file is associated to Sage task %d and Maple task %d.\n",taskId,mplTaskId);
 
 # Define A and conj(A) instead of A=a+b*i
 a1:=(a+ca)/2:
@@ -76,10 +76,10 @@ for i1 in lsols do
         eq:=eq union {op(i1[3])<>0};
     end if;
     ii1:=solve(eq,{a,b});
-    if whattype(ii1)=exprseq then
+    if type(ii1,exprseq) then
         for v in ii1 do
             vv:=allvalues(v);
-            if whattype(vv)=exprseq then
+            if type(vv,exprseq) then
                 for vvv in vv do
                     lsols||n_lsols:=vvv;
                     fprintf(fd,"%a;\n",vvv);
@@ -93,7 +93,7 @@ for i1 in lsols do
         end do;
     else
         v:=allvalues(ii1);
-        if whattype(v)=exprseq then
+        if type(v,exprseq) then
             for vv in v do
                 lsols||n_lsols:=vv;
                 fprintf(fd,"%a;\n",vv);
@@ -126,10 +126,10 @@ for i2 in csols do
         ii2:=solve(eq,{a,b,x});
     end if;
     ii2:=ii2 minus {SelectLast([op(ii2)])};
-    if whattype(ii2)=exprseq then
+    if type(ii2,exprseq) then
         for v in ii2 do
             vv:=allvalues(ii2);
-            if whattype(vv)=exprseq then
+            if type(vv,exprseq) then
                 for vvv in vv do
                     csols||n_csols:=vvv;
                     fprintf(fd,"%a;\n",csols||n_csols);
@@ -143,7 +143,7 @@ for i2 in csols do
         end do;
     else
         v:=allvalues(ii2);
-        if whattype(v)=exprseq then
+        if type(v,exprseq) then
             for vv in v do
                 csols||n_csols:=vv;
                 fprintf(fd,"%a;\n",csols||n_csols);
@@ -221,6 +221,13 @@ for i from 0 to n_nrconds-1 do
         if nops(FKsols)>0 then
             fprintf(fd,"# The system could be Darboux integrable\n");
             fprintf(fd,"# TODO: find cofactor\n");
+            for ind from 1 to nops(FKsols[1]) do
+                if type(rhs(FKsols[1][ind]),`*`) then
+                    poly:=rhs(FKsols[1][ind]);
+                    break;
+                end if;
+            end do;
+            ss:=subs(poly=alpha,FKsols);
         else
             fprintf(fd,"# Could not find algebraic curves of degree %d;\n",Nn);
         end if;
