@@ -88,7 +88,7 @@ if sage_eval(gp.eval("l==-1")) == 1:
 # Reduce Lyapunov constants in Groebner bases
 #primer = 32003
 primer = 0
-R = singular.ring(primer, '(r1,r2,cr1,cr2)', 'dp')
+R = singular.ring(primer, '(I,r1,r2,cr1,cr2)', 'dp')
 if (primer != 0):
     print("# Using ring on a finite field modulo "+str(primer))
 
