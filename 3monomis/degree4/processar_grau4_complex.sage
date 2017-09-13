@@ -88,9 +88,9 @@ if sage_eval(gp.eval("l==-1")) == 1:
 # Reduce Lyapunov constants in Groebner bases
 #primer = 32003
 primer = 0
-#R = singular.ring(primer, '(r1,r2,cr1,cr2)', 'dp')
-#if (primer != 0):
-#    print("# Using ring on a finite field modulo "+str(primer))
+R = singular.ring((primer,I), '(r1,r2,cr1,cr2)', 'dp')
+if (primer != 0):
+    print("# Using ring on a finite field modulo "+str(primer))
 
 lyaps = []
 lyaps.append(gp.eval("l[1][1][2]"))
@@ -108,23 +108,23 @@ while (int(ordres[0]) <= grau*grau+3*grau-7):
     f = gp.eval("l[1]["+str(i+1)+"][2]")
     o = gp.eval("l[1]["+str(i+1)+"][1]")
     # Generate ideal with previous constants
-    #Id = singular.ideal(lyaps)
+    Id = singular.ideal(lyaps)
     # Reduce new constant with respect to the previous
-    #B = Id.groebner()
+    B = Id.groebner()
     # Stopping condition: 2 reduce in a row or we computed more than n*n+3*n-7
-    #g = singular(f).sage().reduce(B.sage())
-    #if g == 0:
-    #    reduct += 1
-    #    print("L"+o+":="+str(g)+": #reduced")
-    #    if int(o) > grau*(grau+2)-1 or reduct > 3/2*grau:
-    #        break
-    #else:
+    g = singular(f).sage().reduce(B.sage())
+    if g == 0:
+        reduct += 1
+        print("L"+o+":="+str(g)+": #reduced")
+        if int(o) > grau*(grau+2)-1 or reduct > 3/2*grau:
+            break
+    else:
         # If it does not reduce, store the order
-    lyaps.append(str(g))
-    print("L"+o+":="+str(g)+":")
-    ordres.append(o)
-    ordre = o
-    reduct = 0
+        lyaps.append(str(g))
+        print("L"+o+":="+str(g)+":")
+        ordres.append(o)
+        ordre = o
+        reduct = 0
     i += 1
 
 
