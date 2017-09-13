@@ -135,7 +135,7 @@ if primer != 0:
     SS.<I> = S.quotient(i^2+1)
 else:
     SS.<I> = QQ[I]
-K.<a1,a2,b1,b2,x> = PolynomialRing(SS)
+K.<r1,r2,cr1,cr2,x> = PolynomialRing(SS)
 c0 = numerator(1+x^(k-l-1))
 c1 = numerator(r1+cr1*x^(m-n-1))
 c2 = numerator(r2+cr2*x^(p-q-1))
