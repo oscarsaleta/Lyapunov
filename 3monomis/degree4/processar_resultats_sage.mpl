@@ -15,7 +15,7 @@ if primer <> 0 then
     result_fname:=cat("results_maple/",taskId,"output.txt");
 else
     fname:=cat("results_no_fin/task",taskId,"_stdout.txt");
-    result_fname:=cat("results_maple_no_fin/",taskId,"output.txt");
+    result_fname:=cat("results_maple_no_fin2/",taskId,"output.txt");
 end if;
 
 # Open output file
@@ -76,10 +76,10 @@ for i1 in lsols do
         eq:=eq union {op(i1[3])<>0};
     end if;
     ii1:=solve(eq,{a,b});
-    if type(ii1,exprseq) then
+    if whattype(ii1)=exprseq then
         for v in ii1 do
             vv:=allvalues(v);
-            if type(vv,exprseq) then
+            if whattype(vv)=exprseq then
                 for vvv in vv do
                     lsols||n_lsols:=vvv;
                     fprintf(fd,"%a;\n",vvv);
@@ -93,7 +93,7 @@ for i1 in lsols do
         end do;
     else
         v:=allvalues(ii1);
-        if type(v,exprseq) then
+        if whattype(v)=exprseq then
             for vv in v do
                 lsols||n_lsols:=vv;
                 fprintf(fd,"%a;\n",vv);
@@ -126,10 +126,10 @@ for i2 in csols do
         ii2:=solve(eq,{a,b,x});
     end if;
     ii2:=ii2 minus {SelectLast([op(ii2)])};
-    if type(ii2,exprseq) then
+    if whattype(ii2)=exprseq then
         for v in ii2 do
             vv:=allvalues(ii2);
-            if type(vv,exprseq) then
+            if whattype(vv)=exprseq then
                 for vvv in vv do
                     csols||n_csols:=vvv;
                     fprintf(fd,"%a;\n",csols||n_csols);
@@ -143,7 +143,7 @@ for i2 in csols do
         end do;
     else
         v:=allvalues(ii2);
-        if type(v,exprseq) then
+        if whattype(v)=exprseq then
             for vv in v do
                 csols||n_csols:=vv;
                 fprintf(fd,"%a;\n",csols||n_csols);
