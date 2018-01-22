@@ -102,11 +102,17 @@ ordre = ordres[0]
 
 i = 1
 reduct = 0
+last_o = ordre
 while (int(ordres[0]) <= grau*grau+3*grau-7):
     # Compute next nonzero constant
     gp("l=nextlyapunov(R,CR,l[2],l[1]);")
     f = gp.eval("l[1]["+str(i+1)+"][2]")
     o = gp.eval("l[1]["+str(i+1)+"][1]")
+    # Check if we skipped any Lyapunov constant
+    if o > last_o:
+        print("L"+o+":=0:")
+        last_o = o
+        continue
     # Generate ideal with previous constants
     Id = singular.ideal(lyaps)
     # Reduce new constant with respect to the previous
@@ -126,6 +132,7 @@ while (int(ordres[0]) <= grau*grau+3*grau-7):
         ordre = o
         reduct = 0
     i += 1
+    last_o = o
 
 
 # Reversible center conditions
