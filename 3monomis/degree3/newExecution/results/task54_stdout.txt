@@ -1,0 +1,10 @@
+# Field degree = 3
+k:=1:
+l:=2:
+m:=1:
+n:=1:
+p:=2:
+q:=1:
+R := I*z + z^k*w^l + (a1+b1*I)*z^m*w^n + (a2+b2*I)*z^p*w^q:
+
+# 54,1,2,1,1,2,1, DARBOUX CENTER with integrating factor 1/(z*w)

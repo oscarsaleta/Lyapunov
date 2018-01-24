@@ -1,0 +1,23 @@
+# Field degree = 2
+k:=0:
+l:=2:
+m:=1:
+n:=1:
+p:=2:
+q:=0:
+R := I*z + z^k*w^l + (a1+b1*I)*z^m*w^n + (a2+b2*I)*z^p*w^q:
+
+# Computing Lyapunov constants...
+L1:=-2*b2*a1 - 2*a2*b1:
+L2:=-4*a1^2*b1 + 4/3*b1^3 + 6*a1^2*b2 - 2*b1^2*b2 - 4*a1*a2*b2 - 4/3*b1*b2^2:
+L3:=-15/32*a1^2*a2^2*b2 - 15/16*a1*a2^3*b2 - 5/16*a1^2*b2^3 + 5/32*b1^2*b2^3 - 5/8*a1*a2*b2^3 - 5/16*b1*b2^4 + 15/8*a1^2*b2 - 5/8*b1^2*b2 + 15/4*a1*a2*b2 + 5/4*b1*b2^2:
+L4:=0: #reduced
+L5:=0: #reduced
+L6:=0: #reduced
+L7:=0: #reduced
+
+# Computing reversible center conditions
+
+c0:=x^3 + 1:
+c1:=a1*x + (I)*b1*x + a1 + (-I)*b1:
+c2:=a2*x + (-I)*b2*x + a2 + (I)*b2:

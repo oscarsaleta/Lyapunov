@@ -1,0 +1,10 @@
+# Field degree = 3
+k:=2:
+l:=0:
+m:=1:
+n:=1:
+p:=1:
+q:=2:
+R := I*z + z^k*w^l + (a1+b1*I)*z^m*w^n + (a2+b2*I)*z^p*w^q:
+
+# 70,2,0,1,1,1,2, NEW CENTER
