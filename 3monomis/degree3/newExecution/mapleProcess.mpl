@@ -93,7 +93,9 @@ n_lsols:=0:
 for i1 in lsols do
     eq:={op(i1[1])};
     if nops(i1[3])>0 then
-        eq:=eq union {op(i1[3])<>0};
+        for jj in i1[3] do
+            eq:=eq union {jj<>0};
+        end do;
     end if;
     ii1:=solve(eq,{a,b});
     if whattype(ii1)=exprseq then
@@ -138,7 +140,9 @@ n_csols:=0;
 for i2 in csols do
     eq:={op(i2[1])};
     if nops(i2[3])>0 then
-        eq:=eq union {op(i2[3])<>0};
+        for jj in i2[3] do
+            eq:=eq union {jj<>0};
+        end do;
     end if;
     if primer <> 0 then
         ii2:=solve(eq,{a,b,x}) mod primer;
@@ -227,31 +231,21 @@ for i from 0 to n_nrconds-1 do
     if diff(P,x)+diff(Q,y)=0 then
         fprintf(fd,"# The center is Hamiltonian\n");
     else
-        #fprintf(fd,"# The center is not Hamiltonian\n");
-        Nn:=1;
-        K:=b00+b10*x+b01*y+b20*x^2+b11*x*y+b02*y^2;
-        #fprintf(fd,"K:=%a;\n",K);
-        F:=1+sum(sum(a[j1,j2-j1]*x^j1*y^(j2-j1),j1=0..j2),j2=1..Nn);
-        #fprintf(fd,"F:=%a;\n",F);
-        var:=indets(F*K) minus ({x,y});
-        #fprintf(fd,"var:=%a;\n",var);
-        expand(diff(F,x)*P+diff(F,y)*Q-F*K):
-        FKsols:={solve({coeffs(%,[x,y]),b20<>0},var)};
-        fprintf(fd,"FKsols:=%a;\n",FKsols);
-        if nops(FKsols)>0 then
-            fprintf(fd,"# The system could be Darboux integrable\n");
-            fprintf(fd,"# TODO: find cofactor\n");
-            for ind from 1 to nops(FKsols[1]) do
-                if type(rhs(FKsols[1][ind]),`*`) then
-                    poly:=rhs(FKsols[1][ind]);
-                    break;
-                end if;
-            end do;
-            ss:=subs(poly=alpha,FKsols);
-        else
-            fprintf(fd,"# Could not find algebraic curves of degree %d;\n",Nn);
+        integrable:=false;
+        for j from 1 to 5 do
+            H:=(z*w)^(-j);
+            CR:=subs([z=w,w=z,I=-I,a=ca,b=cb],defs,RR);
+            if diff(H,z)*RR+diff(H,w)*CR-(diff(RR,z)+diff(CR,w))*H = 0 then
+                fprintf(fd,"# Found inverse integrating factor (z*w)^%d, system is integrable.\n",j);
+                integrable:=true;
+                break;
+            end if;
+        end do;
+        if integrable=false then
+            fprintf(fd,"# Found no (z*w)^k inverse integrating factor for k=1..5.\n");
         end if;
     end if;
 end do;
 
 fclose(fd);
+
