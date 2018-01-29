@@ -129,7 +129,7 @@ while (int(ordres[0]) <= grau*grau+3*grau-7):
     if g == 0:
         reduct += 1
         print("L"+o+":="+str(g)+": #reduced")
-        if int(o) > grau*(grau+2)-1 or reduct > 3/2*grau:
+        if int(o) > grau*(grau+2)-1 or reduct > 3/2*grau or int(o) >= grau*grau+3*grau-7:
             break
     else:
         # If it does not reduce, store the order
