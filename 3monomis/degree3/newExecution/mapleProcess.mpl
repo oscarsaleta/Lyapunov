@@ -1,22 +1,13 @@
 restart;
 Digits:=50;
-
-# Define if we are in rationals (primer=0) or finite field
 primer:=0;
+deg:=3;
 
-# Pick correct filenames depending on working field
-if primer <> 0 then
-    fname:=cat("results/task",taskId,"_stdout.txt");
-    result_fname:=cat("results_maple/",taskId,"output.txt");
-else
-    fname:=cat("results_no_fin/task",taskId,"_stdout.txt");
-    result_fname:=cat("results_maple_no_fin2/",taskId,"output.txt");
-end if;
+fname:=cat("/home/osr/git/Lyapunov/3monomis/degree3/newExecution/results/task",taskId,"_stdout.txt");
+result_fname:=cat("/home/osr/git/Lyapunov/3monomis/degree3/newExecution/resultsMaple/",taskId,"output.txt");
 
 # Open output file
 fd:=fopen(result_fname,WRITE):
-
-fprintf(fd,"# This file is associated to Sage task %d and Maple task %d.\n",taskId,mplTaskId);
 
 # Define A and conj(A) instead of A=a+b*i
 a1:=(a+ca)/2:
@@ -69,20 +60,23 @@ with(Groebner):
 # Compute maximum focus order
 fprintf(fd,"\n# Maximum potential focus order is %d\n",indx[nops(indx)]);
 for i from 1 to nops(eqs)-1 do
-    fprintf(fd,"\n# Testing focus for order %d...\n",indx[nops(indx)-i+1]);
-    partialSols:=Solve(eqs[nops(eqs)-i+1],{a,b});
-    for j from 1 to nops(partialSols) do
-        if simplify(eqs[nops(eqs)-i+1],partialSols[j][1]) <> 0 then
-            order_found:=true;
-            focus_order:=indx[nops(eqs)-i+1];
-            fprintf(fd,"# Order found %d\nfocus_order:=%d\n",focus_order,focus_order);
+    break_flag:=false;
+    fprintf(fd,"#  Testing focus for order %d...\n",indx[nops(indx)-i+1]);
+    base:=Basis(eqs[1..nops(eqs)-i],tdeg(z,w,a,ca,b,cb));
+    for j from 1 to 5 do
+        g:=Reduce((eqs[nops(eqs)-i+1])^(j),base,tdeg(z,w,a,ca,b,cb));
+        if g = 0 then
+            break_flag:=true;
             break;
         end if;
     end do;
-    if order_found then
+    if break_flag = false then
+        focus_order:=indx[nops(indx)-i+1];
+        fprintf(fd,"#  Order found %d\n",focus_order);
         break;
     end if;
 end do:
+fprintf(fd,"#  Last nonzero Lyapunov constant:\nlast_const:=%a\n",g);
 
 # Define and solve Lyapunov equations
 lsols:=Solve(eqs,{a,b});
